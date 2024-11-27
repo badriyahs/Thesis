@@ -19,6 +19,9 @@ body {
     /* Sidebar and content in a row */
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 
 /* Sections */
@@ -425,4 +428,67 @@ video {
     /* Light gray for captions */
     margin-top: 0.5rem;
     /* Space above the caption */
+}
+
+#structure {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    /* Optional: Light background for separation */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Subtle shadow */
+    text-align: left;
+}
+
+#structure h2 {
+    font-size: 1.8rem;
+    /* Larger heading for emphasis */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#structure p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    /* Maintain a clean, readable appearance */
+}
+
+#structure strong {
+    font-weight: bold;
+    color: #333;
+    /* Emphasize key points */
+}
+
+#canva-embed {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#canva-embed h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#canva-embed p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 300;
+}
+
+#canva-embed a {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#canva-embed a:hover {
+    text-decoration: underline;
+    color: red;
 }
