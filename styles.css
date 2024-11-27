@@ -6,12 +6,17 @@ body {
     font-family: 'Roboto Mono', monospace;
     background-color: #fff;
     /* Fully white background */
-    color: #333;
+    color: black;
     /* Dark gray for text */
     margin: 0;
     padding: 0;
     line-height: 1.8;
     text-transform: lowercase;
+    font-size: 1.1rem;
+    /* Increase the base size slightly */
+    line-height: 1.9;
+    /* Adjust line height for readability */
+
 
     display: flex;
     /* Align sidebar and content side by side */
