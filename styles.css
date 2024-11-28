@@ -497,3 +497,37 @@ video {
     text-decoration: underline;
     color: red;
 }
+
+.title-container {
+    display: flex;
+    align-items: center;
+    /* Vertically align the image and text */
+    justify-content: flex-start;
+    /* Ensure they align to the left */
+    gap: 10px;
+    /* Space between the image and the text */
+    margin-bottom: 1rem;
+    /* Space below the title section */
+    margin: 0;
+    padding: 0;
+
+}
+
+.title-icon {
+    width: 50px;
+    /* Adjust the size of the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    vertical-align: middle;
+    /* Ensure it's vertically aligned */
+    margin: 0;
+    padding: 0;
+}
+
+.title-icon {
+    transform: translateY(70%);
+
+
+
+    /* Adjust the image up/down as needed */
+}
