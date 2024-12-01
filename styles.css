@@ -28,6 +28,38 @@ html {
     scroll-behavior: smooth;
 }
 
+p {
+    margin-bottom: 50px;
+    /* Adjust the value to increase/decrease the spacing */
+}
+
+html {
+    cursor: url('/assets/cursors/cursor.png'), auto;
+}
+
+/* Change cursor for clickable elements (links and buttons) */
+a:hover,
+button:hover {
+    cursor: url('/assets/cursors/redcursor.png'), pointer;
+}
+
+p:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 20% opacity */
+}
+
+.highlight:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 31.4% opacity */
+}
+
+/* Hover effect for the question (summary) */
+details summary:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 31.4% opacity */
+}
+
+
 
 /* Sections */
 .section {
@@ -438,7 +470,7 @@ video {
 #structure {
     margin-top: 2rem;
     padding: 2rem 1rem;
-    background-color: #f9f9f9;
+    background-color: white;
     /* Optional: Light background for separation */
     border-radius: 10px;
     /* Rounded corners */
@@ -574,6 +606,7 @@ video {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 2rem;
     /* Space between cards */
 }
 
@@ -584,6 +617,12 @@ video {
     padding: 1.5rem;
     background-color: #fdfdfd;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Title and Description */
@@ -606,4 +645,55 @@ video {
     font-size: 0.9rem;
     text-align: right;
     color: #777;
+}
+
+/* Collapsible content */
+details summary {
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+details summary:hover {
+    background-color: #ddd;
+}
+
+details p.answer {
+    margin-left: 20px;
+    font-size: 1em;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    /* Initially hide the answer */
+    transition: max-height 0.3s ease-out;
+}
+
+details[open] summary {
+    background-color: #e0e0e0;
+}
+
+details[open] p.answer {
+    max-height: 500px;
+    /* Adjust as needed to show the full answer */
+}
+
+/* Optional Styling for Answer */
+.answer {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Styling the cards with some spacing */
+.card+.card {
+    margin-top: 1rem;
 }
