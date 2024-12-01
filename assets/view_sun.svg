@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View SVG</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 190.11 311.14">
+        <defs>
+            <style>
+                .cls-1 { fill: none; }
+                .cls-2, .cls-3, .cls-4, .cls-5, .cls-9, .cls-10 {
+                    stroke: #231f20;
+                    stroke-width: .25px;
+                    fill: none;
+                }
+                .cls-2 { stroke-dasharray: 1 1; }
+                .cls-3 { stroke-linecap: round; stroke-linejoin: round; }
+                .cls-5 { stroke-dasharray: 2 3; }
+                .cls-6 { opacity: .85; fill: #ec1e24; }
+                .cls-7 { opaacity: .79; fill: #ec1e24; mix-blend-mode: hard-light; }
+                .cls-8 { fill: url(#Slanted_lines); }
+                .cls-9, .cls-10 { fill: #231f20; }
+                .cls-10 { mix-blend-mode: saturation; }
+            </style>
+            <pattern id="Slanted_lines" patternUnits="userSpaceOnUse" width="20" height="20">
+                <rect width="20" height="20" fill="none"/>
+                <line class="cls-4" x1="0" y1="0" x2="20" y2="20"/>
+                <line class="cls-4" x1="20" y1="0" x2="0" y2="20"/>
+            </pattern>
+        </defs>
+        <g>
+            <g id="Suns">
+                <circle id="_42" class="cls-5" cx="156.89" cy="96.24" r="9"/>
+                <circle id="_40" class="cls-2" cx="5.13" cy="241.36" r="5"/>
+                <circle id="_39" class="cls-2" cx="39.09" cy="194.25" r="5"/>
+                <circle id="_37" class="cls-9" cx="54.13" cy="202.93" r="5.94"/>
+                <circle id="_33" class="cls-9" cx="167.91" cy="178.44" r="5"/>
+                <circle id="_32" class="cls-3" cx="10.93" cy="238.79" r="3.5"/>
+                <circle id="_6" class="cls-3" cx="108.95" cy="158.5" r="5"/>
+                <circle id="_6-2" class="cls-5" cx="102.67" cy="120.76" r="5"/>
+                <circle id="_29" class="cls-3" cx="112.13" cy="189.02" r="6.5"/>
+                <circle id="_28" class="cls-3" cx="151.39" cy="91.51" r="5.5"/>
+                <circle id="_27" class="cls-3" cx="41.58" cy="163.25" r="5"/>
+                <circle id="_25" class="cls-10" cx="12.73" cy="235.29" r="3.5"/>
+                <circle id="_8" class="cls-9" cx="147.25" cy="115.76" r="5"/>
+                <circle id="_17" class="cls-9" cx="152.52" cy="154.56" r="3.77"/>
+                <circle id="_11" class="cls-7" cx="49.75" cy="181.23" r="5"/>
+                <circle id="_9" class="cls-4" cx="134.36" cy="83.01" r="9"/>
+                <circle id="_8-2" class="cls-9" cx="134.36" cy="104.72" r="5.85"/>
+                <circle id="_7" class="cls-5" cx="120.12" cy="140.92" r="4.62"/>
+                <circle id="_6-3" class="cls-5" cx="90.1" cy="38.61" r="7.72"/>
+                <circle id="_5-2" class="cls-9" cx="90.1" cy="53.55" r="5"/>
+                <circle id="_4" class="cls-9" cx="120.05" cy="125.76" r="5"/>
+                <circle id="_42-2" class="cls-8" cx="120.12" cy="207.48" r="5"/>
+            </g>
+        </g>
+    </svg>
+</body>
+</html>
