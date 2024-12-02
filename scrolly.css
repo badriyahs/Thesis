@@ -1,0 +1,72 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    /* Full viewport width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevents body from scrolling */
+}
+
+/* Poem Container */
+.poem-container {
+    width: 90%;
+    max-width: 800px;
+    /* Set a maximum width to avoid stretching the text */
+    height: 80%;
+    overflow: hidden;
+    /* Hide text outside of the container */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* Poem Text */
+.poem-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    white-space: normal;
+    text-align: center;
+    padding: 1rem 2rem;
+    animation: scrollPoem 120s linear infinite;
+    transition: all 0.3s ease;
+    /* Smooth transition for speed changes */
+}
+
+/* Scroll Animation */
+@keyframes scrollPoem {
+    0% {
+        transform: translateY(100%);
+        /* Start below the visible area */
+    }
+
+    100% {
+        transform: translateY(-100%);
+        /* End at the top, out of view */
+    }
+}
+
+/* Highlight effect */
+em {
+    color: rgba(255, 0, 0, 0.8);
+}
+
+/* Optional: Add some margin for paragraph spacing */
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
