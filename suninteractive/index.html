@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Suns</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Link to Google Fonts for Roboto Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        svg {
+            width: 100%;
+            height: 500px;
+        }
+
+        .hovered {
+            fill: orange;
+            /* Color change on hover */
+        }
+
+        /* Tooltip styling */
+        #tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            /* semi-transparent black background */
+            color: #fff;
+            /* white text color */
+            border-radius: 5px;
+            display: none;
+            font-family: 'Roboto Mono', monospace;
+            /* Set font to Roboto Mono */
+            opacity: 0.7;
+            /* Set tooltip opacity */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="svg-container"></div>
+    <div id="tooltip"></div> <!-- Tooltip to display the message -->
+
+    <script>
+        // Load the SVG file using D3.js
+        d3.xml('suninteractive.svg').then(function (data) {
+            // Append the loaded SVG to the container
+            d3.select('#svg-container').node().appendChild(data.documentElement);
+
+            // List of element IDs to target
+            const ids = [
+                't', 'suna', 'sunb', 'sunc', 'sund', 'sune', 'sunf', 'sung', 'sunh', 'suni',
+                'sunj', 'sunk', 'sunl', 'sunm', 'sunn', 'suno', 'sunp', 'sunq', 'sunr', 'suns',
+                'sunt', 'sunu', 'sunv', 'sunw', 'sunx', 'suny', 'sunz', 'sunaa', 'sunab', 'sunac',
+                'sunad', 'sunae', 'sunaf', 'sunag'
+            ];
+
+            // Definitions corresponding to each element
+            const poetryLines = [
+                "Afala: To bow and set with a heavy feeling. Refers to the sunset, denoting the final moments of the day.",
+                "Bazagha: The first rays that tear open the darkness. Refers to the sun rising, marking the beginning of the day.",
+                "Jariah: To run across somewhere. Refers to the feeling of the sun running across the sky from east to west.",
+                "Dalak: To slightly lean or tip after being perfectly balanced. Refers to the sun's shift to the afternoon after it was balancing at the middle of the sky, or at noon.",
+                "Amata: A supreme, omnipotent force, which refers to the sun's ability to always be there, to always rise, and there's no hiding from its heat or light. It refers to how the sun has been seen as a deity by many civilizations for many years.",
+                "Ilah: A supreme, omnipotent force, symbolizing the sun’s grandeur and its reverence as a central force, perceived as both physical and divine.",
+                "Barah: Refers to the feeling of the sun running across the sky from east to west, capturing movement through absence.",
+                "Bauh: The sun’s light appearing freely and openly, symbolizing the abundance of sunlight when the sun is at its highest point.",
+                "Baydh: A color between red and black, capturing the transition of the sun’s intensity during sunset.",
+                "Jariah (repeated): To run across the sky at the end, symbolizing the predictable and cyclical path of the sun.",
+                "Aljawn: A reddish-black color, symbolizing the sun at sunset as it turns into a deep red or black hue.",
+                "Thaka: The exaggeration in heat of fire or coal, referring to the flare of the sun’s heat in the height of the summer.",
+                "Saraj: A guiding light, or a type of lantern, erasing the darkness and bringing clarity and direction.",
+                "Sharaq: The word for East, but also means the sun rising, and it's a light and happy word, almost meaning gleaming.",
+                "Saqa’a: The sharp sound of a palm slap to the crown of the head. Refers to the sun's striking heat at the top of your head when it is at midday, but it probably refers to the sun during Spring, or the end of Spring into Summer.",
+                "Dhuh: The opposite of shadow, the gleam where the sun's rays hit something.",
+                "Ain: Refers to a spring of water, and the sun as a source of a flow of light and heat, and direction and timetelling.",
+                "Ghuzalah: Means to weave, especially in a cyclical motion. Symbolizes the cyclical path of the sun.",
+                "Maha: To run with intensity, until exhaustion, as if to finally rest. Refers to the sun’s movement from east to west until it finally sets in the west.",
+                "Aya: To linger or absorb. Refers to the warmth left behind where the sun's rays have lingered.",
+                "Hajaba: To cover or conceal, symbolizing the sun’s relationship with the horizon, how it hides behind it during sunrise and sunset. However, this word refers to the sun setting.",
+                "Danaf: A necessary ailment, like a fever that brings you almost to death, to heal you or burn something in you in order for healing. Symbolizes the last burst of heat and light before the sun finally sets.",
+                "Tharar: To collect a fine substance with the tips of your fingers and then sprinkle or spread it onto something else. It is very delicate, light, and precise. It refers to when the sun is still at the beginning of the day, gently scattering sunlight.",
+                "Rakad: To settle and become steady after movement, symbolizing the sun's stillness at noon after its upward climb.",
+                "Zabab: Refers to something being so full and thick that it starts to conceal, like a forest or hair on skin. This symbolizes the sun being hidden as it dips below the horizon, as if the horizon gathers the strength and fullness to overtake the sun.",
+                "Shafa: The last sliver of something, or the edge of something, symbolizing the final crescent of the sun before it sets.",
+                "Sagha: To lean towards someone to listen to them intently. Refers to the sun leaning towards the horizon, with intent and focus, like a duty to allow the night to take over.",
+                "Sala’: Describes something barren or smooth, symbolizing the sun’s intense and unshielded presence in the sky, especially if the sky has no clouds.",
+                "Sakhad: A loud, heavy noise, almost alluding to pain. This word does not refer to the sun itself, but the feeling of its most painful heat.",
+                "Dhara: To bow down in humility or reverence, symbolizing the sun's gentle descent as it moves toward the horizon.",
+                "Dhafa: The abundance of something, symbolizing the sun's approach to the horizon, where the world is already satisfied with what the sun gave it, not yet setting but nearing the end of its cycle.",
+                "Tafal: A child, symbolizing the sun’s early stages, representing the rising sun and its gentle, youthful light.",
+                "Tafa: To float or buoy, symbolizing the sun’s full, complete presence in the sky, without any part dipping below the horizon.",
+                "Talaa: To rise, symbolizing the sun’s continuous journey and the ongoing cycle of day and night.",
+                "‘Ab: Refers to a face’s gentle beauty, connected to the sun’s gentle beauty, associated with the light of the morning. This word seems to mean the beauty of a face after a transformation—perhaps the easing of muscles into gentleness after hostility, or of health after sickness. So it's the beauty and gentleness of the sun after the harshness of the night.",
+                "Al afr w al seham: Refers to a string of heavy liquid, like honey, and it refers to the sun’s rays resembling threads, spilling and pooling.",
+                "Gharab: The word for west, but also means the sun setting.",
+                "Qaran: Means a crown or a horn, and refers to the first ray of light at sunrise.",
+                "Qasab: The sound of running water, and refers to the sun's effects while it is moving, but not quite the sun itself. Like how running water eludes to water even when you can't see it.",
+                "Qanab: Refers to the skin that protects and conceals a lion's claw when not in use, or the sheath of a sharp sword. It symbolizes the sun's harshness being concealed and protected until it inevitably rises again. The word carries the meaning of harshness temporarily subdued, referring to the summer sun when it is beneath the horizon.",
+                "Kasaf / Kusoof: The word means eclipse or, in general, the sudden disappearance of light, often referring to the sun during an eclipse.",
+                "La’ab: Refers to a string of heavy liquid, like honey, and it refers to the sun’s rays resembling threads, spilling and pooling."
+            ];
+
+            // Add hover interaction to elements with the specified IDs
+            ids.forEach(function (id, index) {
+                const element = d3.select(`#${id}`);
+
+                // Check if the element exists before attaching events
+                if (!element.empty()) {
+                    element
+                        .on('mouseover', function (event) {
+                            // Show tooltip with a random line of poetry
+                            const message = poetryLines[index];  // Get the poetry line based on the index
+                            d3.select('#tooltip')
+                                .text(message)
+                                .style('left', `${event.pageX + 10}px`)  // Position tooltip near mouse
+                                .style('top', `${event.pageY + 10}px`)
+                                .style('display', 'block');  // Display the tooltip
+
+                            // Add the 'hovered' class to change color
+                            d3.select(this).classed('hovered', true);
+                        })
+                        .on('mouseout', function () {
+                            // Hide the tooltip
+                            d3.select('#tooltip').style('display', 'none');
+
+                            // Remove the 'hovered' class
+                            d3.select(this).classed('hovered', false);
+                        });
+                }
+            });
+        }).catch(function (error) {
+            console.error('Error loading SVG:', error);
+        });
+    </script>
+</body>
+
+</html>
