@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essays</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Match sidebar button styling */
+        .essay-button {
+            display: inline-block;
+            text-align: center;
+            margin: 1rem 0;
+            padding: 8px 20px;
+            /* Match sidebar padding */
+            font-size: 1rem;
+            /* Match sidebar font size */
+            font-weight: 300;
+            /* Match sidebar font weight */
+            font-family: 'Roboto Mono', monospace;
+            /* Ensure Roboto Mono is applied */
+            text-transform: lowercase;
+            /* Match sidebar text-transform */
+            color: #333;
+            /* Match sidebar font color */
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 30px;
+            /* Match sidebar border radius */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .essay-button:hover {
+            background-color: white;
+            color: red;
+            border-color: red;
+        }
+
+        /* Essay Content Section */
+        .essay-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border: 1px solid black;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .essay-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Menu -->
+    <nav class="sidebar-menu">
+        <ul>
+            <li><a href="../index.html">home</a></li>
+            <li><a href="thesis.html">thesis</a></li>
+            <li><a href="essays.html" class="active">essays</a></li>
+            <li><a href="background.html">background</a></li>
+            <li><a href="maps.html">the maps</a></li>
+            <li><a href="sun.html">sun</a></li>
+            <li><a href="../suninteractive/index.html">sun tool</a></li>
+            <li><a href="clouds.html">clouds</a></li>
+            <li><a href="stars.html">stars</a></li>
+            <li><a href="time.html">time</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section id="essays" class="section">
+            <h1 class="section-title">Essays</h1>
+            <p>obviously i have a lot more to say. here it is:</p>
+
+            <!-- Buttons for Essays -->
+            <button class="essay-button" data-target="essay1">foucault’s blind spot</button>
+            <div id="essay1" class="essay-content">
+                <p>
+                    Foucault states:
+                </p>
+                <blockquote>
+                    "The great obsession of the nineteenth century was, as we know, history: with its themes of
+                    development and of suspension, of crisis, and cycle, themes of the ever-accumulating past, with its
+                    great preponderance of dead men and the menacing glaciation of the world. The nineteenth century
+                    found its essential mythological resources in the second principle of thermodynamics. The present
+                    epoch will perhaps be above all the epoch of space. We are in the epoch of simultaneity: we are in
+                    the epoch of juxtaposition, the epoch of the near and far, of the side-by-side, of the dispersed. We
+                    are at a moment, I believe, when our experience of the world is less that of a long life developing
+                    through time than that of a network that connects points and intersects with its own skein."
+                </blockquote>
+                <p>
+                    So Foucault talks about the cognitive progression of space:
+                </p>
+
+                <h3>1. Medieval Space - Space as Emplacement</h3>
+                <p>
+                    In the medieval era, space was hierarchal, chosen, and divinely ordained. People lived where they
+                    did because it was believed to be chosen by God. This perpetuated a hierarchical power system: a
+                    royal or pope was ordained by God, while a farmer was also divinely assigned their position.
+                    Breaking out of these roles was seen as blasphemous.
+                </p>
+
+                <h3>2. Galileo - Space as Extension</h3>
+                <p>
+                    Galileo's era introduced the idea of space as extension—a thing’s place being where it is now,
+                    subject to change. His heliocentric model unsettled the medieval notion of emplacement, replacing it
+                    with the concept of infinite, open space. A thing's position became defined by its current spot and
+                    its movement. This was deeply offensive to the Church as it challenged the notion of Earth—and
+                    humanity—being chosen by God. Religion had to adapt to accommodate this paradigm shift.
+                </p>
+
+                <h3>3. Contemporary - Space as Site</h3>
+                <p>
+                    Today’s understanding of space focuses on its relational properties. Space is defined by its
+                    relationships—proximity, interaction, and roles. This view of space reflects a broader understanding
+                    of relativity: identity, history, and geography are all studied through their connections to other
+                    things. No longer defined by divine path or personal history, space is now understood through roles
+                    and relationships.
+                </p>
+
+                <p>
+                    This shift invites reconsideration of how we understand space. It can encourage architects,
+                    planners, and analysts to justify decisions through Foucault’s narrative. However, this perspective
+                    is limiting because it often reflects only Eurocentric histories. For example, how did Arabs
+                    navigating barren deserts understand space? Their geometry would be celestial, not terrestrial,
+                    relying on the sky to map and orient themselves.
+                </p>
+
+                <p>
+                    This raises the question: can Foucault’s model be applied to non-Western contexts? In barren
+                    landscapes like deserts, plains, or seas, navigation depends on larger-scale celestial or
+                    meteorological maps. These landscapes demand a different psychology of wayfinding and timetelling,
+                    where shifting projections, not linear landmarks, define space.
+                </p>
+
+                <h3>Time and Space</h3>
+                <p>
+                    Foucault also touches on the interplay between time and space:
+                </p>
+                <blockquote>
+                    "Time probably appears to us only as one of the various distributive operations that are possible
+                    for the elements that are spread out in space."
+                </blockquote>
+                <p>
+                    This raises another important point: how time and space are understood and represented depends on
+                    cultural contexts. Western interpretations often detach the sacred from time and space, reducing
+                    them to measurable constructs. However, non-Western traditions often embed sacredness in their
+                    understanding, blending time, space, and the divine seamlessly.
+                </p>
+
+                <p>
+                    Ultimately, applying Foucault’s model universally risks erasing diverse ways of understanding space
+                    and time. Landscapes like deserts, oceans, and plains offer alternative psychologies and geometries
+                    of orientation that deserve exploration. These perspectives enrich our understanding of humanity’s
+                    interaction with the environment, offering lenses that are “strange” yet beautiful in their
+                    divergence from Western norms.
+                </p>
+            </div>
+
+            <button class="essay-button" data-target="essay2">invisible tools</button>
+            <div id="essay2" class="essay-content">
+                <p>
+                    The blind spot of science, in my opinion, is one of the most interesting, but also most dangerous,
+                    aspects of everything that we know. We categorize, place into boxes, into labels, and this is
+                    something we must do to advance science. There really is no other way to do it.
+                </p>
+                <p>
+                    However, while this process is necessary, it is also necessary that we must not forget what we’ve
+                    taken as fact. We constantly make the error of mistaking the name of the thing for what it really
+                    is.
+                </p>
+                <blockquote>
+                    Wittgenstein, in his famous <em>Tractatus Logico-Philosophicus</em> (1921), states, "Nothing in the
+                    visual field allows you to infer that it is seen by an eye."
+                </blockquote>
+                <p>
+                    The eye is the invisible condition of seeing. In the same vein, the knower is the invisible
+                    condition of knowing. The tool is the invisible condition of the observation. The clock is the
+                    invisible condition of time. The map is the invisible condition of (space?) (orientation?).
+                </p>
+                <p>
+                    In the history of knowledge, I do think there are specific points in which the tool, what will soon
+                    become invisible, is clearly there right before it vanishes. For example, Galileo Galilei
+                    mathematized natural phenomena. He put a quantifiable scientific method (which was taught to him by
+                    Vincenzo Galilei, his father) to what we previously attributed to God’s unquestionable handiwork. By
+                    doing this, he created something tangible for us to compute and dispute, and therein lies his
+                    genius. However, by doing this, he also squeezes reality into boxes of ideal variables. Everything
+                    became only valid when it could either fit or equal to or create these ideal boxes. This allowed
+                    more and more sciences to advance and become more robust, and slowly built a foundation upon which
+                    more knowledge could be built. The foundation grows higher and higher, with much less teetering,
+                    because of the rigidity of those boxes.
+                </p>
+                <p>
+                    However, what comes after this is a world of scientists who are mistaking the ideal, quantifiable
+                    version of the phenomena to be the phenomena itself. Science grows more and more efficient, more
+                    robust, more prolific, the better the quantities fit into each other, but also, a large part of the
+                    phenomena being studied gets lost, and the human connection to the phenomena becomes untethered and
+                    disoriented.
+                </p>
+                <p>
+                    Objectivity is a way to advance the science, but let’s be aware that it cannot really be truly
+                    objective. Whatever the phenomena is, is bent, skewed, slightly shaved, because of what is used to
+                    measure it or understand it. Of course! Can we really be so self-absorbed to believe our limited
+                    mathematical tools, or our digital representations, can measure the movement of heavenly bodies? How
+                    can we trust our devices as much as we do? How can we trust cameras? Maps? Limitations are the
+                    condition of understanding. So we cannot see anything outside of the blind spots.
+                </p>
+                <p>
+                    However, what we can do, and what we should do, is examine the blind spots as well as we can. Let’s
+                    go back to Wittgenstein’s "Nothing in the visual field allows you to infer that it is seen by an
+                    eye." I disagree with this, as do many others. There is a way to infer that it is seen by an eye.
+                    You could close your eyes, and everything would turn black, and then you’d know that your eyes are
+                    being used. You could observe someone else. You could try seeing with your nose, for example, and
+                    then work by the process of elimination to get to your eye. You could look in the mirror and
+                    observe. You could ask someone with no eyes at all and ask if they could see.
+                </p>
+                <p>
+                    In these ways, you are inferring that you are seeing with your eyes. With other blind spots, could
+                    the same thing work?
+                </p>
+                <p>
+                    The way we’ve structured science is through inductive reasoning, which is an argument that applies
+                    the past to the future. We do this to clarify mysteries. We examine life in hindsight, and then try
+                    our best to apply it forwards. A forgotten side effect of this wonderful scientific process is that
+                    it works so well—it clarifies so much ambiguity—but perhaps too well, where there is no wonder or
+                    mystery left at all.
+                </p>
+                <blockquote>
+                    "The clock is the invisible condition of time." So let’s examine time by changing the clock.
+                </blockquote>
+            </div>
+
+            <button class="essay-button" data-target="essay3">chronopolitics and climate change</button>
+            <div id="essay3" class="essay-content">
+                <p>
+                    ?? </p>
+            </div>
+
+            <button class="essay-button" data-target="essay4">bio-intimacy</button>
+            <div id="essay4" class="essay-content">
+                <p>
+                    ?? </p>
+            </div>
+
+            <button class="essay-button" data-target="essay5">what’s computation got to do with it?</button>
+            <div id="essay5" class="essay-content">
+                <p>
+                    ??
+                </p>
+            </div>
+
+            <button class="essay-button" data-target="essay6">environmental orientalism</button>
+            <div id="essay6" class="essay-content">
+                <p>
+                    Foreignness created a divide between the reality of the Middle East and its representation in
+                    dominating media.
+                    Foreignness, when combined with awareness, can be a catalyst to explore new horizons and ways of
+                    life without allowing the inevitable bias of the observer to impose upon existing ideas. However,
+                    foreignness without awareness can lead to false representations that ultimately impose themselves on
+                    the studied subject. These false representations materialize into harmful practices in building,
+                    economy, or dealing with the environment.
+                </p>
+                <p>
+                    In the case of colonizing countries in the Middle East, Western forces failed to acknowledge their
+                    own biases, instead seeing them as truth. They evaluated the practices, culture, and environment
+                    they encountered based on Western standards. For example, when observing the Arabian desert, the
+                    colors, textures, and nature of the scenery were judged through a Western lens of environmental
+                    health. Beige tones, high temperatures, and the scarcity of water are natural to this landscape.
+                    However, when perceived by a European onlooker, it might evoke a dead or burned landscape.
+                </p>
+                <p>
+                    The false idea of the Middle East being overgrazed, parched, or unlivable is what Davis refers to as
+                    an “environmental imaginary.” This, in itself, is not yet problematic. Observations come from
+                    schemas—previous knowledge of certain things—which allow us to make connections. These can be
+                    reframed or built upon. The issue arises with the next step. Instead of allowing these notions to
+                    propel fruitful research, they materialized into invasive actions aimed at “rehabilitating” the
+                    land, with the intention of “improving” or “saving” the “dying” landscape. Of course, this was not a
+                    humanitarian effort; it was thinly veiled imperialism.
+                </p>
+                <blockquote>
+                    “The consequent need to ‘improve,’ ‘restore,’ ‘normalize,’ or ‘repair’ the environment provided
+                    powerful justifications for innumerable imperial projects, from building irrigation systems to
+                    reforestation activities to the bombing of ‘unruly’ tribes to the sedentarization of nomads as a
+                    measure to prevent ‘overgrazing.’ … Determined to boost production of economically profitable crops
+                    such as cotton, a great deal of energy and resources was spent on dams, canals, and other
+                    technologies to improve and spread irrigation infrastructures in most of the Middle East and North
+                    Africa.” (Davis, 2011)
+                </blockquote>
+                <p>
+                    Al Ula is a new, popular site for internal tourism in Saudi Arabia. Before this, the “city of Al
+                    Ula” was a small Bedouin agricultural town. These are unofficial descriptions based on personal
+                    experience, so the vocabulary may be poorly translated. The “city” part could be driven through in
+                    ten minutes, and it seemed to have the necessities. There were no international franchises or malls.
+                    The only recognizable logo was a Dunkin’ Donuts truck (not even a café) that appeared only in
+                    winter.
+                </p>
+                <p>
+                    Most of Al Ula was open landscape or beautiful farms filled with desert trees, horses, camels,
+                    flowers, and various grasses. In learning about the desert and the stars, it became clear that the
+                    imposed environmental imaginaries were not just a case of miscommunication leading to imposed ideas,
+                    but also a misunderstanding in how ideas are documented and shared from the outset.
+                </p>
+                <p>
+                    Two thousand years before Ptolemy wrote <em>Almagest</em>, or his famed astronomical atlas, the
+                    Arabs had already perfected the science and mathematics of astronomy. They used the stars to tell
+                    time in terms of seasons, then months, then days, hours, and for experts, down to the minute. They
+                    also used the stars for navigation, with precision that could reach up to 50 cm (as described by an
+                    astronomer I learned from).
+                </p>
+                <p>
+                    In fact, the Arabs delved deeper into astronomy than any other civilization in history. Yet, today,
+                    astronomy is attributed to the Ancient Greeks, even though their knowledge was preceded and later
+                    built upon by the Arabs. We can see clues of this today: 41% of the scientific names of the stars
+                    are Arabic, while the remaining 59% are divided among other languages. Stars like Al-Debaran,
+                    Al-Rigel (Orion’s foot), and Al-Tair are official scientific names, clearly Arabic. These names were
+                    recorded only when other civilizations, such as the Persians, requested translations. For 2,000
+                    years, no one wrote down the precise science of the stars until it was necessary for translation.
+                    When this knowledge reached the Greek civilizations, it was organized into books by astronomers like
+                    Ptolemy. When these books returned to the Arabs, they were expanded upon and corrected.
+                </p>
+                <p>
+                    Take the astrolabe. The dimensions and mechanisms of the astrolabe were passed down orally through
+                    poetry in the Arab world. Entire families were dedicated to the craft (like the family of Mariam
+                    Al-Astrulabiyya). The Greeks made their astrolabes using these rules. The Greek astrolabe had one
+                    level of precision, or one piece of metal used to find the angle of the stars relative to the
+                    horizon. The Arabs took this tool and added ten pieces of metal, or ten levels of precision. These
+                    histories are well documented.
+                </p>
+                <p>
+                    The word “documented” implies an organized encyclopedia of facts that can be referenced. However,
+                    these histories were documented through poetry and oral tradition. Initially, I was skeptical of
+                    this. Stories can easily become distorted without proper referencing. But the astronomer who
+                    explained this to me asked me to approach random people and ask about the stars. In one of my first
+                    encounters, an otherwise unremarkable, “uneducated” bus driver shocked me by reciting poetry—a
+                    scientific observation of a star and its use in forecasting the weather. He even mentioned that he
+                    navigated using the stars, something I eventually had to learn as well.
+                </p>
+                <p>
+                    In short, misunderstandings between native Arabs and colonizers could be addressed similarly. The
+                    issue was not a literal misunderstanding due to a language barrier, but a fundamental
+                    misunderstanding of how information is transmitted and built upon. Speaking in tongues in London,
+                    for example, could be seen as either witchcraft or a humorous Shakespearean performance. However, in
+                    Al Ula, speaking through poetry, telling time in verse, or discussing precise sciences and
+                    mathematics using romantic language is the norm. The divorce between science and art is not an Arab
+                    idea. They peacefully coexisted before Western rational thought forcibly separated the two, leaving
+                    both incomplete and supporting the imaginary portrayal of an uneducated, unaware Arab who ruined his
+                    environment and needed to be rehabilitated and taught how to live “correctly.” The information that
+                    explains the Arab way of life is readily available, but it is misunderstood as unscientific or
+                    unreliable because it is not evaluated based on the original standards. Instead, it is evaluated by
+                    a foreign observer, leading to severe misinterpretations.
+                </p>
+            </div>
+
+            <button class="essay-button" data-target="essay7">“but it’s inaccurate” even better!</button>
+            <div id="essay7" class="essay-content">
+                <p>
+                    I will say that the tilt of the summer vs. winter axes is not accurate to how the sun actually
+                    “moves” astronomically; the arcs are not at a tilt, they are at a displacement. But I made them tilt
+                    because that’s how it seems from our vantage point on Earth, and the way things seem to be is much
+                    more important to understand than how they actually are.
+                </p>
+                <p>
+                    There is a point to be made behind why this map tracks the sun based on our imagination or our
+                    experience when there exists a scientifically accurate, legible model of the sun used in
+                    architectural engineering.
+                </p>
+                <p>
+                    Modern astronomy—what we see in scientific illustrations that depict the accurate and mathematical
+                    paths and trajectories of the cosmos—is not a reflection of our direct human experience. They do not
+                    even occur on our scale. They are not based on our sight, our natural sense of space, our natural
+                    sense of movement. So it comes as no surprise that we are completely divorced from our surroundings
+                    and rely on a satellite’s sense of time and space. What am I supposed to do with the fact that the
+                    sun is in the center? Or if the Earth is in the center?
+                </p>
+                <p>
+                    Sure, modern astronomy is the truth, but it must be refitted into our intuitive understanding of the
+                    world. In modern astronomy, our earlier concepts of the world are looked down upon—even laughed at.
+                    Haha, how could they really think the Earth was flat? Or that the sun rotated around the Earth? What
+                    idiots! That’s like astronomy 101!
+                </p>
+                <p>
+                    But they operated based on intuition, and the feeling of being centered, and seeing the sun travel
+                    from East to West was a clear reflection of the direct human experience.
+                </p>
+                <p>
+                    The point of this argument is not to deny modern research, only to put it in perspective.
+                </p>
+                <h3>Milestones in the History of Astronomy</h3>
+                <p>
+                    To contextualize this, let’s look at some milestones in the history of astronomy. The Greeks
+                    persisted in the Earth-centered view even after scientists like Aristarchus of Samos (c. 310–264 BC)
+                    declared it was the Earth moving around the sun because the Greeks felt like man was connected to
+                    the universe and at the center of it, placed there by God. The Church backed this because it was
+                    beneficial for them to adhere to the philosophy of humans being “chosen” somehow.
+                </p>
+                <p>
+                    Then, the Copernican revolution. It brought science into the humanities. However, the mechanics of
+                    the cosmos are not the only way to see reality. They do not make up all of human nature, or history,
+                    or cognition. If for thousands and thousands of years, everything we knew and know came from the
+                    sky, what sky was it? It certainly wasn’t the sky drawn by satellites but the sky that we saw and
+                    understood with our eyes. So to understand the way we think, we have to see that sky again.
+                </p>
+                <p>
+                    What’s interesting is that sun-centered and Earth-centered models don’t actually contradict each
+                    other. They are two sides of the same coin because they both had to arrive at the same
+                    conclusions—that the sun makes the day and the absence of it makes the night, and everything else
+                    relies on that. The two ways of thought: one determined by technology and an accurate God-view
+                    model, and the other by direct human experience.
+                </p>
+                <h3>A Broadway Metaphor</h3>
+                <p>
+                    Imagine you attend a Broadway show, a depiction of Romeo and Juliet. You’re deeply moved by this
+                    show, even brought to tears. The play affects your life profoundly. You find yourself amazed by the
+                    real effect it had on your life.
+                </p>
+                <p>
+                    Will that effect change if, a month later, you decided to follow the actors backstage and inquired
+                    about their real lives? Would it be of any benefit to you to know the actors don’t have any romantic
+                    chemistry offstage? That ‘Juliet’ is actually married to someone else—that she’s older than ‘Romeo,’
+                    and that she actually looks down on him as an actor.
+                </p>
+                <p>
+                    Would that change the effect, the wonder, the sparkle you had in your eyes the first time you saw
+                    it? Would it change any of the epiphanies you had in your own life or the way the story played out?
+                </p>
+                <h3>The Importance of Intuition</h3>
+                <p>
+                    The way humans untangled the mysteries and patterns of the sky, the way they drew their culture from
+                    it, their mathematics, their language, their psychology, their travel, their daily lives, and the
+                    way it played into their folklore, was the blueprint to everything we know today. The way we’ve
+                    drawn time into years, months, weeks, days, hours, minutes. The way we know the compass, latitude,
+                    longitude, the way we’ve made our devices, the way we imagine scale, and science, and religion, all
+                    came from the stories that we wove from the sky. To push all that aside and replace it in schools
+                    with modern astronomy leaves a huge gap in human understanding. Let’s not write it off because of
+                    its mathematical inconsistencies.
+                </p>
+                <p>
+                    Anyway, the point is that these maps aren’t meant to take you away from technology—of course, we
+                    need Google Maps and the time dictated by Greenwich—but they are meant to put it all into context.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript to toggle essay content
+        document.querySelectorAll('.essay-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+
+                // Toggle visibility of the selected content
+                const isActive = content.classList.contains('active');
+                document.querySelectorAll('.essay-content').forEach(c => c.classList.remove('active'));
+
+                if (!isActive) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
