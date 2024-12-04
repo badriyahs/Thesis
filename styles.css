@@ -34,13 +34,13 @@ p {
 }
 
 html {
-    cursor: url('/assets/cursors/cursor.png'), auto;
+    cursor: url('assets/cursors/cursor.png'), auto;
 }
 
 /* Change cursor for clickable elements (links and buttons) */
 a:hover,
 button:hover {
-    cursor: url('/assets/cursors/redcursor.png'), pointer;
+    cursor: url('assets/cursors/redcursor.png'), pointer;
 }
 
 p:hover {
