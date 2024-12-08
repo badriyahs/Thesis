@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: white;
+            color: black;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            padding: 10px 15px;
+            border-radius: 30px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-arrow:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .back-arrow svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .sitemap-container {
+            max-width: 100%;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .fallback-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .sitemap-container embed {
+    display: block;
+    width: 1200px; /* Fixed width */
+    height: 800px; /* Fixed height */
+    margin: 0 auto;
+}
+
+</style>
+</head>
+
+<body>
+    <!-- Back to Home Button -->
+    <a href="../index.html" class="back-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        
+    </a>
+
+    <!-- SVG Display -->
+    <div class="sitemap-container">
+        <embed src="sitemap.svg" type="image/svg+xml" id="sitemap-embed" />
+        <div style="display:none;"></div> <!-- Ensures proper rendering of the embed -->
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const embed = document.getElementById('sitemap-embed');
+                const container = document.querySelector('.sitemap-container');
+        
+                embed.addEventListener('error', () => {
+                    const fallbackMessage = document.createElement('span');
+                    fallbackMessage.className = 'fallback-message';
+                    fallbackMessage.textContent = 'Your browser does not support SVGs.';
+                    container.appendChild(fallbackMessage);
+                });
+            });
+        </script>
+</body>
+
+</html>

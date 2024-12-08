@@ -154,6 +154,30 @@ footer {
     box-shadow: none;
     /* Remove any shadows */
 }
+.propose-presentation {
+    width: 100%;
+    max-width: 900px; /* Adjust max width */
+    margin: 1.6em auto; /* Center and add spacing */
+    padding: 15px; /* Add padding inside the border */
+    border: 2px solid #ccc; /* Gray border */
+    box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure content stays within border */
+    background-color: #f9f9f9; /* Optional: Light gray background for visual contrast */
+}
+
+.propose-presentation iframe {
+    display: block; /* Prevent inline spacing issues */
+    width: 100%; /* Full width of container */
+    height: 500px; /* Fixed height; adjust as needed */
+    border: none; /* Remove iframe's internal border */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.details summary {
+    margin-bottom: 0.5em; /* Add space between the title and content */
+}
 
 video {
     border: none !important;
@@ -495,7 +519,7 @@ video {
 }
 
 #structure strong {
-    font-weight: bold;
+    font-weight: bolder;
     color: #333;
     /* Emphasize key points */
 }
