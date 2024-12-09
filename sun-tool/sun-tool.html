@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Suns</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            background-color: white;
+            color: black;
+        }
+
+        nav.sidebar-menu {
+            flex: 0 0 250px;
+            background: white;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        .sidebar-menu .time-display,
+        .sidebar-menu .season-display {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-menu button {
+            background: #fff;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-family: 'Roboto Mono', monospace;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .sidebar-menu button:hover {
+            background: white;
+            color: red;
+            border: 1px solid red;
+            transform: scale(1.05);
+        }
+
+        #main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        #svg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+
+            height: 80vh;
+            overflow: auto;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+        }
+
+        #tooltip {
+            position: absolute;
+            padding: 10px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border-radius: 5px;
+            display: none;
+            opacity: 0.9;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar-menu button:hover {
+            background: white;
+            color: red;
+            border: 1px solid red;
+            transform: scale(1.05);
+        }
+
+        .sidebar-menu .sundial {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .sidebar-menu .sundial img {
+            width: 100px;
+            height: auto;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+        .sidebar-menu .sundial img {
+            content: url('assets/images/sundial.png');
+        }
+
+        .sidebar-menu .sundial img:hover {
+            content: url('assets/images/sundialred.png');
+            transform: scale(1.1);
+        }
+        html {
+    cursor: url('../assets/cursors/cursor.png'), auto;
+}
+
+/* Change cursor for clickable elements (links and buttons) */
+a:hover,
+button:hover {
+    cursor: url('../assets/cursors/redcursor.png'), pointer;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar-menu">
+        <div class="time-display" id="current-time">it is currently (day). (10:31:11 PM)</div>
+        <div class="season-display" id="current-season">loading current season...</div>
+        <button onclick="loadSVG(`assets/svgs/${getTimeOfDay()}.svg`)">current suns</button>
+        <button onclick="loadSVG('assets/svgs/base.svg')">grid?</button>
+        <button onclick="loadSVG('assets/svgs/labels.svg')">symbols?</button>
+        <button onclick="window.location.href='sun.html'">all the definitions</button>
+        <div class="sundial">
+            <a href="index.html">
+                <img src="assets/images/sundial.png" alt="Sundial" title="Go to Index">
+            </a>
+        </div>
+    </nav>
+
+    <div id="main-content">
+        <div id="svg-container"></div>
+        <div id="tooltip"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('current-time').textContent = `current time: ${timeString}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        function getCurrentSeason() {
+            const now = new Date();
+            const month = now.getMonth();
+            const day = now.getDate();
+            const seasons = [
+                { name: "early winter", start: [11, 1], end: [11, 15] },
+                { name: "mid winter", start: [11, 16], end: [0, 15] },
+                { name: "late winter", start: [0, 16], end: [1, 15] },
+                { name: "early spring", start: [1, 16], end: [2, 31] },
+                { name: "mid spring", start: [3, 1], end: [4, 15] },
+                { name: "late spring", start: [4, 16], end: [5, 15] },
+                { name: "early summer", start: [5, 16], end: [6, 15] },
+                { name: "mid summer", start: [6, 16], end: [7, 15] },
+                { name: "late summer", start: [7, 16], end: [8, 15] },
+                { name: "early autumn", start: [8, 16], end: [9, 15] },
+                { name: "mid autumn", start: [9, 16], end: [10, 15] },
+                { name: "late autumn", start: [10, 16], end: [11, 30] }
+            ];
+            for (const season of seasons) {
+                const [startMonth, startDay] = season.start;
+                const [endMonth, endDay] = season.end;
+                if (
+                    (month === startMonth && day >= startDay) ||
+                    (month === endMonth && day <= endDay) ||
+                    (startMonth < endMonth && month > startMonth && month < endMonth)
+                ) {
+                    return season.name;
+                }
+            }
+            return "Unknown Season";
+        }
+
+        document.getElementById('current-season').textContent = `current season: ${getCurrentSeason()}`;
+
+        function loadSVG(svgFile) {
+            d3.select('#svg-container').html('');
+            d3.xml(svgFile).then(data => {
+                d3.select('#svg-container').node().appendChild(data.documentElement);
+                setupInteractions();
+            }).catch(error => {
+                console.error('Error loading SVG:', error);
+                d3.select('#svg-container').html('<p>Unable to load SVG file.</p>');
+            });
+        }
+
+        function setupInteractions() {
+            const ids = ['suna', 'sunb', 'sunc', 'sund', 'sune', 'sunf', 'sung', 'sunh', 'suni', 'sunj', 'sunk', 'sunl', 'sunm', 'sunn', 'suno', 'sunp', 'sunq', 'sunr', 'suns', 'sunt', 'sunu', 'sunv', 'sunw', 'sunx', 'suny', 'sunz', 'sunaa', 'sunab', 'sunac', 'sunad', 'sunae', 'sunaf', 'sunag', 'sunah', 'sunai', 'sunaj', 'sunak', 'sunal', 'sunam', 'sunan', 'sunao', 'sunap', 'sunaq', 'sunar', 'sunas', 'sunat', 'sunau', 'sunav', 'sunaw', 'sunax', 'sunay', 'sunaz', 'sunba', 'sunbb', 'sunbc', 'sunbd', 'sunbe', 'sunbf', 'sunbg', 'sunbh', 'sunbi', 'sunbj', 'sunbk', 'sunbl', 'sunbm', 'sunbn', 'sunbo', 'sunbp', 'sunbq', 'sunbr', 'sunbs', 'sunbt', 'sunbu', 'sunbv', 'sunbw', 'sunbx', 'sunby', 'sunbz', 'sunca', 'suncb', 'suncc', 'suncd', 'sunce', 'suncf', 'suncg', 'sunch', 'sunci', 'suncj', 'sunck', 'suncl', 'suncm', 'suncn', 'sunco', 'suncp', 'suncq', 'suncr', 'suncs', 'sunct', 'suncu', 'suncv', 'suncw', 'suncx', 'suncy', 'suncz', 'sunda', 'sundb', 'sundc', 'sundd', 'sunde', 'sundf', 'sundg', 'sundh', 'sundi', 'sundj', 'sundk', 'sundl', 'sundm', 'sundn', 'sundo', 'sundp', 'sundq', 'sundr', 'sunds', 'sundt', 'sundu', 'sundv', 'sundw', 'sundx', 'sundy', 'sundz', 'sunea', 'suneb', 'sunec', 'suned', 'sunee', 'sunef', 'suneg', 'suneh', 'sunei', 'sunej', 'sunek', 'suneo', 'sunep', 'suneq', 'suner', 'sunes'];
+            const definitions = [
+                "Afala: To bow and set with a heavy feeling. Refers to the sunset, denoting the final moments of the day.",
+                "Bazagha: The first rays that tear open the darkness. Refers to the sun rising, marking the beginning of the day.",
+                "Jariah: To run across somewhere. Refers to the feeling of the sun running across the sky from east to west.",
+                "Dalak: To slightly lean or tip after being perfectly balanced. Refers to the sun’s shift to the afternoon after it was balancing at the middle of the sky, or at noon.",
+                "Amata: A supreme, omnipotent force, which refers to the sun’s ability to always be there, to always rise, and there’s no hiding from its heat or light. It refers to how the sun has been seen as a deity by many civilizations for many years.",
+                "Ilah: A supreme, omnipotent force, symbolizing the sun’s grandeur and its reverence as a central force, perceived as both physical and divine.",
+                "Barah: Refers to the feeling of the sun running across the sky from east to west, capturing movement through absence.",
+                "Bauh: The sun’s light appearing freely and openly, symbolizing the abundance of sunlight when the sun is at its highest point.",
+                "Baydh: Refers to a color between red and black, capturing the transition of the sun’s intensity during sunset.",
+                "Jariah: To run across the sky at the end, symbolizing the predictable and cyclical path of the sun.",
+                "Aljawn: A reddish-black color, symbolizing the sun at sunset as it turns into a deep red or black hue.",
+                "Thaka: The exaggeration in heat of fire or coal, referring to the flare of the sun’s heat in the height of the summer.",
+                "Saraj/Seraj: A guiding light, or a type of lantern, erasing the darkness and bringing clarity and direction.",
+                "Sharaq: The word for East, but also means the sun rising, and it’s a light and happy word, almost meaning gleaming.",
+                "Saqa’a: The sharp sound of a palm slap to the crown of the head. Refers to the sun’s striking heat at the top of your head when it is at midday, but it probably refers to the sun during Spring, or the end of Spring into Summer.",
+                "Dhuh: The opposite of shadow, the gleam where the sun’s rays hit something.",
+                "Ain: Refers to a spring of water, and the sun as a source of a flow of light and heat, and direction and timetelling.",
+                "Ghuzalah: Means to weave, especially in a cyclical motion. Symbolizes the cyclical path of the sun.",
+                "Maha: To run with intensity, until exhaustion, as if to finally rest. Refers to the sun’s movement from east to west until it finally sets in the west.",
+                "Aya: To linger or absorb. Refers to the warmth left behind where the sun’s rays have lingered.",
+                "Hajaba: To cover or conceal, symbolizing the sun’s relationship with the horizon, how it hides behind it during sunrise and sunset. However, this word refers to the sun setting.",
+                "Danaf: A necessary ailment, like a fever that brings you almost to death, to heal you or burn something in you in order for healing. Symbolizes the last burst of heat and light before the sun finally sets.",
+                "Tharar: To collect a fine substance with the tips of your fingers and then sprinkle or spread it onto something else. It is very delicate, light, and precise. It refers to when the sun is still at the beginning of the day, gently scattering sunlight.",
+                "Rakad: To settle and become steady after movement, symbolizing the sun's stillness at noon after its upward climb.",
+                "Zabab: Refers to something being so full and thick that it starts to conceal, like a forest or hair on skin. This symbolizes the sun being hidden as it dips below the horizon, as if the horizon gathers the strength and fullness to overtake the sun.",
+                "Shafa: The last sliver of something, or the edge of something, symbolizing the final crescent of the sun before it sets.",
+                "Sagha: To lean towards someone to listen to them intently. Refers to the sun leaning towards the horizon, with intent and focus, like a duty to allow the night to take over.",
+                "Sala’: Describes something barren or smooth, symbolizing the sun’s intense and unshielded presence in the sky, especially if the sky has no clouds.",
+                "Sakhad: A loud, heavy noise, almost alluding to pain. This word does not refer to the sun itself, but the feeling of its most painful heat.",
+                "Dhara: To bow down in humility or reverence, symbolizing the sun's gentle descent as it moves toward the horizon.",
+                "Dhafa: The abundance of something, symbolizing the sun’s approach to the horizon, where the world is already satisfied with what the sun gave it, not yet setting but nearing the end of its cycle.",
+                "Tafal: A child, symbolizing the sun’s early stages, representing the rising sun and its gentle, youthful light.",
+                "Tafa: To float or buoy, symbolizing the sun’s full, complete presence in the sky, without any part dipping below the horizon.",
+                "Talaa: To rise, symbolizing the sun’s continuous journey and the ongoing cycle of day and night.",
+                "‘Ab: Refers to a face’s gentle beauty, connected to the sun’s gentle beauty, associated with the light of the morning. This word seems to mean the beauty of a face after a transformation—perhaps the easing of muscles into gentleness after hostility, or of health after sickness. So it’s the beauty and gentleness of the sun after the harshness of the night.",
+                "Al afr w al seham: Refers to a string of heavy liquid, like honey, and it refers to the sun’s rays resembling threads, spilling and pooling.",
+                "Gharab: The word for west, but also means the sun setting.",
+                "Qaran: Means a crown or a horn, and refers to the first ray of light at sunrise.",
+                "Qasab: The sound of running water, and refers to the sun’s effects while it is moving, but not quite the sun itself. Like how running water eludes to water even when you can’t see it.",
+                "Qanab: Refers to the skin that protects and conceals a lion’s claw when not in use, or the sheath of a sharp sword. It symbolizes the sun’s harshness being concealed and protected until it inevitably rises again. The word carries the meaning of harshness temporarily subdued, referring to the summer sun when it is beneath the horizon.",
+                "Kasaf / Kusoof: The word means eclipse or, in general, the sudden disappearance of light, often referring to the sun during an eclipse.",
+                "La’ab: Refers to a string of heavy liquid, like honey, and it refers to the sun’s rays resembling threads, spilling and pooling."
+            ];
+
+
+            ids.forEach((id, index) => {
+                const element = d3.select(`#${id}`);
+                if (!element.empty()) {
+                    element
+                        .on('mouseover', event => {
+                            const message = definitions[index] || "No description available.";
+                            d3.select('#tooltip')
+                                .text(message)
+                                .style('left', `${event.pageX + 10}px`)
+                                .style('top', `${event.pageY + 10}px`)
+                                .style('display', 'block');
+                            d3.select(this).classed('hovered', true);
+                        })
+                        .on('mouseout', () => {
+                            d3.select('#tooltip').style('display', 'none');
+                            d3.select(this).classed('hovered', false);
+                        });
+                }
+            });
+        }
+
+        const currentTimeOfDay = getTimeOfDay(); // Get the current time of day
+        loadSVG(`assets/svgs/${currentTimeOfDay}.svg`); // Dynamically load the SVG
+
+
+
+        // Map times of day to their respective SVG files
+        const timeOfDaySVGs = {
+            dawn: "assets/svgs/dawn.svg",
+            morning: "assets/svgs/morning.svg",
+            noon: "assets/svgs/noon.svg",
+            afternoon: "assets/svgs/afternoon.svg",
+            sunset: "assets/svgs/sunset.svg",
+            dusk: "assets/svgs/dusk.svg",
+            night: "assets/svgs/night.svg",
+        };
+
+        function getTimeOfDay() {
+            const now = new Date();
+            const hour = now.getHours();
+
+            if (hour >= 5 && hour < 8) {
+                return "dawn";
+            } else if (hour >= 8 && hour < 12) {
+                return "morning";
+            } else if (hour >= 12 && hour < 14) {
+                return "noon";
+            } else if (hour >= 14 && hour < 17) {
+                return "afternoon";
+            } else if (hour >= 17 && hour < 19) {
+                return "sunset";
+            } else if (hour >= 19 && hour < 21) {
+                return "dusk";
+            } else if (hour >= 21 || hour < 5) {
+                return "night";
+            }
+            return "unknown";
+        }
+
+
+
+        function updateTimeDisplay() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const timeOfDay = getTimeOfDay();
+            document.getElementById('current-time').textContent = `it is currently ${timeOfDay}. (${timeString})`;
+        }
+
+        // Call `updateTimeDisplay` immediately and schedule updates every second
+        updateTimeDisplay();
+        setInterval(updateTimeDisplay, 1000);        </script>
+</body>
+
+</html>

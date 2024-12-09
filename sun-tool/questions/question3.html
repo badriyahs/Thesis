@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>could you tell the month just by looking at the sun?</h1>
+        <div class="options">
+            <button class="option-button" onclick="wrongAnswer()">yes</button>
+            <button class="option-button" onclick="nextQuestion()">no</button>
+        </div>
+    </div>
+
+    <script>
+        function wrongAnswer() {
+            window.location.href = "seriously.html";
+        }
+
+        function nextQuestion() {
+            window.location.href = "question4.html";
+        }
+    </script>
+</body>
+
+</html>

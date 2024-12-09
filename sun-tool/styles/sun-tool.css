@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background-color: #fff;
+    color: black;
+}
+
+nav.sidebar-menu {
+    flex: 0 0 250px;
+    background: #f4f4f4;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.sidebar-menu .time-display,
+.sidebar-menu .season-display {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu button {
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar-menu button:hover {
+    background: #007BFF;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+#svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    height: 80vh;
+    overflow: auto;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+}
+
+#tooltip {
+    position: absolute;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 300px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+html {
+    cursor: url('../assets/cursors/cursor.png'), auto;
+}
+
+/* Change cursor for clickable elements (links and buttons) */
+a:hover,
+button:hover {
+    cursor: url('../assets/cursors/redcursor.png'), pointer;
+}

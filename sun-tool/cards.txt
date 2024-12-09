@@ -1,0 +1,747 @@
+<!-- Card 1 -->
+<div class="card">
+    <h3 class="card-title">1. Afala</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Afala means to bow and set. It describes the elongation of the last stretch of heavy time during sunset.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This word represents the final moments of the day as the sun sets, emphasizing the heaviness and length of time at the end of the day.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Afala symbolizes the sun's transition into the horizon, marking the conclusion of the day with a sense of gravity and finality.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 37 | <strong>z:</strong> 30 | <strong>size:</strong> 1.6 | <strong>symbol:</strong> 1
+    </p>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+    <h3 class="card-title">2. Bazagha</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Bazagha means "to rise and shine," describing how the sun tears the sky open with its first ray of light.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term is the opposite of Afala and represents a movement upwards from the east, marking the beginning of the day.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This word highlights the symbolic power of the sun’s first rays, cutting through the darkness to signal the start of a new day.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 3 | <strong>z:</strong> 30 | <strong>size:</strong> 1.6 | <strong>symbol:</strong> 1
+    </p>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+    <h3 class="card-title">3. Jariah</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Jariah means "she who runs," describing the sun’s movement from east to west.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Jariah refers to the predictable and cyclical path of the sun, emphasizing its framework for temporal cognition.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Jariah underlines the inherent rhythm and structure of the sun’s journey across the sky.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 3 | <strong>y:</strong> LINE | <strong>z:</strong> 30 | <strong>size:</strong> LINE | <strong>symbol:</strong> 2
+    </p>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+    <h3 class="card-title">4. Dalak</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Dalak refers to the act of leaning, as if something is balancing and begins to tip toward one side.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Dalak symbolizes the sun's movement past the meridian line as it begins to lean toward the west.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This word emphasizes the imagery of balance and a deliberate lean, representing the sun's shift from midday steadiness to westward movement.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 22 | <strong>z:</strong> 27 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+    <h3 class="card-title">5. Amata</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Amata represents dignity and perfection, embodying the sun as a strong holder of time, space, heat, and movement.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This word reflects the sun's role as a perfect and dignified carrier, emphasizing its critical role in structuring time and space.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Amata highlights the sun's unwavering strength and its harmony across temporal cycles and spatial balance.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> AZMTH | <strong>y:</strong> 20 | <strong>z:</strong> 50 | <strong>size:</strong> 0.8 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+    <h3 class="card-title">6. Ilah</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Ilah refers to a deity, an unquestionable all-knower and all-seer. In this context, it refers to the sun as a supreme and omnipresent force.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term elevates the sun as an omnipotent presence, guiding and illuminating life with authority and omniscience.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Ilah emphasizes the sun's grandeur and its reverence as a central force, perceived as both physical and divine.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> AZMTH | <strong>y:</strong> 20 | <strong>z:</strong> 55 | <strong>size:</strong> 2 | <strong>symbol:</strong> 8
+    </p>
+</div>
+
+<!-- Card 7 -->
+<div class="card">
+    <h3 class="card-title">7. Barah</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Barah captures movement indirectly by focusing on the empty space or negative space left behind. It references the movement of the sun by association with the empty space it leaves behind.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Barah implies forward motion or departure, embodying the sense of movement through absence and emphasizing the spatial quality of the sun’s journey.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Colloquially, Barah refers to an open, empty area or a vacant spot where something once was, connecting it to the sun’s departure.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 16 | <strong>z:</strong> 30 | <strong>size:</strong> 2 | <strong>symbol:</strong> 9
+    </p>
+</div>
+
+<!-- Card 8 -->
+<div class="card">
+    <h3 class="card-title">8. Bauh</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Bauh means to appear freely, without restriction, symbolizing openness and clarity. It is used in the context of sunlight at its peak.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Bauh refers to noon time, when sunlight is abundant and highest in the sky, connoting freedom and openness.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Bauh symbolizes the sun's unrestricted presence in the sky, carrying a sense of freedom and openness, particularly during fall, winter, or spring.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 20 | <strong>y:</strong> 20 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 9 -->
+<div class="card">
+    <h3 class="card-title">9. Baydh</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Baydh refers to the color white and is also associated with the peak of something, such as summer heat or intense sunlight.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Baydh marks specific periods of intensity, such as the peak of heat or the height of summer, connecting it to celestial transitions and weather changes.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Baydh symbolizes intensity and transformation, such as the moment clouds spill with rain, underscoring the sun’s impact.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 18 | <strong>z:</strong> 30 | <strong>size:</strong> 2 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 10 -->
+<div class="card">
+    <h3 class="card-title">10. Jariah</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Jariah means "she who runs," referring to anything moving, such as time, wind, or the sun.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> For the sun, Jariah describes its path from east to west, setting the framework for temporal and spatial cognition.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This card reiterates the cyclical, predictable movement of the sun, emphasizing its rhythm and structure.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 10 | <strong>y:</strong> 3 | <strong>z:</strong> LINE | <strong>size:</strong> 30 | <strong>symbol:</strong> LINE
+    </p>
+</div>
+
+
+<!-- Card 11 -->
+<div class="card">
+    <h3 class="card-title">11. Aljawn</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Aljawn means a reddish-black hue, symbolizing the fiery display of the sun as it sets and transitions into darkness.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Aljawn represents the end of the day, where time runs out and the sun’s intensity signals closure.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term encapsulates both the literal fiery sunset and the figurative sense of a pressing conclusion or ending.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 7 | <strong>y:</strong> 36 | <strong>z:</strong> 30 | <strong>size:</strong> 1.8 | <strong>symbol:</strong> 3
+    </p>
+</div>
+
+<!-- Card 12 -->
+<div class="card">
+    <h3 class="card-title">12. Thaka</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Thaka refers to the exaggeration in the burning of fire or coal, symbolizing intense heat during the height of summer.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Thaka describes the powerful, overwhelming heat of the summer sun at its peak.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Thaka emphasizes sensory experiences of sudden, extreme warmth, evoking the sun's intense impact.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 3 | <strong>y:</strong> 20 | <strong>z:</strong> 30 | <strong>size:</strong> 2 | <strong>symbol:</strong> 3
+    </p>
+</div>
+
+<!-- Card 13 -->
+<div class="card">
+    <h3 class="card-title">13. Saraj/Seraj</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Saraj or Seraj refers to a lantern, symbolizing illumination and guidance, like the sun lighting the world and erasing darkness.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Saraj emphasizes the sun as a guiding light, creating spatial and temporal orientation much like a lantern.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term connects the sun to clarity and enlightenment, both physical and metaphorical, guiding temporal rhythms and spatial paths.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 20 | <strong>z:</strong> 15 | <strong>size:</strong> 1 | <strong>symbol:</strong> 5
+    </p>
+</div>
+
+<!-- Card 14 -->
+<div class="card">
+    <h3 class="card-title">14. Sharaq</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Sharaq means "rises" or "lights up" and is associated with the East. It describes the rising of celestial bodies, marking illumination and orientation.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Sharaq signifies renewal and the start of a temporal cycle, connecting the East with beginnings and light.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term links natural and abstract cycles of light and time, emphasizing the sun's role in creating orientation and rhythm.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 7 | <strong>y:</strong> 38 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 15 -->
+<div class="card">
+    <h3 class="card-title">15. Saqa’a</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Saqa’a refers to a sharp, directed impact, symbolizing the sun's intense, saturating presence at its zenith.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Saqa’a describes the sun’s dominance during high summer, connecting heat to physical and symbolic extremes.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term highlights the sharpness of the sun’s impact, blending sensory experience with celestial symbolism.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 20 | <strong>z:</strong> 30 | <strong>size:</strong> 1.5 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+
+<!-- Card 16 -->
+<div class="card">
+    <h3 class="card-title">16. Dhuh</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Dhuh refers to the place where sunlight hits, emphasizing the illuminated area opposite to a shadow.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Dhuh highlights the dynamic relationship between the sun and surfaces, emphasizing the projection of light.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term underscores presence and interaction, marking the sun’s position through illumination and material connections.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 20 | <strong>z:</strong> 4 | <strong>size:</strong> 1 | <strong>symbol:</strong> 7
+    </p>
+</div>
+
+<!-- Card 17 -->
+<div class="card">
+    <h3 class="card-title">17. Ain</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Ain means "eye" or "spring," connecting vision and life-giving water to the sun's role in illumination and renewal.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Ain symbolizes clarity and focus provided by the sun’s rays, linking celestial and earthly elements.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The dual meaning of Ain ties the sun’s life-sustaining light to the cyclical nature of growth and perception.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 20 | <strong>z:</strong> 23 | <strong>size:</strong> 0.7 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 18 -->
+<div class="card">
+    <h3 class="card-title">18. Ghuzalah</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Ghuzalah refers to weaving or repetitive circular motion, symbolizing the sun's early movements in the sky.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Ghuzalah describes the sun’s weaving motion as it begins its rise, marking the start of its journey.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term reflects the cyclical nature of the sun's path, likened to time being woven or created.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0-7 | <strong>y:</strong> 34-38 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 10
+    </p>
+</div>
+
+<!-- Card 19 -->
+<div class="card">
+    <h3 class="card-title">19. Maha</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Maha signifies intense running or expelling power, often likened to the urgency of a horse’s run.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Maha represents the sun’s determined path from east to west, emphasizing relentless motion.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term symbolizes the sun’s urgency and intensity in its journey, associated with light and movement.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> LINE | <strong>z:</strong> 30 | <strong>size:</strong> LINE | <strong>symbol:</strong> 9
+    </p>
+</div>
+
+<!-- Card 20 -->
+<div class="card">
+    <h3 class="card-title">20. Aya</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Aya means to linger or absorb, often describing a pause in movement for growth or blooming.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Aya refers to the sun’s lingering presence, emphasizing perception and the spatial dimension.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Aya connects to the concept of lingering time and its impact on perception and spatial awareness.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 20 | <strong>z:</strong> 27 | <strong>size:</strong> 0.7 | <strong>symbol:</strong> -7
+    </p>
+</div>
+
+
+
+
+
+
+<!-- Card 21 -->
+<div class="card">
+    <h3 class="card-title">21. Hajaba</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Hajaba comes from "hajab," meaning to cover or protect, often describing concealment of something valuable.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Hajaba refers to the horizon as a barrier where the sun is either protected or concealed.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term emphasizes the sun’s relationship with the horizon, marking its transition during sunrise or sunset.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 41 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 22 -->
+<div class="card">
+    <h3 class="card-title">22. Danaf</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Danaf signifies a necessary struggle or affliction leading to renewal, often tied to transformation.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Danaf describes the moment the sun deepens in color during its final transformation before setting.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term evokes intensity and change, symbolizing the sun’s journey toward its final phase for the day.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 6 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 3
+    </p>
+</div>
+
+<!-- Card 23 -->
+<div class="card">
+    <h3 class="card-title">23. Tharar</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Tharar refers to delicately sprinkling a fine substance, connoting precision and lightness.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Tharar describes how the first rays of sunlight gently scatter, marking the breaking of dawn.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term highlights the interaction between sunlight and its environment, emphasizing dawn’s temporal and spatial dynamics.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 38 | <strong>z:</strong> 26 | <strong>size:</strong> 0.7 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 24 -->
+<div class="card">
+    <h3 class="card-title">24. Rakad</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Rakad means to steady after movement, describing stillness following motion.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Rakad represents the sun at noon, when it steadies after its upward climb, marking a temporal pause.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term emphasizes the sun’s steadiness at midday, reflecting its significance as a temporal anchor.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 2 | <strong>y:</strong> 20 | <strong>z:</strong> 28 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 25 -->
+<div class="card">
+    <h3 class="card-title">25. Zabab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Zabab refers to growth or a voluminous quality that obscures what lies behind.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Zabab describes the sun dipping below the horizon, as if the ground rises to conceal it.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term symbolizes concealment and growth, marking the sun’s gradual disappearance during sunset.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 11 | <strong>y:</strong> 2 | <strong>z:</strong> 30 | <strong>size:</strong> 0.7 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+
+
+
+
+<!-- Card 26 -->
+<div class="card">
+    <h3 class="card-title">26. Shafa</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Shafa refers to the last edge of something, such as the final visible sliver of the sun.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Shafa signifies the sun’s final moments before setting, symbolizing being on the brink or edge of transition.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term ties to its literal meaning of "lip," representing the edge of a phase or moment in time.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 6 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 9
+    </p>
+</div>
+
+<!-- Card 27 -->
+<div class="card">
+    <h3 class="card-title">27. Sagha</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Sagha means to lean into something, symbolizing focused action or intent.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Sagha describes the sun leaning toward the horizon, signaling its intentional descent into night.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term emphasizes purpose and focus, reflecting the deliberate interaction between the sun and the horizon.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 7 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 28 -->
+<div class="card">
+    <h3 class="card-title">28. Sala’</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Sala’ describes barrenness or smoothness, such as an empty sky devoid of clouds.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Sala’ refers to the unrelenting intensity of the sun in a clear, cloudless sky, often at midday.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term conveys the sun’s oppressive presence in a barren environment, emphasizing its harshness.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 22 | <strong>z:</strong> 30 | <strong>size:</strong> 1.1 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 29 -->
+<div class="card">
+    <h3 class="card-title">29. Sakhad</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Sakhad refers to the peak intensity of heat, focusing on the sensation rather than the source.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Sakhad represents the moment of the sun’s most oppressive heat, emphasizing its sensory impact.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term highlights the experiential nature of the sun’s heat, marking a temporal peak in intensity.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 20 | <strong>z:</strong> 13 | <strong>size:</strong> 1.3 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 30 -->
+<div class="card">
+    <h3 class="card-title">30. Dhara</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Dhara means to bow down in humility or piety, symbolizing grace and reverence.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Dhara refers to the sun gently bowing westward, contrasting its midday stance.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term reflects the sun’s humility as it transitions toward the evening, marking a graceful submission.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 2 | <strong>y:</strong> 14 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 8
+    </p>
+</div>
+
+
+
+
+
+
+
+
+<!-- Card 31 -->
+<div class="card">
+    <h3 class="card-title">31. Dhafa</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Dhafa signifies abundance, such as wealth or fertility in the ground.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Dhafa has been noted to describe the sun dipping westward, though this usage requires further validation.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term contrasts abundance with celestial implications, requiring more research to confirm its connection to solar movements.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 5 | <strong>y:</strong> 15 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 32 -->
+<div class="card">
+    <h3 class="card-title">32. Tafal</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Tafal means "child," often associated with youth and new beginnings.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Tafal relates to various solar stages, including the setting sun and the sun just rising, emphasizing a gentle nature.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term poetically connects the sun’s cycle to stages of human life, emphasizing its child-like nature during rising and setting moments.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 11 | <strong>y:</strong> 3 | <strong>z:</strong> 30 | <strong>size:</strong> 0.7 | <strong>symbol:</strong> 4
+    </p>
+</div>
+
+<!-- Card 33 -->
+<div class="card">
+    <h3 class="card-title">33. Tafa</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Tafa means "to float," emphasizing buoyancy and fullness.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Tafa describes the sun as a complete circle floating above the horizon, highlighting its defined presence in the sky.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term emphasizes the sun’s spatial and visual qualities as wholly above the horizon, distinct in its floating presence.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 7 | <strong>y:</strong> 19 | <strong>z:</strong> 25 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 34 -->
+<div class="card">
+    <h3 class="card-title">34. Talaa</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Talaa means "rises," often referring to the sun, moon, or stars.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Talaa reflects the sun’s ongoing path, highlighting the elliptical nature of its rise and emphasizing its role in temporal cycles.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term aligns with historical understanding of celestial movements, emphasizing the sun’s continuous journey.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 30-31 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 10
+    </p>
+</div>
+
+<!-- Card 35 -->
+<div class="card">
+    <h3 class="card-title">35. ‘Ab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> ‘Ab refers to drinking water without breathing, symbolizing gentleness and beauty.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term highlights the sun’s gentle beauty, particularly during its transformation from night to morning.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term uniquely ties the sun to concepts of beauty and transformation, emphasizing its gentle light in the morning.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 6 | <strong>y:</strong> 28 | <strong>z:</strong> 30 | <strong>size:</strong> 1.2 | <strong>symbol:</strong> 11
+    </p>
+</div>
+
+
+
+
+
+<!-- Card 36 -->
+<div class="card">
+    <h3 class="card-title">36. Al afr w al seham</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Al afr w al seham refers to a string left by a viscous liquid, like honey, symbolizing the golden strings of sunlight touching Earth.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This concept captures the sun's indirect effects, even in its absence, through the threads of light it leaves behind.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term associates the sun with both visual phenomena and broader celestial interactions, offering complex symbolic interpretations.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 24 | <strong>z:</strong> 30 | <strong>size:</strong> 0.8 | <strong>symbol:</strong> 72
+    </p>
+</div>
+
+<!-- Card 37 -->
+<div class="card">
+    <h3 class="card-title">37. Gharab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Gharab is the most common term for "west," used for the setting sun or other celestial objects.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> Gharab emphasizes the sun's continuous movement, symbolizing its role as a purposeful traveler along a defined path.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> The term intertwines religious and astronomical contexts, highlighting the sun's destined journey and transitions.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 7 | <strong>y:</strong> 6 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 6
+    </p>
+</div>
+
+<!-- Card 38 -->
+<div class="card">
+    <h3 class="card-title">38. Qaran</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Qaran means "horn," symbolizing the sun's first visible ray at sunrise.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term marks the temporal event of sunrise, focusing on the sun’s presence through its first ray.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Qaran emphasizes the sun’s emergence into the day, symbolizing beginnings and connections.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 11 | <strong>y:</strong> 41 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 7
+    </p>
+</div>
+
+<!-- Card 39 -->
+<div class="card">
+    <h3 class="card-title">39. Qasab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Qasab refers to toughness, often describing dry dates or hard stems, and is associated with sugarcane and the sound of running water.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term symbolizes the sun’s elusive motion westward, seen peripherally, akin to water’s intangible flow.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Qasab captures the intangible essence of the sun’s motion and its connection to natural patterns and rhythms.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 5 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 9
+    </p>
+</div>
+
+<!-- Card 40 -->
+<div class="card">
+    <h3 class="card-title">40. Qanab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Qanab refers to a lion's claw and the protective skin that conceals it.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> In reference to the sun, Qanab signifies its concealment below the horizon, symbolizing temporary subdued harshness.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> This term emphasizes the protective and cyclical nature of the sun, reflecting its eventual return.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 15 | <strong>y:</strong> 4 | <strong>z:</strong> 30 | <strong>size:</strong> 1 | <strong>symbol:</strong> 9
+    </p>
+</div>
+
+<!-- Card 41 -->
+<div class="card">
+    <h3 class="card-title">41. Kasaf / Kusoof</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> Kasaf (or Kusoof) refers to the unexpected loss of light, such as during an eclipse.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term emphasizes the abrupt transition to darkness, distinguishing it from predictable sunset darkness.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> Kasaf highlights the sun’s unpredictability and contrasts sharply with its regular movements.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 4 | <strong>y:</strong> 20 | <strong>z:</strong> 15 | <strong>size:</strong> 1 | <strong>symbol:</strong> 12
+    </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Card 42 -->
+<div class="card">
+    <h3 class="card-title">42. La’ab</h3>
+    <p class="card-description">
+        <strong>Definition:</strong> La’ab translates to "saliva," but it refers to liquid secretion in a neutral or positive sense. In the context of the sun, it describes a ray resembling a thread, spilling and pooling.
+    </p>
+    <p class="card-description">
+        <strong>Temporal and Spatial Connotation:</strong> This term often describes the sun at noon, when its rays are most pronounced and thread-like. It captures the intense heat and the distinct visual phenomena caused by the sun’s rays at their zenith.
+    </p>
+    <p class="card-description">
+        <strong>Notes:</strong> La’ab conveys the sun’s sensory intensity and its impact on the environment, such as heat distortions. It highlights the threads of sunlight as tangible and vivid.
+    </p>
+    <p class="card-info">
+        <strong>x:</strong> 0 | <strong>y:</strong> 24 | <strong>z:</strong> 30 | <strong>size:</strong> 2 | <strong>symbol:</strong> 9
+    </p>
+</div>
