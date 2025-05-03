@@ -3,11 +3,11 @@
 /* Apply Roboto Mono */
 
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono';
     background-color: #fff;
     /* Fully white background */
     color: black;
-    /* Dark gray for text */
+    /* Dark gray for text THIS IS FOR THE TITLE!!!!!*/
     margin: 0;
     padding: 0;
     line-height: 1.8;
@@ -16,12 +16,25 @@ body {
     /* Increase the base size slightly */
     line-height: 1.9;
     /* Adjust line height for readability */
+    font-weight: 300;
+    /* Light font weight for body text */
 
 
     display: flex;
     /* Align sidebar and content side by side */
     flex-direction: row;
     /* Sidebar and content in a row */
+    text-align: left;
+
+}
+
+/* New class for grey and italic text */
+.grey-italic-text {
+    color: #808080;
+    /* Grey color */
+    font-style: italic;
+    /* Italic text */
+    text-align: center;
 }
 
 html {
@@ -50,7 +63,7 @@ p:hover {
 
 .highlight:hover {
     background-color: rgba(255, 0, 0, 0.314);
-    /* Red color with 31.4% opacity */
+    /* Red color with 31.4% opacity FOR TITLE HOBER!!!*/
 }
 
 /* Hover effect for the question (summary) */
@@ -66,7 +79,6 @@ details summary:hover {
     padding: 2rem 1rem;
     max-width: 900px;
     margin: 0 auto;
-    text-align: left;
 }
 
 .section h2 {
@@ -74,8 +86,6 @@ details summary:hover {
     /* Increase font size */
     margin-bottom: 1.5rem;
     /* Add more space below */
-    color: #333;
-    /* Keep dark gray text */
     font-weight: 700;
     /* Make it bolder */
     /* Optional: Center-align the title */
@@ -83,10 +93,14 @@ details summary:hover {
 
 .section p,
 .section ul {
-    color: #333;
-    /* Uniform dark text */
-    font-weight: 300;
+    /* Ensures all paragraphs are left-aligned */
+
+    /* color: yellowgreen; */
+    /* * Uniform dark text  THIS IS FOR THE BODY TEXT!!!*/
+
+    /* font-weight: 300; */
 }
+
 
 .speakers-container {
     display: flex;
@@ -260,6 +274,9 @@ video {
     width: calc(100% - 200px);
     /* Dynamically adjust width */
     box-sizing: border-box;
+    text-align: left;
+    /* Ensures all paragraphs are left-aligned */
+
 }
 
 /* Section Styling */
@@ -300,7 +317,7 @@ video {
 }
 
 /* Style the title */
-.typing-title {
+.title {
     font-size: 2.5rem;
     /* Bigger title */
     font-weight: bold;
@@ -521,11 +538,14 @@ video {
     /* Maintain a clean, readable appearance */
 }
 
-#structure strong {
-    font-weight: bolder;
-    color: #333;
-    /* Emphasize key points */
+strong {
+    font-weight: bold !important;
+    /* this is what is slighylu dshowing Using !important to override any conflicting styles */
+    color: inherit;
+    font-style: bold italic
+        /* This will keep the text color the same as its parent */
 }
+
 
 #canva-embed {
     margin-top: 2rem;
@@ -723,4 +743,146 @@ details[open] p.answer {
 /* Styling the cards with some spacing */
 .card+.card {
     margin-top: 1rem;
+}
+
+/* Gallery Section */
+
+/* Styling for each gallery item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 450px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+/* Image styling for gallery */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures image maintains its aspect ratio */
+}
+
+/* Styling for Video Row */
+.video-row {
+    display: flex;
+    gap: 20px;
+    /* Two videos side by side */
+    justify-content: space-between;
+    /* Ensures space between videos */
+    margin-bottom: 20px;
+}
+
+/* Styling for videos */
+.video-row video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ensures video maintains aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the custom cursor text */
+.cursor-text {
+    position: absolute;
+    color: white;
+    font-family: 'Roboto Mono';
+    font-size: 12px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Slightly transparent background */
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* Center the cursor text */
+    z-index: 1000;
+    display: none;
+    /* Initially hidden */
+}
+
+/* Show caption on hover */
+.gallery-item:hover .caption {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Caption styling */
+.caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Layout for PDF Pages (as Images) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Three images per row */
+    grid-gap: 15px;
+    padding: 20px;
+}
+
+/* Styling for Image Row */
+.image-row {
+    display: flex;
+    justify-content: center;
+    /* Centers the content horizontally */
+    align-items: center;
+    /* Centers the content vertically (if needed) */
+    margin-top: 20px;
+    /* Optional: Adds space between rows */
+}
+
+/* Basic styling for the gallery container */
+.gallery-container {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Gallery pages styling */
+.gallery-page {
+    display: none;
+    text-align: center;
+}
+
+
+.gallery-page img {
+    width: 100%;
+    max-width: 450px;
+    /* Adjust the size */
+    height: auto;
+    border: 0.5px solid black;
+    /* Add thin black border */
+
+}
+
+/* Buttons for navigation */
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+strong {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    /* You can also try other weights like 600 or 800 if 700 doesn't show up as bold */
 }

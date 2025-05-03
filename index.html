@@ -38,87 +38,249 @@
 
             </div>
             <div>
-                <h2 class="typing-title">
+                <h2 class="title">
                     <span class="highlight">resistant atlas</span>
                 </h2>
             </div>
             <br>
-            <p>
-                think of how you experience time. your imagination of it, how you live through it, how you imagine past,
-                present, and future. where did that imagination come from? why do we think only in seconds, minutes, and
-                hours? why does time feel encompassing, all knowing, untouchable, inaccessible? was it always this way?
+            <p class="grey-italic-text">
+                (this website is still being built!!!!! more documentation to come...)
             </p>
             <p>
-
-                as someone who has lived outside of clock time, there is a temporal and spatial experience
-                that we are completely blind to, and we've become dependent on a dictated time, without any
-                understanding of how we fit in it.
-            </p>
+                Resistant Atlas is an ongoing digital humanities project that explores the reconstruction of lost
+                environmental logics through critical essays, digital tools, and physical artifacts. </p>
 
             <p>
-                this project stems from a deep exploration of the temporal frameworks that govern our lives.
-                how can we move beyond rigid, universalized notions of time and reclaim our autonomy over how we
-                experience it? how can we take back time?
+                below is documentation of first prototype review (apr 29th) </p>
 
-            </p>
-            <p>
-                look around you. the sun, the moon, the direction of the wind, the stars, the clouds, the rain, all
-                communicate time and space. they
-                are the original clock, calendar, compass, and map. they are the
-                original timekeepers. you measure them with your eyes, the tilt of your head, you can tell time using
-                the dimensions of your hands, you can read the sky as easily as you read a clock face. as intuitively as
-                you use google maps. and this is how people lived for thousands and thousands of years.
-            </p>
-            <p>
-                without a clock, we are lost. without a calendar, we are lost. without a compass, we are lost. without a
-                map, we are lost. how did this happen? how did we become so dependent on these tools? where did these
-                tools come from? who created them? who enforced them? and why are they so natural to us today?
-            </p>
-            <p>
-                how did
-                we lose
-                our connection to the natural world? who pushed that narrative? who benefits from it?
-            </p>
-            <p>
-                the time and
-                space we have lived by is linear, imperial, politicized, and
-                standardized. the minute is
-                not so innocent.
+            <!-- Exhibition Components -->
+            <section class="exhibition-components">
 
-            <p>
-                this project is meant to serve as a <strong>critique</strong> to how:<br><br>
-            </p>
+                <!-- Reverse Sundial (Daytime Use) -->
+                <div class="component">
+                    <h3>1. <strong>Reverse Sundial (Daytime Use)</strong></h3>
+                    <p>A 5-ft diameter acrylic “reverse” sundial that uses the sun’s gleam (as opposed to its shadow) to
+                        reveal which sun from the <em>Resistant Atlas: Names of the Sun</em> research corresponds to the
+                        sun
+                        overhead. Rather than telling time, it translates the sun’s visual alignment into the
+                        definitions drawn from the meteorology archives.</p>
 
-            <ul>
-                time is <strong>politicized</strong>. <br>
-                time is <strong>imperial</strong>.<br>
-                time is <strong>linear</strong>.<br>
-                time is <strong>imposed</strong>.<br><br>
-            </ul>
+                    <!-- Video Row -->
+                    <div class="video-row">
+                        <!-- First Video -->
+                        <div class="gallery-item" data-caption="outdoor sundial setup">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/sundialvideo1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Second Video -->
+                        <div class="gallery-item" data-caption="details">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/sundialvideo2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <p></p>
 
-            <p>
-                our devices, our history, our perception of time, and
-                our language reflect that.
-            </p>
+                    <!-- Image Row (Below the videos) -->
+                    <div class="image-row">
+                        <div class="gallery-item" data-caption="reverse sundial">
+                            <img src="assets/finalreviewimages/1.png" alt="Reverse Sundial Daytime">
+                        </div>
+                    </div>
+                    <br><br>
 
-            <p>
+                    <div class="gallery-container">
+                        <div class="gallery-pages">
+                            <!-- Page 1 -->
+                            <div class="gallery-page" id="page-1">
+                                <img src="assets/finalreviewimages/page1.png" alt="Page 1">
+                                <p>1. reverse sundial, designed for outside</p>
+                            </div>
 
-                take a moment to imagine how people lived before the clock, the calendar, the compass, and the map. how
-                did they know when to wake up, when to sleep, when to plant, when to harvest, when to move, when to
-                stay, when to celebrate, when to mourn? how did they know where they were, where they were going, where
-                they came from?
-            </p>
-            <p>
-                if i took away your phone, could you do the same?
-            </p>
-            <p>
-                this project promises that you can. and it teaches you how to do it. and with that, you can explore
-                temporal imaginaries that stretch beyond time as we know it.
+                            <!-- Page 2 -->
+                            <div class="gallery-page" id="page-2">
+                                <img src="assets/finalreviewimages/page2.png" alt="Page 2">
+                                <p>2. Establishing Parameters </p>
+                            </div>
 
-            </p>
-        </section>
+                            <!-- Page 3 -->
+                            <div class="gallery-page" id="page-3">
+                                <img src="assets/finalreviewimages/page3.png" alt="Page 3">
+                                <p>3. Sundial Components</p>
+                            </div>
 
-        <!-- Commenting out video section
+                            <!-- Page 4 -->
+                            <div class="gallery-page" id="page-4">
+                                <img src="assets/finalreviewimages/page4.png" alt="Page 4">
+                                <p> _</p>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Controls -->
+                        <div class="controls">
+                            <button id="prev-btn" onclick="changePage('prev')">prev</button>
+                            <button id="next-btn" onclick="changePage('next')">nxt</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The custom cursor text -->
+                <div class="cursor-text"></div> <!-- The text will appear here --> </div>
+                <!-- Reverse Sundial (Nighttime Use) -->
+                <div class="component">
+                    <h3>2. <strong>Reverse Sundial (Nighttime Use)</strong></h3>
+                    <p>After dark, or indoors, the sundial transforms into an interactive installation. A projected
+                        interface maps onto the dial, and as the arm moves, it dynamically updates to display the
+                        corresponding sun name in real time.</p>
+
+                    <!-- Video Row -->
+                    <div class="video-row">
+                        <!-- First Video -->
+                        <div class="gallery-item" data-caption="indoor projections onto sundial">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/indoorsundial1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Second Video -->
+                        <div class="gallery-item" data-caption="close up of projection">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/indoorsundial2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <br>
+                    </div>
+
+
+                </div>
+
+                <!-- Remote-Controlled Miniature Sun -->
+                <div class="component">
+                    <h3>3. <strong>Remote-Controlled Miniature Sun</strong></h3>
+                    <p>A handheld sundial, which is connected to the larger installation, allows viewers to point toward
+                        any part of the sky, in which the larger dial will respond to in real time. This component
+                        reintroduces the embodied, environmental logic once used to understand the sun to the viewer in
+                        today’s time and orientation logic. This system integrates Arduino, ESP32, JavaScript, and
+                        TouchDesigner.</p>
+
+                    <!-- Image and Video -->
+                    <div class="video-row">
+                        <!-- First Video -->
+                        <div class="gallery-item" data-caption="controls the above projections">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/remotedial1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Image Row (Below the videos) -->
+                    <div class="image-row">
+                        <div class="gallery-item" data-caption="remote details">
+                            <img src="assets/finalreviewimages/remote1.png" alt="Sun Remote 1">
+                        </div>
+                        <br>
+                        <div class="gallery-item" data-caption="remote details">
+                            <img src="assets/finalreviewimages/remote2.png" alt="Sun Remote 2">
+                        </div>
+                    </div>
+                    <br>
+                    <p>the above remote is connected to the larger projection and controls it in real time.</p>
+
+
+                    <!-- Booklet – Resistant Atlas: Names of the Sun -->
+                    <div class="component">
+                        <h3>4. <strong>Booklet – Resistant Atlas: Names of the Sun</strong></h3>
+                        <p>A printed booklet archiving the sun names explored in this project.</p>
+
+
+                        <!-- Installation Photos -->
+                        <div class="image-row">
+                            <div class="gallery-item" data-caption="booklet1">
+                                <img src="assets/finalreviewimages/booklet1.png" alt="Names of the sun booklet">
+                            </div>
+                        </div>
+                        <div class="image-row">
+                            <div class="gallery-item" data-caption="page sample">
+                                <img src="assets/finalreviewimages/bookletpage1.png" alt="Page sample 1">
+                            </div>
+                            <p></p>
+                            <br>
+                            <div class="gallery-item" data-caption="page sample">
+                                <img src="assets/finalreviewimages/bookletpage2.png" alt="Page sample 2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pamphlets -->
+                    <div class="component">
+                        <h3>5. <strong>Pamphlets</strong></h3>
+                        <p>A collection of pamphlets outlining the methodology of <em>names of the sun</em> and several
+                            projects under resistant atlas, such as <em>houses of the moon</em> and
+                            <em>cloudspotter.</em>
+                        </p>
+                        <div class="image-row">
+                            <div class="gallery-item" data-caption="pamphlets">
+                                <img src="assets/finalreviewimages/pamphlet1.png" alt="pamphlets">
+                            </div>
+                            <p></p>
+                            <br>
+                            <div class="gallery-item" data-caption="pamphlets">
+                                <img src="assets/finalreviewimages/pamphlet2.png" alt="pamphlets">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="component">
+                        <h3> <strong>next..</strong></h3>
+                        <p>The upcoming exploration, <em>Houses of the Moon</em>, is a study of lunar stations,
+                            or where the moon seems to mark the night sky,
+                            and the intricate environmental logic they chart over time. they hold immense historical,
+                            navigational, and
+                            poetic significance, and these movements shaped the temporal and spatial frameworks we are
+                            familiar with
+                            today </p>
+                        </p>
+                        <div class="image-row">
+                            <div class="gallery-item" data-caption="houses of the moon Pamphlets">
+                                <img src="assets/finalreviewimages/houses-53.png" alt="houses of the moon ">
+                            </div>
+                            <p></p>
+                            <br>
+                            <div class="gallery-item"
+                                data-caption="poetry relating to the sight of one of the houses of the moon">
+                                <img src="assets/finalreviewimages/houses-54.png" alt="houses of the moon ">
+                            </div>
+                        </div>
+                        <div class="image-row">
+                            <div class="gallery-item" data-caption="house 2: the little belly">
+                                <img src="assets/finalreviewimages/houses-55.png" alt="houses of the moon ">
+                            </div>
+                            <p></p>
+                            <br>
+                            <div class="gallery-item" data-caption="houses acrylic dial">
+                                <img src="assets/finalreviewimages/houses-56.png" alt="houses of the moon ">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="video-row">
+                        <!-- First Video -->
+                        <div class="gallery-item" data-caption="houses acrylic dial">
+                            <video autoplay loop muted>
+                                <source src="assets/finalreviewimages/houses of the moon.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Commenting out video section
         <section id="video-section" class="section">
             <video autoplay loop muted playsinline class="timeline-video" aria-label="Project timeline video">
                 <source src="assets/timeline.mp4" type="video/mp4">
@@ -128,7 +290,7 @@
         </section>
         -->
 
-        <!-- Commenting out structure section
+            <!-- Commenting out structure section
         <section id="structure" class="section">
             <h2>website guidebook</h2>
             <p>
@@ -144,7 +306,7 @@
         </section>
         -->
 
-        <section id="canva-embed" class="section">
+            <!-- <section id="canva-embed" class="section">
             <h2>propose review presentation:</h2>
             <p>as presented on december 10th, 2024</p>
             <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
@@ -157,7 +319,7 @@
                 </iframe>
             </div>
 
-        </section>
+        </section> -->
     </main>
     <script src="script.js"></script>
 </body>
