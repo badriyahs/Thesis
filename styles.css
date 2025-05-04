@@ -796,7 +796,7 @@ details[open] p.answer {
     /* Slightly transparent background */
     border-radius: 5px;
     pointer-events: none;
-    transform: translate(-50%, -50%);
+    transform: translate(3px, 3px);
     /* Center the cursor text */
     z-index: 1000;
     display: none;
@@ -807,6 +807,7 @@ details[open] p.answer {
 .gallery-item:hover .caption {
     visibility: visible;
     opacity: 1;
+
 }
 
 /* Caption styling */
