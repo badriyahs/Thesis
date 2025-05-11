@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essays</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* DROPDOWN ESSAY BUTTON STYLES */
+        .essay-button {
+            display: inline-block;
+            text-align: center;
+            margin: 1rem 0;
+            padding: 8px 20px;
+            /* Match sidebar padding */
+            font-size: 1rem;
+            /* Match sidebar font size */
+            font-weight: 300;
+            /* Match sidebar font weight */
+            font-family: 'Roboto Mono', monospace;
+            /* Ensure Roboto Mono is applied */
+            text-transform: lowercase;
+            /* Match sidebar text-transform */
+            color: #333;
+            /* Match sidebar font color */
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 30px;
+            /* Match sidebar border radius */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .essay-button:hover {
+            background-color: white;
+            color: red;
+            border-color: red;
+        }
+
+        /* Essay Content Section */
+        .essay-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border: 1px solid black;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .essay-content.active {
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .smaller-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+
+        }
+
+        .smaller-text-grey {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #989898;
+
+        }
+
+        .new-title-icon {
+            width: 100px;
+            /* Adjust the size of the image */
+            height: auto;
+            /* Maintain aspect ratio */
+            vertical-align: middle;
+            /* Ensure it's vertically aligned */
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .bordered-section {
+            border: 1px solid #000;
+            /* Thin black border */
+            border-radius: 10px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Space inside the section */
+            margin-bottom: 20px;
+            /* Space between sections */
+        }
+
+        .bordered-section h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            /* Remove top margin of the section title */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Menu -->
+    <nav class="sidebar-menu">
+        <ul>
+            <li><a href="../index.html">home</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <section id="home" class="section">
+            <div class="title-container">
+                <img src="/assets/portfolio-icon.png" alt="Project Icon" class="new-title-icon">
+
+            </div>
+            <div>
+                <h2 class="title">
+                    <span class="highlight">a year of cdp</span>
+                </h2>
+            </div>
+
+            <p class="subtitle">(student portfolio for the <a
+                    href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices"
+                    target="_blank">m.s.cdp</a> program at Columbia University, Summer 2024 to Spring 2025)
+            </p>
+            <p class="subtitle">by badriyah alsalem</p>
+
+            <p class="smaller-text">this year has been a whirlwind of learning, growth, and exploration into the
+                frustrating and wonderful world of computation. i’ve been fortunate to work with incredible professors
+                and
+                peers, and this is a collection of some of my favorite projects.</p>
+        </section>
+
+
+
+
+        <section id="projects" class="section">
+            <!-- SUMMER BLOCK -->
+
+
+            <p class="header">summer '24 - temporal exploration</p>
+
+            <section class="bordered-section">
+                <h2>temporal exploration</h2>
+                <p class="smaller-text-grey">
+                    class: methods as practice, practice as methods colloquium.
+                    <br>
+                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                        martin</a>
+                </p>
+                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
+                    manipulated through architecture. the project began with collecting data from my peers about how
+                    time is perceived in our studio space.
+                </p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
+                    the politicization of each.</p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </section>
+
+
+
+            <!-- FALL BLOCK -->
+            <p class="header">fall '24 - computational experiments</p>
+
+            <section class="bordered-section">
+                <h2>computational experiments</h2>
+                <p class="smaller-text-grey">
+                    class: methods as practice, practice as methods colloquium.
+                    <br>
+                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                        martin</a>
+                </p>
+                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
+                    manipulated through architecture. the project began with collecting data from my peers about how
+                    time is perceived in our studio space.
+                </p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
+                    the politicization of each.</p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </section>
+
+
+
+
+
+            <!-- SPRING -->
+            <p class="header">spring '25 - following a curiousity</p>
+
+            <section class="bordered-section">
+                <h2>computational experiments</h2>
+                <p class="smaller-text-grey">
+                    class: methods as practice, practice as methods colloquium.
+                    <br>
+                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                        martin</a>
+                </p>
+                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
+                    manipulated through architecture. the project began with collecting data from my peers about how
+                    time is perceived in our studio space.
+                </p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
+                    the politicization of each.</p>
+                <div>
+                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </section>
+
+
+
+
+
+
+
+            <section class="bordered-section">
+                <h2>computational e</h2>
+                <p>This is some content inside another section.</p>
+            </section>
+
+</body>
+
+</html>
