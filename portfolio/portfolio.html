@@ -4,113 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essays</title>
+    <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <style>
-        /* DROPDOWN ESSAY BUTTON STYLES */
-        .essay-button {
-            display: inline-block;
-            text-align: center;
-            margin: 1rem 0;
-            padding: 8px 20px;
-            /* Match sidebar padding */
-            font-size: 1rem;
-            /* Match sidebar font size */
-            font-weight: 300;
-            /* Match sidebar font weight */
-            font-family: 'Roboto Mono', monospace;
-            /* Ensure Roboto Mono is applied */
-            text-transform: lowercase;
-            /* Match sidebar text-transform */
-            color: #333;
-            /* Match sidebar font color */
-            background-color: white;
-            border: 1px solid black;
-            border-radius: 30px;
-            /* Match sidebar border radius */
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
+    <link rel="stylesheet" href="../portfolio/portfolio.css">
 
-        .essay-button:hover {
-            background-color: white;
-            color: red;
-            border-color: red;
-        }
-
-        /* Essay Content Section */
-        .essay-content {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background-color: #f9f9f9;
-            border: 1px solid black;
-            border-radius: 8px;
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .essay-content.active {
-            display: block;
-        }
-
-        .subtitle {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            font-style: italic;
-        }
-
-        .smaller-text {
-            font-size: 0.9rem;
-            line-height: 1.5;
-
-        }
-
-        .smaller-text-grey {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #989898;
-
-        }
-
-        .new-title-icon {
-            width: 100px;
-            /* Adjust the size of the image */
-            height: auto;
-            /* Maintain aspect ratio */
-            vertical-align: middle;
-            /* Ensure it's vertically aligned */
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .bordered-section {
-            border: 1px solid #000;
-            /* Thin black border */
-            border-radius: 10px;
-            /* Rounded corners */
-            padding: 20px;
-            /* Space inside the section */
-            margin-bottom: 20px;
-            /* Space between sections */
-        }
-
-        .bordered-section h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            /* Remove top margin of the section title */
-        }
-    </style>
 </head>
 
 <body>
@@ -118,143 +15,428 @@
     <nav class="sidebar-menu">
         <ul>
             <li><a href="../index.html">home</a></li>
-
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!-- PROJECT ICON AND TITLE -->
+
     <main class="main-content">
 
         <section id="home" class="section">
             <div class="title-container">
-                <img src="/assets/portfolio-icon.png" alt="Project Icon" class="new-title-icon">
+                <img src="/assets/portfolio-assets/portfolio-icon.png" alt="Project Icon" class="new-title-icon">
 
             </div>
             <div>
                 <h2 class="title">
+                    <br>
+                    <br>
+                    <br>
                     <span class="highlight">a year of cdp</span>
                 </h2>
             </div>
 
             <p class="subtitle">(student portfolio for the <a
                     href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices"
-                    target="_blank">m.s.cdp</a> program at Columbia University, Summer 2024 to Spring 2025)
+                    target="_blank">m.s.cdp</a> program at Columbia University
+                <br>
+                by badriyah alsalem)
             </p>
-            <p class="subtitle">by badriyah alsalem</p>
 
             <p class="smaller-text">this year has been a whirlwind of learning, growth, and exploration into the
-                frustrating and wonderful world of computation. i’ve been fortunate to work with incredible professors
+                frustrating and wonderful world of computation. i’ve been fortunate to work with incredible
+                professors
                 and
                 peers, and this is a collection of some of my favorite projects.</p>
         </section>
 
+        <!-- PROJECTS SECTION -->
+
+
+
+
+
+        <!--SUMMER!!!-->
 
 
 
         <section id="projects" class="section">
-            <!-- SUMMER BLOCK -->
+
+            <p class="header">summer '24 - <em>temporal exploration</em></p>
+
+            <!--PROJECT 1!!!-->
+
+            <details open>
+                <summary class="collapse-title">temporal research</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a historical dive into the
+                        development of
+                        timekeeping devices, and how, with each era, our temporal imagination followed the affordances
+                        of the tools.</p>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+
+                    </ul>
 
 
-            <p class="header">summer '24 - temporal exploration</p>
-
-            <section class="bordered-section">
-                <h2>temporal exploration</h2>
-                <p class="smaller-text-grey">
-                    class: methods as practice, practice as methods colloquium.
-                    <br>
-                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
-                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
-                        martin</a>
-                </p>
-                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
-                    manipulated through architecture. the project began with collecting data from my peers about how
-                    time is perceived in our studio space.
-                </p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
                 </div>
-                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
-                    the politicization of each.</p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
+
+            </details>
+
+
+
+            <!-- PROJECT 2!!! KADA -->
+
+
+
+            <details open>
+                <summary class="collapse-title">KADA: cir'kada'ian response tool</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/kada3.png" alt="KADA logo"
+                            style="max-width: 40%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+                    <p class="smaller-text"><strong>
+                            "the sun not working with your schedule? want to take back control of time? try KADA, the
+                            revolutionary new helmet that will change your life! those pesky earth cycles will
+                            bother you no more!" </strong>
+                    </p>
+
+                    <p class="smaller-text">a satirical ad campaign for a helmet that controls your circadian
+                        rhythm
+                        through
+                        light and sound, as well as using AR to filter the world you interact with. this
+                        project reflects the politics embedded in temporal perception, and how
+                        that reflects through design.
+                    </p>
+                    <p>
+                        the campaign includes a series of posters, a website, and a booklet with research, testimonials,
+                        a user manual, etc.</p>
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/kada3.gif" alt="helmet ads"
+                            style="max-width: 70%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/kada4.png" alt="vintage ads"
+                            style="max-width: 73%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+                    <!-- <p class="image-caption">A speculative design project exploring the politics of temporal perception.
+                    </p> -->
+
+
+
+
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/kada5.gif" alt="Description of the image"
+                            style="max-width: 80%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+
+
+            </details>
+
+
+            <!-- PROJECT 3 !! SUN SCHEDULE-->
+
+
+            <details open>
+                <summary class="collapse-title">sun schedule</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: computational modelling
+                        <br>
+                        professors: <a href="https://www.kpf.com/people/luc-wilson" target="_blank">luc wilson</a> and
+                        <a href="https://www.meliharvey.com/" target="_blank">meli
+                            harvey</a>
+                    </p>
+                    <p class="smaller-text"><em>How do we correlate the movement of time and your movement in
+                            space?</em> <br>
+                        Time-geography is a conceptual geographic framework initially developed in the late 1960s and
+                        the
+                        early 1970s by the Swedish geographer Torsten Hägerstrand (1916–2004).</p>
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/sunsched1.png" alt="sun schedule"
+                            style="max-width: 73%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+                    <p class="image-caption"> structure of basic hagerstread time geography graph</p>
+
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/sunsched2.png" alt="sun schedule"
+                            style="max-width: 73%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+
+                    <p class="image-caption"> "on the left a household as a bundle, on the right a school." - after
+                        carlstein
+                    </p>
+                    <p class="smaller-text">so i should prbably analyze the typical time-space data of a typical
+                        student. i will start with myself. a typical day looks like this:</p>
+
+                    <div class="image-container">
+                        <img src="../assets/portfolio-assets/sunsched3.png" alt="sun schedule"
+                            style="max-width: 60%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+                    </div>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                    </ul>
+
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
                 </div>
-            </section>
+
+            </details>
 
 
 
-            <!-- FALL BLOCK -->
-            <p class="header">fall '24 - computational experiments</p>
+            <!-- FALL !!-->
 
-            <section class="bordered-section">
-                <h2>computational experiments</h2>
-                <p class="smaller-text-grey">
-                    class: methods as practice, practice as methods colloquium.
-                    <br>
-                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
-                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
-                        martin</a>
-                </p>
-                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
-                    manipulated through architecture. the project began with collecting data from my peers about how
-                    time is perceived in our studio space.
-                </p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
+
+
+            <p class="header">fall '24 - <em>computational experiments</em></p>
+
+
+            <!-- PROJECT 4 !!-->
+
+            <details open>
+                <summary class="collapse-title">cloudspotter</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+
+                    </ul>
+
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
                 </div>
-                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
-                    the politicization of each.</p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
+
+            </details>
+
+
+            <!-- PROJECT 5 !!-->
+
+
+            <details open>
+                <summary class="collapse-title">metatool</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                    </ul>
+
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
                 </div>
-            </section>
+
+            </details>
 
 
 
+            <!-- PROJECT 6 !!-->
 
 
-            <!-- SPRING -->
-            <p class="header">spring '25 - following a curiousity</p>
 
-            <section class="bordered-section">
-                <h2>computational experiments</h2>
-                <p class="smaller-text-grey">
-                    class: methods as practice, practice as methods colloquium.
-                    <br>
-                    professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
-                        whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
-                        martin</a>
-                </p>
-                <p class="smaller-text">i was interested in the idea of time as a material, and how it can be
-                    manipulated through architecture. the project began with collecting data from my peers about how
-                    time is perceived in our studio space.
-                </p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
+            <details open>
+                <summary class="collapse-title" open>digital sundial</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                    </ul>
+
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
                 </div>
-                <p class="smaller-text">then the project was a deep dive into the history of timekeeping devices, and
-                    the politicization of each.</p>
-                <div>
-                    <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
-                        style="max-width: 100%; height: auto; border-radius: 8px;">
+
+            </details>
+
+
+
+
+
+            <!-- SPRING !!-->
+
+
+
+            <p class="header">spring '25 - <em>thesis</em></p>
+
+
+            <!-- PROJECT 4 !!-->
+
+            <details open>
+                <summary class="collapse-title">temporal research</summary>
+
+                <div class="bordered-section">
+                    <p class="smaller-text-grey">
+                        class: methods as practice, practice as methods colloquium.
+                        <br>
+                        professors: <a href="https://www.linkedin.com/in/violetwhitney/" target="_blank">violet
+                            whitney</a> and <a href="https://www.linkedin.com/in/awmartin/" target="_blank">william
+                            martin</a>
+                    </p>
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
+
+                    <ul>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                        <li>
+                            <em>Raqs Media Collective</em> – While their artistic outputs aren't necessarily
+                            what i'm trying to create, their work conveys a similar critique of standardized
+                            narratives,
+                            and cultural explorations of time and space.
+                        </li>
+                    </ul>
+
+                    <p class="smaller-text">this project explores the relationship between time and space through
+                        architecture. it began with data collection and continues with a deep dive into the history of
+                        timekeeping devices.</p>
                 </div>
-            </section>
+
+            </details>
+
+
+        </section>
 
 
 
-
-
-
-
-            <section class="bordered-section">
-                <h2>computational e</h2>
-                <p>This is some content inside another section.</p>
-            </section>
+    </main>
 
 </body>
 
+
 </html>
+
+<!-- Section 1: Temporal Exploration -->
+<!--   <div class="bordered-section"> this is the bigger white border 
+
+                <details class="accordion-details">
+                    <summary class="collapse-title">how we know time</summary>
+                    <div class="accordion-content">
+                        <p class="smaller-text">This section explores time as a material and how it can be
+                            manipulated through architecture. The project began with data collection and continues
+                            with a deep dive into the history of timekeeping devices.</p>
+                        <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                            style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </details>
+
+
+            </div> -->
+
+
+
+<!--  </section>
+        <section id="essays" class="section">
+            <h1 class="section-title">Essays</h1>
+            <p>obviously i have a lot more to say, but this is just what i wanted to express for colloquium ii
+                (proposal). more to come for the final. here it is:</p>
+            <div class="essay-content">
+                <p class="smaller-text">This is a placeholder for the essay content. Add your essays here to provide
+                    more details.</p>
+            </div>
+        </section>-->
