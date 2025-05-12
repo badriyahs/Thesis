@@ -296,3 +296,119 @@ a {
     /* Inherit color from parent */
     text-decoration: underline;
 }
+
+/* Global Styles */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* Portfolio container */
+.portfolio-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    /* background-color: ; */
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Add some space between the items */
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns by default for larger images */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    /* Optional: Adjust max-width to prevent it from stretching too wide */
+    margin: 0 auto;
+
+}
+
+/* Image Item */
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+    /* border: 0.5px solid #000; */
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    /* Ensures images maintain their aspect ratio */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay (Project Name) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-item:hover .overlay {
+    opacity: 1;
+}
+
+.project-name {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    text-align: center;
+    font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+        /* 1 column on mobile */
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 1px;
+    color: #333;
+    font-size: 0.8rem;
+    margin-top: 50px;
+    font-style: italic;
+    /* Space above the footer */
+}
+
+#temporal-research {
+    padding-top: 50px;
+    /* or any value that gives enough space above the section */
+    margin-top: -50px;
+    /* Make sure it's not pushing the section too far down */
+}
