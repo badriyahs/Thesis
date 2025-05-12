@@ -1,0 +1,298 @@
+/* styles.css */
+
+/* Apply Roboto Mono */
+
+body {
+    font-family: 'Roboto Mono';
+    background-color: #fff;
+    /* Fully white background */
+    color: black;
+    /* Dark gray for text THIS IS FOR THE TITLE!!!!!*/
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    text-transform: lowercase;
+    font-size: 0.9rem;
+    /* Increase the base size slightly */
+    line-height: 1.9;
+    /* Adjust line height for readability */
+    font-weight: 300;
+    /* Light font weight for body text */
+
+
+    display: flex;
+    /* Align sidebar and content side by side */
+    flex-direction: row;
+    /* Sidebar and content in a row */
+    text-align: left;
+
+}
+
+/* New class for grey and italic text */
+.grey-italic-text {
+    color: #808080;
+    /* Grey color */
+    font-style: italic;
+    /* Italic text */
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p {
+    margin-bottom: 50px;
+    /* Adjust the value to increase/decrease the spacing */
+}
+
+html {
+    cursor: url('assets/cursors/cursor3.png'), auto;
+}
+
+/* Change cursor for clickable elements (links and buttons) */
+a:hover,
+button:hover {
+    cursor: url('assets/cursors/cursor3red.png'), pointer;
+}
+
+p:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 20% opacity */
+}
+
+.highlight:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 31.4% opacity FOR TITLE HOBER!!!*/
+}
+
+/* Hover effect for the question (summary) */
+details summary:hover {
+    background-color: rgba(255, 0, 0, 0.314);
+    /* Red color with 31.4% opacity */
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    width: 200px;
+    /* Fixed width for the sidebar */
+    height: 100vh;
+    /* Full height of the viewport */
+    background-color: white;
+    /* Light background color */
+    /*box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for separation */
+    display: flex;
+    /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    justify-content: center;
+    /* Center the menu vertically */
+    align-items: center;
+    /* Center the menu horizontally */
+    padding: 1rem 0;
+    box-sizing: border-box;
+    position: fixed;
+    /* Sidebar stays in place while scrolling */
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    /* Ensure it stays on top */
+}
+
+/* Sidebar Menu Links */
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Space between menu items */
+}
+
+.sidebar-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    /* Dark text for links */
+    font-weight: 300;
+    padding: 8px 20px;
+    border: 1px solid black;
+    /* Border around links */
+    border-radius: 30px;
+    /* Rounded corners */
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center;
+}
+
+.sidebar-menu ul li a:hover {
+    background-color: white;
+    /* Light background on hover */
+    color: red;
+    /* Hovered text becomes red */
+    border-color: red;
+    /* Dashed border turns red */
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 200px;
+    /* Create space for the sidebar */
+    padding: 1rem;
+    width: calc(100% - 200px);
+    /* Dynamically adjust width */
+    box-sizing: border-box;
+    text-align: left;
+    /* Ensures all paragraphs are left-aligned */
+
+}
+
+.title-container {
+    display: flex;
+
+    align-items: center;
+    /* Vertically align the image and text */
+    justify-content: flex-start;
+    /* Ensure they align to the left */
+    gap: 10px;
+    /* Space between the image and the text */
+    margin-bottom: 1rem;
+    /* Space below the title section */
+    margin: 0;
+    padding: 0;
+
+
+}
+
+.title-icon {
+    width: 50px;
+    /* Adjust the size of the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    vertical-align: middle;
+    /* Ensure it's vertically aligned */
+    margin: 0;
+    padding: 0;
+}
+
+.title-icon {
+    transform: translateY(70%);
+
+
+
+    /* Adjust the image up/down as needed */
+}
+
+/* Section Titles */
+.section-title {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Image Container */
+.image-container {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    /* Smaller font for captions */
+    color: #666;
+    /* Grey color for captions */
+
+    /* Space between image and caption */
+    text-align: center;
+}
+
+/* Sections */
+.section {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    /* Increase font size */
+    margin-bottom: 1.5rem;
+    /* Add more space below */
+    font-weight: 700;
+    /* Make it bolder */
+    /* Optional: Center-align the title */
+}
+
+.section p,
+.section ul {
+    /* Ensures all paragraphs are left-aligned */
+
+    /* color: yellowgreen; */
+    /* * Uniform dark text  THIS IS FOR THE BODY TEXT!!!*/
+
+    /* font-weight: 300; */
+}
+
+
+.subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.smaller-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+}
+
+.smaller-text-grey {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #989898;
+    font-style: italic;
+
+}
+
+.header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.bordered-section {
+    border: 1px solid #000;
+    /* Thin black border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 20px;
+    /* Space inside the section */
+    margin-bottom: 20px;
+    /* Space between sections */
+}
+
+.bordered-section h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    /* Remove top margin of the section title */
+}
+
+.new-title-icon {
+    width: 100px;
+    /* Adjust the size of the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    vertical-align: middle;
+    /* Ensure it's vertically aligned */
+    margin: 0;
+    padding: 0;
+}
+
+/* LINKSSS */
+a {
+    color: inherit;
+    /* Inherit color from parent */
+    text-decoration: underline;
+}

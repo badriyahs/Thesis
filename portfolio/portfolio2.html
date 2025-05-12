@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapsible Sections</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto Mono';
+            background-color: #fff;
+            /* Fully white background */
+            color: black;
+            /* Dark gray for text THIS IS FOR THE TITLE!!!!!*/
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            text-transform: lowercase;
+            font-size: 1.1rem;
+            /* Increase the base size slightly */
+            line-height: 1.9;
+            /* Adjust line height for readability */
+            font-weight: 300;
+            /* Light font weight for body text */
+
+
+            display: flex;
+            /* Align sidebar and content side by side */
+            flex-direction: row;
+            /* Sidebar and content in a row */
+            text-align: left;
+
+        }
+
+        /* Styling for each accordion section */
+        .accordion {
+            margin: 40px;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.35s;
+            padding: 1rem;
+            border-radius: 30px;
+
+            margin-top: 10px;
+        }
+
+        .accordion-details[open] .accordion-content {
+            max-height: 10rem;
+        }
+
+        .accordion .collapse {
+            display: flex;
+            color: black;
+            background: rgb(234, 234, 234);
+            /* Custom theme color */
+            cursor: pointer;
+            justify-content: space-between;
+            padding: 1rem;
+            border-radius: 10px;
+
+        }
+
+        .collapse::after {
+            content: "\276F";
+            /* Right-pointing triangle */
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transform: rotate(90deg);
+            transition: all 0.35s;
+        }
+
+        .accordion-details[open] .collapse::after {
+            transform: rotate(270deg);
+            /* Rotates to down-pointing triangle */
+        }
+
+        .accordion .collapse:hover {
+            background-color: #333;
+            /* Darken on hover */
+        }
+
+
+
+
+        .accordion .bordered-section {
+            border: 1px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .accordion .bordered-section h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .smaller-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="main-content">
+        <section id="projects" class="section">
+            <div class="accordion">
+                <!-- Section 1: Temporal Exploration -->
+                <div class="bordered-section">
+                    <details class="accordion-details">
+                        <summary class="collapse">how we know time</summary>
+                        <div class="accordion-content">
+                            <p class="smaller-text">This section explores time as a material and how it can be
+                                manipulated through architecture. The project began with data collection and continues
+                                with a deep dive into the history of timekeeping devices.</p>
+                            <img src="/portfolio-assets/time-perception.gif" alt="Time Perception Visualization"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Section 2: Computational Experiments -->
+                <div class="bordered-section">
+                    <details class="accordion-details">
+                        <summary class="collapse">Computational Experiments</summary>
+                        <div class="accordion-content">
+                            <p class="smaller-text">This section explores computational experiments with temporal data.
+                            </p>
+                            <img src="/portfolio-assets/time-perception.gif" alt="Computational Experiments"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Section 3: Sun Schedule -->
+                <div class="bordered-section">
+                    <details class="accordion-details">
+                        <summary class="collapse">Sun Schedule</summary>
+                        <div class="accordion-content">
+                            <p class="smaller-text">In this project, we looked at the sun’s movement and its effects on
+                                time perception across different geographical locations.</p>
+                            <img src="/portfolio-assets/time-perception.gif" alt="Sun Schedule"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Toggle the collapse state of each section
+        document.querySelectorAll('.accordion-details').forEach(item => {
+            const button = item.querySelector('.collapse-button');
+            const content = item.querySelector('.accordion-content');
+            const summary = item.querySelector('summary');
+
+            button.addEventListener('click', function () {
+                // Toggle the visibility of the content
+                content.classList.toggle('active');
+
+            });
+
+            summary.addEventListener('click', function () {
+                // If clicked, also toggle visibility
+                content.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
