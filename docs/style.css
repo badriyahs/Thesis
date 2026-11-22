@@ -1,0 +1,373 @@
+/* =============================================================
+   resistant atlas — styles shared by every page
+   ============================================================= */
+
+:root {
+  --ink: rgba(0, 0, 0, 0.85);
+  --paper: #f9f8f2;            /* the cream page */
+  --night: #161616;            /* the dark background and frame */
+  --pink: #e5bfae;             /* outline of the "still being updated" pill */
+  --column: 40%;               /* width of the page on a computer screen */
+  --frame: 2.4rem;             /* dark frame around the page */
+  --gutter: 2.5rem;            /* space between columns */
+}
+
+* { box-sizing: border-box; }
+
+/* Text size grows with the window, like it did on Cargo. */
+html {
+  font-size: max(10px, 1.08vw);
+  background: var(--night);
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font-family: "Newsreader", "Noto Naskh Arabic", Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: 1.15rem;
+  font-weight: 470;
+  line-height: 1.2;
+  letter-spacing: 0.003em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- the page column ---------- */
+
+.page {
+  width: var(--column);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--paper);
+  border: var(--frame) solid var(--night);
+  padding: 1.6rem 3.6rem 1.6rem 1.6rem;
+}
+
+/* The frame stays put while the page scrolls under it. */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--column);
+  transform: translateX(-50%);
+  border: var(--frame) solid var(--night);
+  pointer-events: none;
+}
+
+/* ---------- page title (number + name, set in from the left) ---------- */
+
+.title {
+  margin: 0 0 3.6em;
+  padding-left: calc((100% - var(--gutter)) / 6 + var(--gutter));
+}
+
+.title p,
+.title h1 {
+  margin: 0 0 1.2em;
+  font: inherit;
+}
+
+/* ---------- text ---------- */
+
+p { margin: 0 0 1.2em; }
+p.indent { text-indent: 4.5em; }
+
+b, strong { font-weight: 700; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:active { opacity: 0.7; }
+
+h3 {
+  font: inherit;
+  font-weight: 700;
+  margin: 1em 0;
+}
+
+blockquote {
+  margin: 0 0 1.2em;
+  padding-left: 2em;
+}
+
+ol {
+  margin: 0 0 1.2em;
+  padding-left: 2.5em;
+  list-style-type: decimal-leading-zero;
+}
+
+ul {
+  margin: 0;
+  padding-left: 2em;
+}
+
+li { margin-bottom: 0.3em; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 0.3rem 0 1.6em;
+}
+
+sub {
+  position: relative;
+  vertical-align: baseline;
+  top: 0.3em;
+  font-size: 0.77em;
+}
+
+.center { text-align: center; }
+.right  { text-align: right; }
+.larger { font-size: 1.2em; }
+
+/* Lines up with the page title, e.g. <p class="inset">I</p> */
+.inset { padding-left: calc((100% - var(--gutter)) / 6 + var(--gutter)); }
+
+/* Arabic text */
+[dir="rtl"] {
+  font-family: "Noto Naskh Arabic", "Newsreader", serif;
+  line-height: 1.8;
+}
+
+/* Journal entries */
+.journal {
+  font-size: 1.25rem;
+  font-weight: 540;
+  line-height: 1.55;
+  letter-spacing: 0.008em;
+  color: rgba(83, 83, 83, 0.85);
+  margin-bottom: 1.2em;
+}
+
+/* Small text: captions and footnotes */
+figcaption,
+.notes {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.006em;
+}
+
+/* ---------- images and videos ---------- */
+
+figure {
+  margin: 0 0 1.2em;
+}
+
+figure.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure img,
+figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  margin-top: 0.5em;
+}
+
+/* Two images side by side */
+.pair {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.2em;
+}
+.pair figure {
+  flex: 1 1 0;
+  margin: 0;
+}
+
+/* ---------- columns ----------
+   <div class="cols"> with children like <div style="--span:4">.
+   Spans are out of 12, like Cargo's column sets. */
+
+.cols {
+  display: flex;
+  gap: var(--gutter);
+  margin-bottom: 1.2em;
+}
+.cols > * {
+  flex: var(--span, 1) 1 0;
+  min-width: 0;
+}
+.cols p:last-child { margin-bottom: 0; }
+
+/* Footnotes: they sit in the right half of the page */
+.notes {
+  margin: 3.6em 0 1.2em 50%;
+}
+.note {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 0.6em;
+}
+
+/* ---------- little extras ---------- */
+
+.pill {
+  display: inline-block;
+  border: 0.2rem solid var(--pink);
+  border-radius: 4.8rem;
+  padding: 0.8rem;
+}
+
+.button {
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  color: var(--ink);
+  background: #fff;
+  border: 0.2rem solid var(--ink);
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
+  filter: drop-shadow(0.3rem 0.3rem 0.4rem rgba(0, 0, 0, 0.25));
+}
+
+/* Folder icon after reading titles: <span class="folder"></span> */
+.folder {
+  display: inline-block;
+  width: 1em;
+  height: 0.8em;
+  margin-left: 0.15em;
+  vertical-align: -0.05em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M1.5 2.5h6l2 2h9v10h-17z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M1.5 2.5h6l2 2h9v10h-17z' fill='none' stroke='black' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ---------- field notes (collapsible journal cards) ---------- */
+
+.field-note {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+}
+.field-note summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.5rem;
+}
+.field-note summary::-webkit-details-marker { display: none; }
+.field-note .when {
+  display: block;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  opacity: 0.6;
+  font-size: 0.85em;
+  margin-bottom: 0.5rem;
+}
+.field-note .journal { color: #000; margin: 0; }
+.field-note .journal p:last-child { margin-bottom: 0; }
+.field-note .more {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: italic;
+  opacity: 0.65;
+  font-size: 0.9em;
+}
+.field-note .more::after { content: "Read entry →"; }
+.field-note[open] .more::after { content: "Collapse ↑"; }
+.field-note .body { padding: 0 1.5rem 1.5rem; }
+.field-note .body .journal { margin-top: 0; }
+.field-note .close {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  font-style: italic;
+  opacity: 0.65;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* ---------- menu (made by site.js) ---------- */
+
+.menu-button {
+  position: fixed;
+  z-index: 20;
+  top: calc(var(--frame) + 1.3rem);
+  right: calc((100% - var(--column)) / 2 + var(--frame) + 1.6rem);
+  width: 2.3rem;
+  height: 1.8rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.menu-button svg { display: block; width: 100%; height: 100%; }
+
+.menu {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--column);
+  transform: translateX(-50%);
+  overflow-y: auto;
+  border: var(--frame) solid transparent;
+  background: rgba(249, 248, 242, 0.94);
+  background-clip: padding-box;
+  padding: 1.6rem 3.6rem 1.6rem 1.6rem;
+}
+body.menu-open .menu { display: block; }
+
+.menu-head {
+  text-align: right;
+  margin: 1.2em 0 3.6em;
+}
+.menu-head p { margin: 0 0 1.2em; }
+.menu-head img { width: 37%; margin-left: auto; display: block; }
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 calc((100% - var(--gutter)) / 6 + var(--gutter)) 0 0;
+}
+.menu li { margin: 0 0 1.2em; font-weight: 700; }
+.menu li.sub { font-weight: inherit; padding-left: 1.5em; }
+.menu li.line { margin: 0 0 1.2em; height: 1px; background: rgba(0, 0, 0, 0.05); }
+.menu-email { text-align: right; margin: 3.6em 0 1.2em; }
+
+/* ---------- ← page → at the bottom (made by site.js) ---------- */
+
+.pager {
+  display: flex;
+  gap: var(--gutter);
+  margin-top: 3.6em;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.pager > :nth-child(1) { flex: 2 1 0; }
+.pager > :nth-child(2) { flex: 4 1 0; }
+.pager > :nth-child(3) { flex: 6 1 0; text-align: right; }
+
+/* ---------- phones and narrow windows ---------- */
+
+@media (max-width: 800px) {
+  :root {
+    --column: 100%;
+    --frame: 0px;
+  }
+  html { font-size: max(12px, min(3.4vw, 17px)); }
+  body::before { display: none; }
+  .page { padding: 1.4rem 1.4rem 2rem; border: 0; }
+  .menu { padding: 1.4rem; border: 0; transform: none; left: 0; }
+  .menu-button { top: 1.2rem; right: 1.4rem; }
+  .menu-head { margin-top: 3em; }
+  /* images go full width on phones */
+  figure[style] { width: auto !important; }
+}

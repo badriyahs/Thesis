@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — resistant atlas</title>
+  <link rel="icon" href="/media/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // Old Cargo addresses that changed. Anything listed here jumps to the new page.
+    const OLD = {
+      "i-introduction": "/",
+      "menu": "/",
+      "va-foucault's-blind-spot": "/va-foucaults-blind-spot.html",
+      "vb-inaccurate-even-better-": "/vb-inaccurate-even-better.html",
+      "1b-prototypes-1": "/1b-prototypes.html",
+    };
+    const slug = decodeURIComponent(location.pathname.replace(/^\/|\/$/g, ""));
+    if (OLD[slug]) location.replace(OLD[slug]);
+  </script>
+</head>
+<body>
+<main class="page">
+
+<header class="title">
+  <p>404</p>
+  <h1>Page not found</h1>
+</header>
+
+<p><a href="/"><u>Go to the introduction</u></a></p>
+
+</main>
+</body>
+</html>
