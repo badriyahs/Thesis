@@ -30,8 +30,9 @@ Put the file in `media/`, then:
   <img src="media/my-photo.jpg" alt="">
 </figure>
 
+<!-- sizes: plain <figure> is full width; class="large" (75%), "half" or "small" are centred -->
 <!-- smaller and centred, with a caption -->
-<figure class="center" style="width:60%">
+<figure class="half">
   <img src="media/my-photo.jpg" alt="">
   <figcaption><i>Caption here</i></figcaption>
 </figure>
@@ -56,7 +57,11 @@ Keep images around 1600 px wide; anything bigger only makes the page slow.
 2. Change its `<title>`, the number and name in `<header class="title">`, and the text.
 3. Add one line for it in the list at the top of `site.js`.
 
+## Changing the Arabic name in the header
+
+Save the new calligraphy as `media/name-ar.png`, replacing the old file. Use a PNG with a transparent background, cropped tight to the letters. It shows up on every page automatically.
+
 ## Notes
 
-- The text font is **Newsreader** (free, from Google Fonts). Cargo's Marist is only licensed for Cargo sites, so it can't come along. Arabic uses **Noto Naskh Arabic**.
+- The text font is **EB Garamond** (free, from Google Fonts). Cargo's Marist is only licensed for Cargo sites, so it can't come along. Arabic uses **Noto Naskh Arabic**.
 - `404.html` sends old Cargo links that changed (like `/1b-prototypes-1`) to the new pages.

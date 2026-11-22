@@ -32,9 +32,8 @@ const PAGES = [
   { file: "5-resources.html",         num: "5", title: "Resources" },
   { file: "6-further-reading.html",   num: "6", title: "Further Reading" },
   { file: "7-acknowledgments.html",   num: "7", title: "Acknowledgments" },
+  { file: "8-contact.html",           num: "8", title: "Contact" },
 ];
-
-const EMAIL = "badriyahalsalem@gmail.com";
 
 
 /* ---------- you shouldn't need to edit below this line ---------- */
@@ -45,43 +44,80 @@ const EMAIL = "badriyahalsalem@gmail.com";
   // Which page are we on? Works for "/ii-the-beginning", "/ii-the-beginning.html" and "/".
   let here = decodeURIComponent(location.pathname.split("/").pop() || "index.html");
   if (!here.endsWith(".html")) here += ".html";
+  if (!pages.some((p) => p.file === here)) here = "index.html"; // e.g. the bare address of a preview link
   const index = pages.findIndex((p) => p.file === here);
 
-  // Menu button (top right)
-  const button = document.createElement("button");
-  button.className = "menu-button";
-  button.setAttribute("aria-label", "Menu");
-  button.setAttribute("aria-expanded", "false");
-  button.innerHTML =
-    '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.4">' +
-    '<path d="M1 2h28M1 11h28M1 20h28"/></svg>';
+  const main = document.querySelector("main");
 
-  // Menu panel
-  const items = PAGES.map((p) => {
-    if (p === "line") return '<li class="line" aria-hidden="true"></li>';
+  // Running head: your mark (links home) on the left, "menu" on the right
+  const head = document.createElement("div");
+  head.className = "head label";
+  head.innerHTML =
+    '<a class="mark" href="index.html"><span>resistant atlas</span><img src="media/name-ar.png" alt="أطلس مقاوم" lang="ar"></a>' +
+    '<button type="button" aria-expanded="false">menu</button>';
+  const button = head.querySelector("button");
+
+  // Menu: a leaf of blue paper laid over the right of the page, set as a table of contents.
+  // Each "line" in PAGES starts a new group.
+  const groups = [[]];
+  PAGES.forEach((p) => (p === "line" ? groups.push([]) : groups[groups.length - 1].push(p)));
+  const lists = groups.map((g) => "<ul>" + g.map((p) => {
     const current = p.file === here ? ' aria-current="page"' : "";
-    return `<li${p.sub ? ' class="sub"' : ""}><a href="${p.file}"${current}>${p.num}. ${p.title}</a></li>`;
-  }).join("");
+    return `<li${p.sub ? ' class="sub"' : ""}><a href="${p.file}"${current}>` +
+      `<span class="n">${p.num}</span><span class="t">${p.title}</span></a></li>`;
+  }).join("") + "</ul>").join("");
 
   const menu = document.createElement("nav");
   menu.className = "menu";
   menu.setAttribute("aria-label", "Contents");
   menu.innerHTML =
-    '<div class="menu-head"><p>resistant atlas</p>' +
-    '<img src="media/title-03-copy.png" alt="أطلس مقاوم"></div>' +
-    `<ul>${items}</ul>` +
-    `<p class="menu-email"><a href="mailto:${EMAIL}">${EMAIL}</a></p>`;
+    '<div class="menu-top"><button type="button" class="menu-close">close</button></div>' +
+    `<div class="toc">${lists}</div>`;
 
   function setOpen(open) {
     document.body.classList.toggle("menu-open", open);
     button.setAttribute("aria-expanded", String(open));
+    button.textContent = open ? "close" : "menu";
   }
   button.addEventListener("click", () => setOpen(!document.body.classList.contains("menu-open")));
+  menu.querySelector(".menu-close").addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+  // clicking the page below the sheet closes it
+  document.addEventListener("click", (e) => {
+    if (document.body.classList.contains("menu-open") && !e.target.closest(".menu, .head button")) setOpen(false);
+  });
 
-  document.body.append(menu, button);
+  if (main) main.prepend(head);
+  document.body.append(menu);
 
-  // "Collapse ↑" at the end of a field note closes it
+  // Press G to show the guides (grid lines and margins). Press again to hide.
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() !== "g" || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/input|textarea/i.test(document.activeElement.tagName)) return;
+    document.body.classList.toggle("guides");
+  });
+
+  // Keep text on the grid below pictures: pad each picture up to a whole number of lines.
+  function snapToGrid() {
+    const line = parseFloat(getComputedStyle(document.body).lineHeight);
+    if (!line) return;
+    document.querySelectorAll("main figure, main .pair").forEach((el) => {
+      if (el.closest(".pair") && el.tagName === "FIGURE") return;
+      el.style.paddingBottom = "";
+      const h = el.getBoundingClientRect().height;
+      const extra = Math.ceil(h / line - 0.001) * line - h;
+      el.style.paddingBottom = extra > 0.5 ? extra + "px" : "";
+    });
+  }
+  window.addEventListener("load", snapToGrid);
+  window.addEventListener("resize", snapToGrid);
+  document.querySelectorAll("main img, main video").forEach((m) => {
+    m.addEventListener("load", snapToGrid);
+    m.addEventListener("loadedmetadata", snapToGrid);
+  });
+  snapToGrid();
+
+  // "Close" at the end of a field note closes it
   document.addEventListener("click", (e) => {
     const close = e.target.closest(".field-note .close");
     if (!close) return;
@@ -91,13 +127,12 @@ const EMAIL = "badriyahalsalem@gmail.com";
     note.scrollIntoView({ block: "nearest" });
   });
 
-  // ← number → at the bottom of the page
-  const main = document.querySelector("main");
+  // ← number → at the foot of the page
   if (main && index !== -1) {
     const prev = pages[index - 1];
     const next = pages[index + 1];
     const pager = document.createElement("nav");
-    pager.className = "pager";
+    pager.className = "pager label";
     pager.setAttribute("aria-label", "Previous and next page");
     pager.innerHTML =
       `<span>${prev ? `<a href="${prev.file}" title="${prev.title}">←</a>` : ""}</span>` +
