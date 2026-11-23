@@ -145,6 +145,18 @@ body::after  { bottom: 0; }
   font-size: var(--title);
   font-weight: 400;
 }
+/* your name pressed up into the paper: light catches the top-left edge,
+   a soft shadow falls bottom-right */
+.cover .mark span {
+  text-shadow:
+    -0.03em -0.03em 0 rgba(255, 255, 255, 0.9),
+    0.03em 0.04em 0.05em rgba(46, 42, 38, 0.25);
+}
+.cover .mark img {
+  filter:
+    drop-shadow(-0.03em -0.03em 0 rgba(255, 255, 255, 0.9))
+    drop-shadow(0.03em 0.04em 0.05em rgba(46, 42, 38, 0.25));
+}
 /* on the opening page the arrow sits right under your name: no line, not stuck */
 .cover .pager {
   position: static;
@@ -432,7 +444,15 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
   max-height: calc(100vh - 2 * var(--frame));
   overflow-y: auto;
   padding: 0 var(--margin) var(--line);
-  background: var(--blue);
+  /* blue paper: the same real fibres as the page (media/paper-blue.jpg, pale on the Rumma blue),
+     folded once across the middle like a letter: a crease line, the top half catching a little light */
+  background:
+    linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 38%,
+      rgba(0, 0, 0, 0.02) 46%, rgba(0, 0, 0, 0.055) 49.7%,
+      rgba(255, 255, 255, 0.035) 50.15%, rgba(255, 255, 255, 0.012) 53%,
+      rgba(0, 0, 0, 0) 62%, rgba(0, 0, 0, 0.02) 100%),
+    var(--blue) url("media/paper-blue.jpg");
   color: var(--on-blue);
   font-weight: 500;
   visibility: hidden;

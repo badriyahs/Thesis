@@ -64,6 +64,7 @@ Save the new calligraphy as `media/name-ar.png`, replacing the old file. Use a P
 ## The opening page and the paper
 
 - `index.html` is the opening page: just your name. The Introduction is `i-introduction.html`.
+- The blue menu uses the same fibres on the Rumma blue (`media/paper-blue.jpg`), with a soft fold drawn across the middle in `style.css` (`.menu` background).
 - The paper texture is `media/paper.jpg` ("light paper fibers" from Subtle Patterns, CC BY-SA 3.0, re-coloured to the cream). To change it, replace that file with another seamless tile, or delete the `--paper-texture` line's `url(...)` in `style.css` for plain cream.
 
 ## Notes
