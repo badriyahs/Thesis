@@ -540,7 +540,18 @@ body.guides .pager { background: transparent; }
   html { font-size: max(14px, min(4vw, 18px)); }
   .cover .mark { font-size: calc(var(--text) * 1.1); }
   .mark img { height: 1.25em; margin-left: 0.45em; }
-  .page { margin: 0; min-height: 100vh; }
+  /* On phones the page scrolls inside itself, not the whole window. Safari on iPhone
+     (iOS 26) misplaces anything pinned to the bottom while its address bar shrinks,
+     and with this the bar stays put, so the footer stays at the bottom. */
+  html, body { height: 100%; overflow: hidden; }
+  .page {
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
   .title { margin: calc(var(--line) * 3) 0 calc(var(--line) * 2); }
   figure.large { width: 100%; }
   .menu { right: 0; width: 86%; max-height: 100vh; max-height: 100dvh; }
