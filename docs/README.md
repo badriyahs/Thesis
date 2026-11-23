@@ -61,6 +61,11 @@ Keep images around 1600 px wide; anything bigger only makes the page slow.
 
 Save the new calligraphy as `media/name-ar.png`, replacing the old file. Use a PNG with a transparent background, cropped tight to the letters. It shows up on every page automatically.
 
+## The opening page and the paper
+
+- `index.html` is the opening page: just your name. The Introduction is `i-introduction.html`.
+- The paper texture is `media/paper.jpg` ("light paper fibers" from Subtle Patterns, CC BY-SA 3.0, re-coloured to the cream). To change it, replace that file with another seamless tile, or delete the `--paper-texture` line's `url(...)` in `style.css` for plain cream.
+
 ## Notes
 
 - The text font is **EB Garamond** (free, from Google Fonts). Cargo's Marist is only licensed for Cargo sites, so it can't come along. Arabic uses **Noto Naskh Arabic**.

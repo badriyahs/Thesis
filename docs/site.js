@@ -7,12 +7,15 @@
    To add a page:
      1. Duplicate any page (e.g. 3-clouds.html) and rename it.
      2. Add a line for it below, where it should sit.
-   sub: true   → indented, not bold, in the menu
-   "line"      → a thin divider in the menu
+   sub: true   → set in, in the menu
+   cover: true → the opening page (not listed in the menu; your
+                 name at the top of the menu takes you there)
+   "line"      → a gap in the menu
    ============================================================= */
 
 const PAGES = [
-  { file: "index.html",                     num: "i",   title: "Introduction" },
+  { file: "index.html",                     num: "",    title: "resistant atlas", cover: true },
+  { file: "i-introduction.html",            num: "i",   title: "Introduction" },
   { file: "ii-the-beginning.html",          num: "ii",  title: "The Beginning" },
   { file: "iii-the-manifesto.html",         num: "iii", title: "The Manifesto" },
   { file: "iv-method.html",                 num: "iv",  title: "Method" },
@@ -49,18 +52,26 @@ const PAGES = [
 
   const main = document.querySelector("main");
 
-  // Running head: your mark (links home) on the left, "menu" on the right
-  const head = document.createElement("div");
-  head.className = "head label";
-  head.innerHTML =
-    '<a class="mark" href="index.html"><span>resistant atlas</span><img src="media/name-ar.png" alt="أطلس مقاوم" lang="ar"></a>' +
-    '<button type="button" aria-expanded="false">menu</button>';
-  const button = head.querySelector("button");
+  // Your name in English and Arabic, on one line (top of the menu)
+  const MARK = '<span>resistant atlas</span><img src="media/name-ar.png" alt="أطلس مقاوم" lang="ar">';
+
+  // The menu button: three thin lines in the top right corner of the page, like the old Cargo one
+  const LINES = '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 2h28M1 11h28M1 20h28"/></svg>';
+  const CROSS = '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 1l18 20M24 1L6 21"/></svg>';
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "menu-button";
+  button.setAttribute("aria-label", "menu");
+  button.setAttribute("aria-expanded", "false");
+  button.innerHTML = LINES;
 
   // Menu: a leaf of blue paper laid over the right of the page, set as a table of contents.
-  // Each "line" in PAGES starts a new group.
+  // Each "line" in PAGES starts a new group. The opening page isn't listed.
   const groups = [[]];
-  PAGES.forEach((p) => (p === "line" ? groups.push([]) : groups[groups.length - 1].push(p)));
+  PAGES.forEach((p) => {
+    if (p === "line") groups.push([]);
+    else if (!p.cover) groups[groups.length - 1].push(p);
+  });
   const lists = groups.map((g) => "<ul>" + g.map((p) => {
     const current = p.file === here ? ' aria-current="page"' : "";
     return `<li${p.sub ? ' class="sub"' : ""}><a href="${p.file}"${current}>` +
@@ -71,24 +82,23 @@ const PAGES = [
   menu.className = "menu";
   menu.setAttribute("aria-label", "Contents");
   menu.innerHTML =
-    '<div class="menu-top"><button type="button" class="menu-close">close</button></div>' +
+    `<div class="menu-top"><a class="mark" href="index.html">${MARK}</a>` +
+    `<button type="button" class="menu-close" aria-label="close">${CROSS}</button></div>` +
     `<div class="toc">${lists}</div>`;
 
   function setOpen(open) {
     document.body.classList.toggle("menu-open", open);
     button.setAttribute("aria-expanded", String(open));
-    button.textContent = open ? "close" : "menu";
   }
   button.addEventListener("click", () => setOpen(!document.body.classList.contains("menu-open")));
   menu.querySelector(".menu-close").addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
   // clicking the page below the sheet closes it
   document.addEventListener("click", (e) => {
-    if (document.body.classList.contains("menu-open") && !e.target.closest(".menu, .head button")) setOpen(false);
+    if (document.body.classList.contains("menu-open") && !e.target.closest(".menu, .menu-button")) setOpen(false);
   });
 
-  if (main) main.prepend(head);
-  document.body.append(menu);
+  document.body.append(button, menu);
 
   // Press G to show the guides (grid lines and margins). Press again to hide.
   document.addEventListener("keydown", (e) => {

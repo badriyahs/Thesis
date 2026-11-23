@@ -10,6 +10,9 @@
 :root {
   /* colour */
   --paper: #f9f8f2;                    /* the cream page */
+  /* real paper: "light paper fibers" from Subtle Patterns (subtlepatterns.com, CC BY-SA 3.0),
+     re-coloured so its average is exactly the cream above. Swap media/paper.jpg to change it. */
+  --paper-texture: var(--paper) url("media/paper.jpg") fixed;
   --veil:  rgba(249, 248, 242, 0.9);   /* thin paper: the menu — the page shows through */
   --veil-bar: rgba(249, 248, 242, 0.95); /* header and footer: a fainter show-through */
   --ink:   #2e2a26;                    /* text: warm near-black */
@@ -22,14 +25,14 @@
 
   /* type */
   --text:  1.22rem;                    /* body text */
-  --line:  1.75rem;                    /* one line = the grid unit */
+  --line:  1.55rem;                    /* one line = the grid unit (close lines, like the old Cargo page) */
   --small: 0.96rem;                    /* captions, notes, menu */
-  --title: 1.55rem;                    /* chapter titles */
+  --title: 1.35rem;                    /* chapter titles: a touch bigger than the text, like Cargo */
 
   /* layout */
-  --column: 50%;                       /* page width on a computer */
+  --column: 35%;                       /* page width on a computer (the old Cargo proportions) */
   --frame:  2.4rem;                    /* dark space above and below the page */
-  --margin: calc(var(--line) * 2);     /* page margins, left and right */
+  --margin: calc(var(--line) * 1.5);   /* page margins, left and right */
   --indent: var(--line);               /* first-line indent */
   --gutter: var(--line);               /* space between columns */
 }
@@ -38,7 +41,7 @@
 
 /* Text size grows with the window, like it did on Cargo. */
 html {
-  font-size: max(13px, 1.4vw);
+  font-size: max(13px, 1.12vw);   /* about 52 letters a line, like the old Cargo pages */
   background: var(--night);
 }
 
@@ -65,7 +68,7 @@ body::after {
   position: fixed;
   z-index: 30;
   left: 50%;
-  width: var(--column);
+  width: calc(var(--column) + 2px);   /* a hair wider, so no sliver of page peeks past it */
   height: var(--frame);
   transform: translateX(-50%);
   background: var(--night);
@@ -79,8 +82,9 @@ body::after  { bottom: 0; }
   min-height: calc(100vh - 2 * var(--frame));
   margin: var(--frame) auto;
   padding: 0 var(--margin) calc(var(--line) * 2);
-  background: var(--paper);
+  background: var(--paper-texture);
   overflow-x: clip;          /* nothing pokes out sideways, so a phone only scrolls up and down */
+  display: flow-root;        /* the title's space stays inside the page instead of pushing it down */
 }
 
 /* Small lowercase text: "menu", page number */
@@ -90,30 +94,36 @@ body::after  { bottom: 0; }
   color: var(--ink);
 }
 
-/* Running head (made by site.js): your mark on the left, "menu" on the right.
-   Its edges sit exactly on the text margins. Three lines tall. */
-.head {
-  position: sticky;
-  top: var(--frame);
+/* "menu" (made by site.js): one quiet word in the top right corner of the page,
+   where the old Cargo menu sat. It stays put while you scroll; a patch of
+   page colour behind it keeps the text from running through it. */
+.menu-button {
+  position: fixed;
   z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: calc(var(--line) * 3);
-  margin: 0 calc(var(--margin) * -1);
-  padding: 0 var(--margin);
-  background: var(--veil-bar);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
-}
-/* your name: "resistant atlas" in text, then the Arabic calligraphy */
-.head .mark {
-  white-space: nowrap;
-  font-size: calc(var(--text) * 1.2);
-  font-style: italic;
+  top: calc(var(--frame) + var(--line) * 1.5);
+  right: calc((100% - var(--column)) / 2 + var(--margin) - 0.4rem);
+  transform: translateY(-50%);
+  width: calc(1.7rem + 0.8rem);
+  height: calc(1.25rem + 0.8rem);
+  padding: 0.4rem;
   color: var(--ink);
+  background: var(--paper-texture);
+  border: 0;
+  cursor: pointer;
 }
-.head .mark img {
+.menu-button svg,
+.menu-close svg { display: block; width: 100%; height: 100%; }
+.menu-button:focus:not(:focus-visible),
+.menu-close:focus:not(:focus-visible) { outline: none; }
+
+/* your name: "resistant atlas" in text, then the Arabic calligraphy, on one line.
+   Used on the opening page and at the top of the menu. */
+.mark {
+  white-space: nowrap;
+  font-style: italic;
+  color: inherit;
+}
+.mark img {
   display: inline-block;
   height: 1.4em;
   width: auto;
@@ -121,30 +131,31 @@ body::after  { bottom: 0; }
   vertical-align: -0.35em;   /* puts the long Arabic stroke on the same line as the English */
   opacity: 0.85;             /* black calligraphy softened to the same warm ink as the text */
 }
-.head a:hover,
-.head button:hover { color: var(--ink); }
-/* hairline under the header, the width of the text */
-.head::after {
-  content: "";
-  position: absolute;
-  left: var(--margin);
-  right: var(--margin);
-  bottom: 0;
-  height: 1px;
-  background: var(--rule-bar);
+
+/* ---------- the opening page: just your name, in the middle of the page ---------- */
+
+.cover {
+  display: flex;
+  flex-direction: column;
 }
-.head button:focus:not(:focus-visible),
-.menu-close:focus:not(:focus-visible) { outline: none; }
-.head button {
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  color: inherit;
+.cover .mark {
+  margin: auto auto 0;       /* your name and the arrow under it sit together in the middle */
+  padding-top: calc(var(--line) * 3);
+  font-size: var(--title);
+  font-weight: 400;
+}
+/* on the opening page the arrow sits right under your name: no line, not stuck */
+.cover .pager {
+  position: static;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  margin: var(--line) auto auto;
+  padding: 0 0 calc(var(--line) * 3);
   background: none;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
 }
+.cover .pager::before,
+.cover .pager > span:empty { display: none; }
 
 /* ---------- chapter opener: number and name, centred ---------- */
 
@@ -152,7 +163,7 @@ body::after  { bottom: 0; }
   display: flex;
   align-items: baseline;
   gap: 0.4em;
-  margin: calc(var(--line) * 4) 0 calc(var(--line) * 2);
+  margin: calc(var(--line) * 3) 0 calc(var(--line) * 2);
   font-size: var(--title);
   line-height: var(--line);
 }
@@ -168,9 +179,10 @@ body::after  { bottom: 0; }
 
 /* ---------- text ---------- */
 
-/* Book paragraphs: no blank line between them, the next one is indented. */
-p { margin: 0; }
-p + p { text-indent: var(--indent); }
+/* Like the old Cargo pages: a line of space between paragraphs,
+   and <p class="indent"> sets the first line deep in. */
+p { margin: 0 0 var(--line); }
+p.indent { text-indent: 4.5em; }
 main p { hanging-punctuation: first; text-wrap: pretty; }
 
 b, strong { font-weight: 600; }
@@ -378,7 +390,7 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
   z-index: 25;
   top: var(--frame);
   right: calc((100% - var(--column)) / 2);
-  width: calc(var(--column) * 0.72);
+  width: calc(var(--column) * 0.86);
   max-height: calc(100vh - 2 * var(--frame));
   overflow-y: auto;
   padding: 0 var(--margin) var(--line);
@@ -396,16 +408,20 @@ body.menu-open .menu {
 }
 
 /* "close" sits exactly where "menu" was */
+/* your name on the left (takes you to the opening page), "close" where "menu" was */
 .menu-top {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   height: calc(var(--line) * 3);
   margin-bottom: calc(var(--line) * 0.5);
 }
+.menu .mark { font-weight: 400; }
+.menu .mark img { filter: invert(1) sepia(0.15); opacity: 0.9; }   /* the calligraphy in cream */
 .menu-close {
-  font: inherit;
-  font-size: var(--small);
+  position: relative;
+  width: 1.7rem;
+  height: 1.25rem;
   color: inherit;
   background: none;
   border: 0;
@@ -440,9 +456,7 @@ body.menu-open .menu {
   height: calc(var(--line) * 2);
   margin: calc(var(--line) * 3) calc(var(--margin) * -1) 0;
   padding: 0 var(--margin);
-  background: var(--veil-bar);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  background: var(--paper-texture);   /* the same paper as the page, lined up with it */
 }
 .pager > :nth-child(3) { text-align: right; }
 /* hairline above the footer, the width of the text */
@@ -470,7 +484,7 @@ body.guides .page {
     linear-gradient(to right, transparent calc(50% - 0.5px), rgba(220, 60, 90, 0.3) calc(50% - 0.5px) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
     repeating-linear-gradient(to bottom, transparent 0 calc(var(--line) - 1px), rgba(60, 120, 220, 0.18) calc(var(--line) - 1px) var(--line));
 }
-body.guides .head, body.guides .pager { background: transparent; }
+body.guides .pager { background: transparent; }
 
 /* ---------- phones and narrow windows ---------- */
 
@@ -478,11 +492,13 @@ body.guides .head, body.guides .pager { background: transparent; }
   :root {
     --column: 100%;
     --frame: 0px;
+    --line: 1.75rem;           /* the phone keeps its own, roomier lines */
+    --title: 1.55rem;
     --margin: var(--line);
   }
   html { font-size: max(14px, min(4vw, 18px)); }
-  .head .mark { font-size: var(--text); }
-  .head .mark img { height: 1.25em; margin-left: 0.45em; }
+  .cover .mark { font-size: calc(var(--text) * 1.1); }
+  .mark img { height: 1.25em; margin-left: 0.45em; }
   .page { margin: 0; min-height: 100vh; }
   .title { margin: calc(var(--line) * 3) 0 calc(var(--line) * 2); }
   figure.large { width: 100%; }
@@ -491,6 +507,7 @@ body.guides .head, body.guides .pager { background: transparent; }
   figure.small { width: 50%; }
   figure[style] { width: auto !important; }
   .notes { margin-left: 0; }
+  p.indent { text-indent: 2.5em; }
 }
 
 /* ---------- fingers: on phones and tablets every menu line is easy to tap ---------- */
@@ -502,6 +519,6 @@ body.guides .head, body.guides .pager { background: transparent; }
   .toc a { padding: calc(var(--line) * 0.25) 0; }
   .toc li.sub + li:not(.sub) { margin-top: 0; }
   /* "menu" and "close" keep their look but take a bigger touch */
-  .head button,
-  .menu-close { padding: 0.7rem; margin: -0.7rem; }
+  .menu-button::after,
+  .menu-close::after { content: ""; position: absolute; inset: -0.7rem; }
 }
