@@ -254,6 +254,28 @@ ol { list-style-type: decimal-leading-zero; }
 li ul { margin: 0; }
 li::marker { color: var(--soft); }
 
+/* The manifesto: each point's number hangs in its own column (like the menu),
+   its title in italic, its text underneath */
+.manifesto {
+  list-style: none;
+  counter-reset: point;
+  margin: calc(var(--line) * 2) 0;
+  padding: 0;
+}
+.manifesto li {
+  counter-increment: point;
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  margin-bottom: calc(var(--line) * 0.5);
+}
+.manifesto li::before {
+  content: counter(point);
+  grid-row: 1 / span 9;
+  color: var(--soft);
+}
+.manifesto li > * { grid-column: 2; }
+.manifesto h3 { margin: 0; }
+
 /* A thin line between sections: one line of space above and below */
 hr {
   border: 0;
