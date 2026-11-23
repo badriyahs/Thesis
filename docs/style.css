@@ -285,10 +285,16 @@ sub {
 }
 
 /* Journal entries: set in from both sides, same voice as the text */
+/* Journal entries: "the night page". Each one sits on the blue paper of the menu,
+   in cream, like a page written lying under the stars. */
 .journal {
-  margin: var(--line) 0;
-  padding: 0 var(--indent);
+  margin: calc(var(--line) * 2) calc(var(--line) * -0.5);
+  padding: calc(var(--line) * 1.5) calc(var(--line) * 1.5) calc(var(--line) * 0.5);
+  background: var(--blue) url("media/paper-blue.jpg");
+  color: var(--on-blue);
+  box-shadow: 0 0.5rem 1.2rem -0.5rem rgba(20, 20, 30, 0.35);
 }
+.journal a { color: inherit; }
 
 /* Small text: captions and footnotes */
 figcaption,
@@ -316,6 +322,12 @@ figure.small {
 figure.large { width: 75%; }
 figure.half  { width: 55%; }
 figure.small { width: 35%; }
+/* a small drawing at the very end of a page, like the mark at the end of a book chapter */
+figure.ornament {
+  width: calc(var(--line) * 3.5);
+  margin: calc(var(--line) * 3) auto 0;
+  opacity: 0.8;
+}
 
 figure img,
 figure video {
@@ -398,7 +410,7 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
   text-transform: uppercase;
   color: var(--soft);
 }
-.field-note .journal { margin: 0; padding: 0; }
+.field-note .journal { margin: 0; padding: 0; background: none; color: inherit; box-shadow: none; }
 .field-note .more {
   display: block;
   font-style: italic;
