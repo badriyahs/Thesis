@@ -141,21 +141,8 @@ body::after  { bottom: 0; }
 }
 .cover .mark {
   margin: auto auto 0;       /* your name and the arrow under it sit together in the middle */
-  padding-top: calc(var(--line) * 3);
   font-size: var(--title);
   font-weight: 400;
-}
-/* your name pressed up into the paper: light catches the top-left edge,
-   a soft shadow falls bottom-right */
-.cover .mark span {
-  text-shadow:
-    -0.03em -0.03em 0 rgba(255, 255, 255, 0.9),
-    0.03em 0.04em 0.05em rgba(46, 42, 38, 0.25);
-}
-.cover .mark img {
-  filter:
-    drop-shadow(-0.03em -0.03em 0 rgba(255, 255, 255, 0.9))
-    drop-shadow(0.03em 0.04em 0.05em rgba(46, 42, 38, 0.25));
 }
 /* on the opening page the arrow sits right under your name: no line, not stuck */
 .cover .pager {
@@ -165,8 +152,8 @@ body::after  { bottom: 0; }
   display: flex;
   justify-content: center;
   height: auto;
-  margin: var(--line) auto auto;
-  padding: 0 0 calc(var(--line) * 3);
+  margin: calc(var(--line) * 1.5) auto auto;
+  padding: 0;
   background: none;
 }
 .cover .pager::before,
