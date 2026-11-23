@@ -598,7 +598,7 @@ body.guides .pager { background: transparent; }
   .menu { right: 0; width: 86%; max-height: 100vh; max-height: 100dvh; }
   figure.half { width: 75%; }
   figure.small { width: 50%; }
-  figure[style] { width: auto !important; }
+  figure[style*="width"] { width: auto !important; }   /* old Cargo widths only (not the spacing site.js adds) */
   .notes { margin-left: 0; }
   p.indent { text-indent: 2.5em; }
 }
