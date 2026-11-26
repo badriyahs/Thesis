@@ -7,15 +7,15 @@
   <link rel="icon" href="media/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Noto+Naskh+Arabic:wght@400..700&amp;display=swap">
-  <link rel="stylesheet" href="style.css?v=60">
-  <script src="site.js?v=35" defer></script>
+  <link rel="stylesheet" href="style.css?v=62">
+  <script src="site.js?v=36" defer></script>
 </head>
 <body>
 <main class="page">
 
 <header class="title">
   <p>1</p>
-  <h1>Chapter 1.<br><br>Resistant Atlas:<br>Names of the Sun</h1>
+  <h1>Names of the Sun</h1>
 </header>
 
 <figure class="center" style="width:76.7%">
@@ -34,72 +34,19 @@
 
 <p class="indent">The sun has different names based on where it is in the sky, which season, what time of day, its angle, intensity, behavior, how it is perceived, whether a friend, or an enemy. So, just from the name, you can infer crucial spatial, temporal, and meteorological information.</p>
 
-<p>From the Ibn Qutaybah al-Dinawari’s <i>Kitāb al-Anwāʾ</i> (كتاب الأنواء) (The Meteoreological Dictionary mentioned previously) I found 42 words for the sun I could use in my research. Then I conducted the below process to make these words computationally legible to lay the groundwork for future digital tools;</p>
+<p>From Ibn Qutaybah al-Dinawari’s <i>Kitāb al-Anwāʾ</i> (كتاب الأنواء) (the meteorological dictionary mentioned in <a href="iv-method.html">Method</a>), I found 42 words for the sun I could use in my research. Two of them:</p>
 
-<p>01. Read the word in its original context</p>
-<p>02. Examine the word in meteorological, poetic, observational, or even religious sources.</p>
-<p>03. Extract environmental logic</p>
-<p>04. Identify patterns in how it is used contextually, or etymology that may reveal embedded temporal or spatial meaning.</p>
-<p>05. Place within environmental phenomena</p>
-<p>06. Place the word within seasonal cycles, celestial movement, agricultural schedules, atmospheric conditions, etc</p>
-<p>07. Assign computational parameters</p>
-<p>08. Temporal marker, altitude and azimuth, intensity, spatial connotations.</p>
-<p>09. Reparametrize for x, y, z, symbol, size</p>
-<p>10. Encode those values into the tags outlined in the parametric process which include x y z coordinates, a symbol id, and a size id.</p>
+<h3>“Danaf” <span lang="ar">دنف</span></h3>
 
-<figure>
-  <video src="media/data1.mp4" width="2766" height="1560" autoplay loop muted playsinline></video>
-  <figcaption class="center"><i>Research snippet</i></figcaption>
-</figure>
+<p>A necessary ailment, like a disease that pushes one to the edge of pain, or sickness, to heal them. It’s like the last violent push of something before it clears.</p>
 
-<h3>Parametric Process:</h3>
+<p>For the sun: It refers to when the sun is in the very West, when it’s red, and hot, during a summer sunset, like a last burst of heat and color, before it finally disappears under the horizon.</p>
 
-<ol>
-  <li>Define primary environmental variables<br>
-    Map out:
-    <ul>
-      <li>X (solar altitude)</li>
-      <li>Y (solar azimuth)</li>
-      <li>Z (temporal-spatial weight)<br>Then also an index for size &amp; symbol.</li>
-    </ul>
-  </li>
-  <li>Assign sun height (X) based on seasons:
-    <ul>
-      <li>X = 0 is maximum altitude at summer solstice</li>
-      <li>X = 9 is minimum altitude at winter solstice</li>
-      <li>X = -9 to -18 solar depression angles (civil, nautical, astronomical twilight)</li>
-    </ul>
-  </li>
-  <li>Assign east-west (Y) based on diurnal arc:
-    <ul>
-      <li>Y = 0 is sunrise (maximum east)</li>
-      <li>Y = 20 is noon (midpoint)</li>
-      <li>Y = 40 is sunset (maximum west)</li>
-    </ul>
-  </li>
-  <li>Assign temporal-spatial index:<br>
-    The Z-axis scale at 30 indicates a temporal concept (e.g., noon, dusk),<br>
-    and 0 indicates a spatial or navigational concept (e.g., position in relation to land or structures).</li>
-  <li>Assign symbol / size:<br>
-    The symbology is highlighted in the next pages, and the size (from 0 to 1) indicates intensity / seeming closeness to the sun.</li>
-  <li>Input into a parametric system:<br>
-    Using Grasshopper, the parameters are embedded into a dynamic system, which can result in a visualization of the sun’s names as a zone, arc, or duration on the map.</li>
-</ol>
+<h3>“Saqa” <span lang="ar">صقعه</span></h3>
 
-<figure class="center">
-  <video src="media/2-parametric.mp4" width="768" height="432" autoplay loop muted playsinline></video>
-  <figcaption><i>Parametric design<br>
-Grasshopper and Rhino</i></figcaption>
-</figure>
+<p>Saqa’a refers to the sound of a palm slap to the crown of the head. This term evokes a sharp, directed impact that ties the body to its source of sensation.</p>
 
-<h3>Visualization:</h3>
-
-<figure class="center">
-  <video src="media/myclips3.mp4" width="1280" height="720" autoplay loop muted playsinline></video>
-  <figcaption><i>Figuring out the scale of the elements</i></figcaption>
-</figure>
-
-<p>This website is still under construction. More to come.</p>
+<p>For the sun: It refers to when the sun is at the highest point in the sky, during the peak of summer, when there are no clouds, and the air is still enough to feel the heat of the sun’s rays to the crown of the head.</p>
 
 </main>
 </body>

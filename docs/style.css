@@ -256,28 +256,39 @@ li::marker { color: var(--soft); }
 
 /* The manifesto: each point's number hangs in its own column (like the menu);
    each point is one paragraph, its key words underlined */
-.manifesto {
+.manifesto,
+.numbered {
   list-style: none;
   counter-reset: point;
   margin: calc(var(--line) * 2) 0;
   padding: 0;
 }
-.manifesto li {
+.manifesto li,
+.numbered li {
   counter-increment: point;
   display: grid;
   grid-template-columns: 2em 1fr;
   margin-bottom: 0;
 }
-.manifesto li::before {
+.manifesto li::before,
+.numbered li::before {
   content: counter(point);
   grid-row: 1 / span 9;
   color: var(--soft);
 }
-.manifesto li > * { grid-column: 2; }
+.manifesto li > *,
+.numbered li > * { grid-column: 2; }
+.numbered li > p { margin-bottom: calc(var(--line) * 0.5); }
 .manifesto u {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
+
+/* A single line that opens a page, e.g. the Introduction */
+.epigraph { margin: 0 0 calc(var(--line) * 2); }
+
+/* Arabic is never slanted, even inside italic headings */
+[lang="ar"] { font-style: normal; }
 
 /* A thin line between sections: one line of space above and below */
 hr {
@@ -415,42 +426,45 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M1.5 2.5h6l2 2h9v10h-17z' fill='none' stroke='black' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* ---------- field notes (collapsible journal entries) ---------- */
+/* ---------- field notes: each entry is a night page you can open and close ---------- */
 
 .field-note {
-  border-top: 1px solid var(--rule);
-  margin: 0;
+  margin: calc(var(--line) * 2) calc(var(--line) * -0.5);
+  padding: 0 calc(var(--line) * 1.5);
+  background: var(--blue) url("media/paper-blue.jpg");
+  color: var(--on-blue);
+  box-shadow: 0 0.5rem 1.2rem -0.5rem rgba(20, 20, 30, 0.35);
 }
-.field-note:last-of-type { border-bottom: 1px solid var(--rule); }
 .field-note summary {
   cursor: pointer;
   list-style: none;
-  padding: var(--line) 0;
+  padding: calc(var(--line) * 1.5) 0 var(--line);
 }
 .field-note summary::-webkit-details-marker { display: none; }
 .field-note .when {
   display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--soft);
+  margin-bottom: var(--line);
+  font-size: var(--small);
+  font-style: italic;
+  color: rgba(243, 233, 216, 0.7);
 }
 .field-note .journal { margin: 0; padding: 0; background: none; color: inherit; box-shadow: none; }
+.field-note a { color: inherit; }
 .field-note .more {
   display: block;
   font-style: italic;
   font-size: var(--small);
-  color: var(--soft);
+  color: rgba(243, 233, 216, 0.7);
 }
-.field-note .more::after { content: "Read entry"; }
-.field-note[open] .more::after { content: "Close"; }
+.field-note .more::after { content: "read entry"; }
+.field-note[open] .more::after { content: "close"; }
 .field-note .body { padding: 0 0 var(--line); }
 .field-note .close {
   display: inline-block;
   margin-top: var(--line);
   font-style: italic;
   font-size: var(--small);
-  color: var(--soft);
+  color: rgba(243, 233, 216, 0.7);
   cursor: pointer;
 }
 

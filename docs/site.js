@@ -20,8 +20,8 @@ const PAGES = [
   { file: "iii-the-manifesto.html",         num: "iii", title: "The Manifesto" },
   { file: "iv-method.html",                 num: "iv",  title: "Method" },
   { file: "v-essays.html",                  num: "v",   title: "Essays" },
-  { file: "va-foucaults-blind-spot.html",   num: "va",  title: "Foucault’s Blind Spot",     sub: true },
-  { file: "vb-inaccurate-even-better.html", num: "vb",  title: "Inaccurate? Even better.",  sub: true },
+  { file: "vb-inaccurate-even-better.html", num: "va",  title: "Inaccurate? Even better.",  sub: true },
+  { file: "va-foucaults-blind-spot.html",   num: "vb",  title: "Foucault’s Blind Spot",     sub: true },
   "line",
   { file: "1-names-of-the-sun.html",          num: "1",  title: "Names of the Sun" },
   { file: "1a-approach.html",                 num: "1a", title: "Approach",                 sub: true },
@@ -31,11 +31,11 @@ const PAGES = [
   { file: "2-houses-of-the-moon.html",        num: "2",  title: "Houses of the Moon" },
   { file: "3-clouds.html",                    num: "3",  title: "Bodies of the Clouds" },
   "line",
-  { file: "4-field-notes.html",       num: "4", title: "Field Notes" },
-  { file: "5-resources.html",         num: "5", title: "Resources" },
-  { file: "6-further-reading.html",   num: "6", title: "Further Reading" },
-  { file: "7-acknowledgments.html",   num: "7", title: "Acknowledgments" },
-  { file: "8-contact.html",           num: "8", title: "Contact" },
+  // the back of the book: no numbers
+  { file: "4-field-notes.html",       num: "", title: "Field Notes" },
+  { file: "5-resources.html",         num: "", title: "Sources" },
+  { file: "7-acknowledgments.html",   num: "", title: "Acknowledgments" },
+  { file: "8-contact.html",           num: "", title: "Contact" },
 ];
 
 
