@@ -7,15 +7,16 @@
   <link rel="icon" href="media/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Noto+Naskh+Arabic:wght@400..700&amp;display=swap">
-  <link rel="stylesheet" href="style.css?v=68">
-  <script src="site.js?v=38" defer></script>
+  <link rel="stylesheet" href="style.css?v=71">
+  <script src="site.js?v=39" defer></script>
 </head>
 <body>
 <main class="page">
 
 <header class="title">
+  <p class="running-head">Names of the Sun</p>
   <p>1b</p>
-  <h1>Names of the Sun:<br>Approach</h1>
+  <h1>Approach</h1>
 </header>
 
 <p class="indent">Today, everything is highly digitized, and systems are no longer perpetuated by any one human, with an overt bias that we can critique and understand. Instead, they are perpetuated through code. A cold, objective logic that smooths out any clear human touch, making bias undetectable, and building on whatever it is fed, as if it were absolute truth.</p>
@@ -25,68 +26,56 @@
 <p>So, from the 42 words for the sun I found in <i>Kitāb al-Anwāʾ</i>, I conducted the below process to make these words computationally legible, to lay the groundwork for future digital tools:</p>
 
 <ol class="numbered">
-  <li><p>Read the word in its original context</p></li>
-  <li><p>Examine the word in meteorological, poetic, observational, or even religious sources.</p></li>
-  <li><p>Extract environmental logic</p></li>
-  <li><p>Identify patterns in how it is used contextually, or etymology that may reveal embedded temporal or spatial meaning.</p></li>
-  <li><p>Place within environmental phenomena</p></li>
-  <li><p>Place the word within seasonal cycles, celestial movement, agricultural schedules, atmospheric conditions, etc</p></li>
-  <li><p>Assign computational parameters</p></li>
-  <li><p>Temporal marker, altitude and azimuth, intensity, spatial connotations.</p></li>
-  <li><p>Reparametrize for x, y, z, symbol, size</p></li>
-  <li><p>Encode those values into the tags outlined in the parametric process which include x y z coordinates, a symbol id, and a size id.</p></li>
+  <li><p><i>Read the word in its original context.</i> Examine the word in meteorological, poetic, observational, or even religious sources.</p></li>
+  <li><p><i>Extract environmental logic.</i> Identify patterns in how it is used contextually, or etymology that may reveal embedded temporal or spatial meaning.</p></li>
+  <li><p><i>Place within environmental phenomena.</i> Place the word within seasonal cycles, celestial movement, agricultural schedules, atmospheric conditions, etc</p></li>
+  <li><p><i>Assign computational parameters.</i> Temporal marker, altitude and azimuth, intensity, spatial connotations.</p></li>
+  <li><p><i>Reparametrize for x, y, z, symbol, size.</i> Encode those values into the tags outlined in the parametric process which include x y z coordinates, a symbol id, and a size id.</p></li>
 </ol>
 
 <figure>
   <video src="media/data1.mp4" width="2766" height="1560" autoplay loop muted playsinline></video>
-  <figcaption class="center"><i>Research snippet</i></figcaption>
+  <figcaption class="center">Research snippet</figcaption>
 </figure>
 
-<h3>Parametric Process:</h3>
+<h3>Parametric Process</h3>
 
-<ol>
-  <li>Define primary environmental variables<br>
-    Map out:
+<ol class="numbered">
+  <li><p><i>Define primary environmental variables.</i> Map out:</p>
     <ul>
       <li>X (solar altitude)</li>
       <li>Y (solar azimuth)</li>
-      <li>Z (temporal-spatial weight)<br>Then also an index for size &amp; symbol.</li>
+      <li>Z (temporal-spatial weight)</li>
     </ul>
-  </li>
-  <li>Assign sun height (X) based on seasons:
+    <p>Then also an index for size &amp; symbol.</p></li>
+  <li><p><i>Assign sun height (X) based on seasons.</i></p>
     <ul>
       <li>X = 0 is maximum altitude at summer solstice</li>
       <li>X = 9 is minimum altitude at winter solstice</li>
-      <li>X = -9 to -18 solar depression angles (civil, nautical, astronomical twilight)</li>
-    </ul>
-  </li>
-  <li>Assign east-west (Y) based on diurnal arc:
+      <li>X = −9 to −18 solar depression angles (civil, nautical, astronomical twilight)</li>
+    </ul></li>
+  <li><p><i>Assign east-west (Y) based on diurnal arc.</i></p>
     <ul>
       <li>Y = 0 is sunrise (maximum east)</li>
       <li>Y = 20 is noon (midpoint)</li>
       <li>Y = 40 is sunset (maximum west)</li>
-    </ul>
-  </li>
-  <li>Assign temporal-spatial index:<br>
-    The Z-axis scale at 30 indicates a temporal concept (e.g., noon, dusk),<br>
-    and 0 indicates a spatial or navigational concept (e.g., position in relation to land or structures).</li>
-  <li>Assign symbol / size:<br>
-    The symbology is highlighted in the next pages, and the size (from 0 to 1) indicates intensity / seeming closeness to the sun.</li>
-  <li>Input into a parametric system:<br>
-    Using Grasshopper, the parameters are embedded into a dynamic system, which can result in a visualization of the sun’s names as a zone, arc, or duration on the map.</li>
+    </ul></li>
+  <li><p><i>Assign temporal-spatial index.</i> The Z-axis scale at 30 indicates a temporal concept (e.g., noon, dusk), and 0 indicates a spatial or navigational concept (e.g., position in relation to land or structures).</p></li>
+  <li><p><i>Assign symbol / size.</i> The symbology is highlighted in the next pages, and the size (from 0 to 1) indicates intensity / seeming closeness to the sun.</p></li>
+  <li><p><i>Input into a parametric system.</i> Using Grasshopper, the parameters are embedded into a dynamic system, which can result in a visualization of the sun’s names as a zone, arc, or duration on the map.</p></li>
 </ol>
 
 <figure class="center">
   <video src="media/2-parametric.mp4" width="768" height="432" autoplay loop muted playsinline></video>
-  <figcaption><i>Parametric design<br>
-Grasshopper and Rhino</i></figcaption>
+  <figcaption>Parametric design<br>
+Grasshopper and Rhino</figcaption>
 </figure>
 
-<h3>Visualization:</h3>
+<h3>Visualization</h3>
 
 <figure class="center">
   <video src="media/myclips3.mp4" width="1280" height="720" autoplay loop muted playsinline></video>
-  <figcaption><i>Figuring out the scale of the elements</i></figcaption>
+  <figcaption>Figuring out the scale of the elements</figcaption>
 </figure>
 
 <p><i>What if computation amplified rather than replaced knowledge? What if technology extended human experience rather than suffocated it?</i></p>

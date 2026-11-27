@@ -84,6 +84,7 @@ body::after  { bottom: 0; }
   margin: var(--frame) auto;
   padding: 0 var(--margin) calc(var(--line) * 5);   /* room at the end for the footer */
   background: var(--paper-texture);
+  position: relative;       /* the running head sits on the page's top line */
   overflow-x: clip;         /* nothing pokes out sideways, so a phone only scrolls up and down */
   display: flow-root;        /* the title's space stays inside the page instead of pushing it down */
 }
@@ -181,6 +182,7 @@ body::after  { bottom: 0; }
   width: 76.7%;              /* the size the drawing had on the old page 1 */
   height: auto;
   margin: 0 auto;
+  mix-blend-mode: multiply;  /* any white in a drawing takes on the paper */
 }
 .cover-next {
   margin: calc(var(--line) * 1.5) auto auto;   /* the same gap as under your name on the opening page */
@@ -244,6 +246,25 @@ body::after  { bottom: 0; }
   margin: 0;
   font: inherit;
 }
+/* the running head: the chapter, small, on the top line of the page, level with the menu */
+.title .running-head {
+  position: absolute;
+  top: var(--line);
+  left: var(--margin);
+  right: calc(var(--margin) + 3rem);
+  font-size: var(--small);
+  line-height: var(--line);
+  color: var(--soft);
+}
+.title .running-head::after { content: none; }
+
+/* A heading inside a page that starts a new part (e.g. Further reading): the size of a page title */
+h2 {
+  margin: calc(var(--line) * 3) 0 calc(var(--line) * 2);
+  font: inherit;
+  font-size: var(--title);
+  line-height: var(--line);
+}
 
 /* ---------- text ---------- */
 
@@ -280,7 +301,8 @@ main p a {
 }
 main p a:hover { text-decoration-color: currentColor; }
 
-/* Section headings inside a page: italic, a line of space above */
+/* Section headings inside a page: italic, two lines of space above (one after a thin line) */
+hr + h3 { margin-top: 0; }
 h3 {
   font: inherit;
   font-style: italic;
@@ -296,7 +318,7 @@ ol, ul {
   margin: var(--line) 0;
   padding-left: calc(var(--indent) * 1.5);
 }
-ol { list-style-type: decimal-leading-zero; }
+ol { list-style-type: decimal; }
 li ul { margin: 0; }
 li::marker { color: var(--soft); }
 
@@ -309,22 +331,30 @@ li::marker { color: var(--soft); }
   margin: calc(var(--line) * 2) 0;
   padding: 0;
 }
-.manifesto li,
-.numbered li {
+.manifesto > li,
+.numbered > li {
   counter-increment: point;
   display: grid;
   grid-template-columns: 2em 1fr;
   margin-bottom: 0;
 }
-.manifesto li::before,
-.numbered li::before {
+.manifesto > li::before,
+.numbered > li::before {
   content: counter(point);
   grid-row: 1 / span 9;
   color: var(--soft);
 }
-.manifesto li > *,
-.numbered li > * { grid-column: 2; }
-.numbered li > p { margin-bottom: calc(var(--line) * 0.5); }
+.manifesto > li > *,
+.numbered > li > * { grid-column: 2; }
+.numbered > li > p { margin-bottom: 0; }
+.numbered > li { margin-bottom: var(--line); }
+.numbered ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.numbered ul li { padding-left: 1.2em; text-indent: -1.2em; }
+.numbered ul li::before { content: "–\2002"; color: var(--soft); }
 .manifesto u {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -332,6 +362,11 @@ li::marker { color: var(--soft); }
 
 /* A work's label, like a museum's: title, materials, place, dates, one per line */
 .tombstone { text-indent: 0; }
+p.label {
+  margin: 0;
+  font-size: var(--small);
+  color: var(--soft);
+}
 
 /* A single line that opens a page, e.g. the Introduction */
 .epigraph { margin: 0 0 calc(var(--line) * 2); }
@@ -373,11 +408,10 @@ sub {
 /* Journal entries: "the night page". Each one sits on the blue paper of the menu,
    in cream, like a page written lying under the stars. */
 .journal {
-  margin: calc(var(--line) * 2) calc(var(--line) * -0.5);
-  padding: calc(var(--line) * 1.5) calc(var(--line) * 1.5) calc(var(--line) * 0.5);
+  margin: calc(var(--line) * 2) calc(var(--margin) * -1);
+  padding: calc(var(--line) * 1.5) var(--margin) calc(var(--line) * 0.5);
   background: var(--blue) url("media/paper-blue.jpg");
   color: var(--on-blue);
-  box-shadow: 0 0.5rem 1.2rem -0.5rem rgba(20, 20, 30, 0.35);
 }
 .journal a { color: inherit; }
 
@@ -424,7 +458,44 @@ figure video {
 figcaption { margin-top: calc(var(--line) * 0.5); }
 
 /* Drawings printed on white: the white takes on the page's own paper */
-figure.drawing img { mix-blend-mode: multiply; }
+figure.drawing img,
+figure.drawing video { mix-blend-mode: multiply; }
+
+/* One picture on a page may run edge to edge across the paper; its caption stays on the text column */
+figure.wide {
+  margin-left: calc(var(--margin) * -1);
+  margin-right: calc(var(--margin) * -1);
+}
+figure.wide figcaption { padding: 0 var(--margin); }
+
+/* Sources: book covers standing on one shelf, two to a row, all the same height */
+.shelf {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--line);
+  margin: calc(var(--line) * 2) 0;
+}
+.shelf a { display: block; }
+.shelf img {
+  display: block;
+  width: 100%;
+  height: calc(var(--line) * 10);
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* A contents list (the Essays page): soft number, then the title, like the menu */
+.contents {
+  list-style: none;
+  margin: calc(var(--line) * 2) 0;
+  padding: 0;
+}
+.contents a {
+  display: grid;
+  grid-template-columns: 2.5em 1fr;
+}
+.contents .n { color: var(--soft); }
+.contents a:hover i { color: var(--soft); }
 
 /* Two images side by side */
 .pair {
@@ -446,6 +517,7 @@ figure.drawing img { mix-blend-mode: multiply; }
 }
 .cols > * { flex: var(--span, 1) 1 0; min-width: 0; }
 .cols p + p { text-indent: 0; }
+.cols .label { font-size: var(--small); color: var(--soft); }
 
 /* Footnotes: in the right half of the page */
 .notes { margin: calc(var(--line) * 2) 0 0 50%; }
@@ -466,26 +538,13 @@ figure.drawing img { mix-blend-mode: multiply; }
   border-bottom: 1px solid var(--rule);
 }
 
-/* Folder mark after reading titles: <span class="folder"></span> */
-.folder {
-  display: inline-block;
-  width: 0.9em;
-  height: 0.72em;
-  margin-left: 0.2em;
-  vertical-align: -0.02em;
-  background: var(--soft);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M1.5 2.5h6l2 2h9v10h-17z' fill='none' stroke='black' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16'%3E%3Cpath d='M1.5 2.5h6l2 2h9v10h-17z' fill='none' stroke='black' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
 /* ---------- field notes: each entry is a night page you can open and close ---------- */
 
 .field-note {
-  margin: calc(var(--line) * 2) calc(var(--line) * -0.5);
-  padding: 0 calc(var(--line) * 1.5);
+  margin: calc(var(--line) * 2) calc(var(--margin) * -1);
+  padding: 0 var(--margin);
   background: var(--blue) url("media/paper-blue.jpg");
   color: var(--on-blue);
-  box-shadow: 0 0.5rem 1.2rem -0.5rem rgba(20, 20, 30, 0.35);
 }
 .field-note summary {
   cursor: pointer;
@@ -497,14 +556,12 @@ figure.drawing img { mix-blend-mode: multiply; }
   display: block;
   margin-bottom: var(--line);
   font-size: var(--small);
-  font-style: italic;
   color: rgba(243, 233, 216, 0.7);
 }
-.field-note .journal { margin: 0; padding: 0; background: none; color: inherit; box-shadow: none; }
+.field-note .journal { margin: 0; padding: 0; background: none; color: inherit; }
 .field-note a { color: inherit; }
 .field-note .more {
   display: block;
-  font-style: italic;
   font-size: var(--small);
   color: rgba(243, 233, 216, 0.7);
 }
@@ -514,7 +571,6 @@ figure.drawing img { mix-blend-mode: multiply; }
 .field-note .close {
   display: inline-block;
   margin-top: var(--line);
-  font-style: italic;
   font-size: var(--small);
   color: rgba(243, 233, 216, 0.7);
   cursor: pointer;

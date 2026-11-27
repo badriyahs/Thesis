@@ -154,7 +154,7 @@ const PAGES = [
     main.append(pager);
 
     // A chapter cover also has a small → right under its title, like the opening page
-    const title = main.querySelector(".cover-title");
+    const title = main.classList.contains("chapter-cover") && main.querySelector(".cover-title");
     if (title && next) {
       const arrow = document.createElement("a");
       arrow.className = "cover-next";
