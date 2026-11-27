@@ -24,15 +24,16 @@
   --on-blue: #f3e9d8;                  /* Rumma cream: text on the blue */
 
   /* type */
-  --text:  1.22rem;                    /* body text */
+  --text:  1.14rem;                    /* body text: about 60 letters a line, like a book */
   --line:  1.55rem;                    /* one line = the grid unit (close lines, like the old Cargo page) */
   --small: 0.96rem;                    /* captions, notes, menu */
   --title: 1.35rem;                    /* chapter titles: a touch bigger than the text, like Cargo */
 
   /* layout */
-  --column: 35%;                       /* page width on a computer (the old Cargo proportions) */
-  --frame:  2.4rem;                    /* dark space above and below the page */
-  --margin: calc(var(--line) * 1.5);   /* page margins, left and right */
+  --column: calc(var(--line) * 21);    /* page width on a computer: 17 lines of text + 2 each side,
+                                          so every screen gets the same page, larger or smaller */
+  --frame:  calc(var(--line) * 1.5);   /* dark space above and below the page */
+  --margin: calc(var(--line) * 2);     /* page margins, left and right */
   --indent: var(--line);               /* first-line indent */
   --gutter: var(--line);               /* space between columns */
 }
@@ -41,7 +42,7 @@
 
 /* Text size grows with the window, like it did on Cargo. */
 html {
-  font-size: max(13px, 1.12vw);   /* about 52 letters a line, like the old Cargo pages */
+  font-size: max(14px, 1.12vw);   /* everything grows with the window, like it did on Cargo */
   background: var(--night);
 }
 
@@ -159,6 +160,36 @@ body::after  { bottom: 0; }
 .cover .pager::before,
 .cover .pager > span:empty { display: none; }
 
+/* ---------- chapter covers (1, 2, 3): the chapter's title in the middle of the page,
+   a small → under it (made by site.js), and the usual ← number → at the foot ---------- */
+
+.chapter-cover {
+  display: flex;
+  flex-direction: column;
+}
+.cover-title {
+  width: 100%;
+  margin: auto 0 0;          /* the title and the → under it sit together in the middle */
+  font-size: var(--title);
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--line);
+  text-align: center;
+}
+.cover-title img {
+  display: block;
+  width: 76.7%;              /* the size the drawing had on the old page 1 */
+  height: auto;
+  margin: 0 auto;
+}
+.cover-next {
+  margin: calc(var(--line) * 1.5) auto auto;   /* the same gap as under your name on the opening page */
+  padding: 0 0.2em;
+  font-size: var(--text);
+  line-height: var(--line);
+}
+.cover-next:hover { color: var(--soft); }
+
 /* ---------- contact: a small card in the middle of the page ---------- */
 
 .contact {
@@ -226,7 +257,7 @@ main p { hanging-punctuation: first; text-wrap: pretty; }
    Not on phones: the column is too narrow, so justifying it opens
    holes between the words. */
 @media (min-width: 1000px) {
-  main.page > p:not(.center, .right),
+  main.page > p:not(.center, .right, .tombstone),
   .journal p,
   .manifesto p,
   .numbered p {
@@ -298,6 +329,9 @@ li::marker { color: var(--soft); }
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
+
+/* A work's label, like a museum's: title, materials, place, dates, one per line */
+.tombstone { text-indent: 0; }
 
 /* A single line that opens a page, e.g. the Introduction */
 .epigraph { margin: 0 0 calc(var(--line) * 2); }
@@ -388,6 +422,9 @@ figure video {
 }
 
 figcaption { margin-top: calc(var(--line) * 0.5); }
+
+/* Drawings printed on white: the white takes on the page's own paper */
+figure.drawing img { mix-blend-mode: multiply; }
 
 /* Two images side by side */
 .pair {
@@ -606,7 +643,7 @@ body.guides .pager { background: transparent; }
   :root {
     --column: 100%;
     --frame: 0px;
-    --line: 1.75rem;           /* the phone keeps its own, roomier lines */
+    --line: 1.65rem;           /* the phone keeps its own, roomier lines */
     --title: 1.55rem;
     --margin: var(--line);
   }
@@ -630,7 +667,8 @@ body.guides .pager { background: transparent; }
   .menu { right: 0; width: 86%; max-height: 100vh; max-height: 100dvh; }
   figure.half { width: 75%; }
   figure.small { width: 50%; }
-  figure[style*="width"] { width: auto !important; }   /* old Cargo widths only (not the spacing site.js adds) */
+  figure[style*="width"] { width: auto !important; }
+  .pair { flex-direction: column; }                     /* side-by-side pictures stack on a phone */   /* old Cargo widths only (not the spacing site.js adds) */
   .notes { margin-left: 0; }
   p.indent { text-indent: 2.5em; }
 }

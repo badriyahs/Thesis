@@ -53,7 +53,7 @@ Keep images around 1600 px wide; anything bigger only makes the page slow.
 
 ## Adding a page
 
-1. Duplicate a page (for example `3-clouds.html`) and rename it.
+1. Duplicate a page (for example `1c-prototypes.html`) and rename it.
 2. Change its `<title>`, the number and name in `<header class="title">`, and the text.
 3. Add one line for it in the list at the top of `site.js`.
 

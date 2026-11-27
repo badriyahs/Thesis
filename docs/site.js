@@ -5,7 +5,7 @@
    every page, so the order here is the reading order.
 
    To add a page:
-     1. Duplicate any page (e.g. 3-clouds.html) and rename it.
+     1. Duplicate any page (e.g. 1c-prototypes.html) and rename it.
      2. Add a line for it below, where it should sit.
    sub: true   → set in, in the menu
    cover: true → the opening page (not listed in the menu; your
@@ -24,12 +24,15 @@ const PAGES = [
   { file: "va-foucaults-blind-spot.html",   num: "vb",  title: "Foucault’s Blind Spot",     sub: true },
   "line",
   { file: "1-names-of-the-sun.html",          num: "1",  title: "Names of the Sun" },
-  { file: "1a-approach.html",                 num: "1a", title: "Approach",                 sub: true },
-  { file: "1b-prototypes.html",               num: "1b", title: "Prototypes",               sub: true },
-  { file: "1c-interactive-installation.html", num: "1c", title: "Interactive Installation", sub: true },
-  { file: "1d-triennial-activations.html",    num: "1d", title: "Triennial Activations",    sub: true },
+  { file: "1a-introduction.html",             num: "1a", title: "Introduction",             sub: true },
+  { file: "1b-approach.html",                 num: "1b", title: "Approach",                 sub: true },
+  { file: "1c-prototypes.html",               num: "1c", title: "Prototypes",               sub: true },
+  { file: "1d-interactive-installation.html", num: "1d", title: "Interactive Installation", sub: true },
+  { file: "1e-triennial-activations.html",    num: "1e", title: "Triennial Activations",    sub: true },
   { file: "2-houses-of-the-moon.html",        num: "2",  title: "Houses of the Moon" },
+  { file: "2a-introduction.html",             num: "2a", title: "Introduction",             sub: true },
   { file: "3-clouds.html",                    num: "3",  title: "Bodies of the Clouds" },
+  { file: "3a-introduction.html",             num: "3a", title: "Introduction",             sub: true },
   "line",
   // the back of the book: no numbers
   { file: "4-field-notes.html",       num: "", title: "Field Notes" },
@@ -149,5 +152,16 @@ const PAGES = [
       `<span>${pages[index].num}</span>` +
       `<span>${next ? `<a href="${next.file}" title="${next.title}">→</a>` : ""}</span>`;
     main.append(pager);
+
+    // A chapter cover also has a small → right under its title, like the opening page
+    const title = main.querySelector(".cover-title");
+    if (title && next) {
+      const arrow = document.createElement("a");
+      arrow.className = "cover-next";
+      arrow.href = next.file;
+      arrow.title = next.title;
+      arrow.textContent = "→";
+      title.after(arrow);
+    }
   }
 })();

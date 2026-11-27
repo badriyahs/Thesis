@@ -7,16 +7,21 @@
   <link rel="icon" href="/media/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap">
-  <link rel="stylesheet" href="/style.css?v=64">
+  <link rel="stylesheet" href="/style.css?v=68">
   <script>
     // Old Cargo addresses that changed. Anything listed here jumps to the new page.
     const OLD = {
       "menu": "/",
       "va-foucault's-blind-spot": "/va-foucaults-blind-spot.html",
       "vb-inaccurate-even-better-": "/vb-inaccurate-even-better.html",
-      "1b-prototypes-1": "/1b-prototypes.html",
+      "1b-prototypes-1": "/1c-prototypes.html",
+      // 27 Nov 2026: chapters got cover pages, so 1a–1d moved one letter on
+      "1a-approach": "/1b-approach.html",
+      "1b-prototypes": "/1c-prototypes.html",
+      "1c-interactive-installation": "/1d-interactive-installation.html",
+      "1d-triennial-activations": "/1e-triennial-activations.html",
     };
-    const slug = decodeURIComponent(location.pathname.replace(/^\/|\/$/g, ""));
+    const slug = decodeURIComponent(location.pathname.replace(/^\/|\/$/g, "")).replace(/\.html$/, "");
     if (OLD[slug]) location.replace(OLD[slug]);
   </script>
 </head>
