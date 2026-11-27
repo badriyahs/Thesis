@@ -461,6 +461,19 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
 figure.drawing img,
 figure.drawing video { mix-blend-mode: multiply; }
 
+/* A night band: videos shot on black sit on a sheet of the dark table across the paper.
+   "lighten" lets their black become the band, so the edges of the video disappear. */
+.night {
+  margin: calc(var(--line) * 2) calc(var(--margin) * -1);
+  padding: calc(var(--line) * 1.5) var(--margin);
+  background: var(--night);
+}
+.night figure { margin: 0; }
+.night figure + figure { margin-top: var(--line); }
+.night video,
+.night img { mix-blend-mode: lighten; }
+.night figcaption { color: rgba(243, 233, 216, 0.6); }
+
 /* One picture on a page may run edge to edge across the paper; its caption stays on the text column */
 figure.wide {
   margin-left: calc(var(--margin) * -1);
@@ -483,6 +496,83 @@ figure.wide figcaption { padding: 0 var(--margin); }
   object-fit: contain;
   object-position: center bottom;
 }
+
+/* The 28 lunar stations (2a): numbered names, each group bracketed to its sign */
+.mansions {
+  list-style: none;
+  counter-reset: station;
+  margin: calc(var(--line) * 2) 0;
+  padding: 0;
+}
+.mansions .group {
+  display: grid;
+  grid-template-columns: 13em 1fr max-content;   /* every bracket on one line */
+  align-items: center;
+}
+.mansions .names {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  margin: 0;
+  padding: 0 1.4em 0 0;
+  list-style: none;
+}
+.mansions .names li { counter-increment: station; font-style: italic; white-space: nowrap; }
+.mansions .names li::before {
+  content: counter(station);
+  display: inline-block;
+  width: 2em;
+  font-style: normal;
+  color: var(--soft);
+}
+/* the bracket: a thin ] on the right of each group, and a line out to its sign */
+.mansions .names::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--line) * 0.25);
+  bottom: calc(var(--line) * 0.25);
+  right: 0.5em;
+  width: 0.45em;
+  border: 1px solid var(--rule-bar);
+  border-left: 0;
+}
+.mansions .group::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  height: 1px;
+  margin-left: -0.5em;
+  background: var(--rule-bar);
+}
+.mansions .sign { grid-column: 3; grid-row: 1; padding-left: 0.6em; color: var(--soft); }
+.mansions .none .names::after,
+.mansions .none::before { display: none; }
+
+/* A small data table (1b): hairlines between rows, figures lined up */
+figure.table { overflow-x: auto; }
+.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--small);
+  line-height: var(--line);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.data th {
+  font-weight: normal;
+  text-align: left;
+  color: var(--soft);
+}
+.data th,
+.data td {
+  padding: 0 0.8em 0 0;
+  vertical-align: baseline;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.data td:nth-child(4) { white-space: normal; }
+.data .n { color: var(--soft); }
+.data .v { text-align: right; }
+.data [lang="ar"] { font-family: "Noto Naskh Arabic", serif; text-align: right; }
 
 /* A contents list (the Essays page): soft number, then the title, like the menu */
 .contents {
@@ -724,7 +814,8 @@ body.guides .pager { background: transparent; }
   figure.half { width: 75%; }
   figure.small { width: 50%; }
   figure[style*="width"] { width: auto !important; }
-  .pair { flex-direction: column; }                     /* side-by-side pictures stack on a phone */   /* old Cargo widths only (not the spacing site.js adds) */
+  .pair { flex-direction: column; }                     /* side-by-side pictures stack on a phone */
+  .data th, .data td { padding-right: 0.45em; }          /* the table fits a phone's width */   /* old Cargo widths only (not the spacing site.js adds) */
   .notes { margin-left: 0; }
   p.indent { text-indent: 2.5em; }
 }
