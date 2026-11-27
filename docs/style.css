@@ -222,6 +222,21 @@ p { margin: 0 0 var(--line); }
 p.indent { text-indent: 4.5em; }
 main p { hanging-punctuation: first; text-wrap: pretty; }
 
+/* On a computer, running text is justified, like a printed page.
+   Not on phones: the column is too narrow, so justifying it opens
+   holes between the words. */
+@media (min-width: 1000px) {
+  main.page > p:not(.center, .right),
+  .journal p,
+  .manifesto p,
+  .numbered p {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;   /* only split long words */
+  }
+}
+
 b, strong { font-weight: 600; }
 
 a { color: inherit; text-decoration: none; }
