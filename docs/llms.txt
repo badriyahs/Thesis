@@ -1,0 +1,32 @@
+# resistant atlas
+
+> Resistant Atlas is an ongoing research and design project by Badriyah Alsalem that studies how pre-modern Arab knowledge systems translated the environment into language, orientation, and time.
+
+## Pages
+
+- [resistant atlas](https://resistantatlas.com/): Resistant Atlas is an ongoing research and design project by Badriyah Alsalem that studies how pre-modern Arab knowledge systems translated the environment into language, orientation, and time.
+- [i. Introduction](https://resistantatlas.com/i-introduction.html): Resistant Atlas is an ongoing research and design project by Badriyah Alsalem that studies how pre-modern Arab knowledge systems translated the environment into language, orientation, and time.
+- [ii. The Beginning](https://resistantatlas.com/ii-the-beginning.html): The kickoff of the research was understanding that humans are really not that imaginative.
+- [iii. The Manifesto](https://resistantatlas.com/iii-the-manifesto.html): Prior to embarking on this project, I had a set of beliefs that I knew were the pillars of what I wanted to eventually undertake.
+- [iv. Method](https://resistantatlas.com/iv-method.html): To uncover lost temporal realities, spatial frameworks, and environmental logics, it would be counterintuitive to rely solely on the tools and lenses of the present day.
+- [v. Essays](https://resistantatlas.com/v-essays.html): The following chapters include essays that supplement and support the research of Resistant Atlas.
+- [va. Inaccurate? Even better.](https://resistantatlas.com/vb-inaccurate-even-better.html): In the diagrams for the Resistant Atlas: Names of the Sun, the tilt of the summer vs. winter axes is not accurate to how the sun actually “moves” astronomically.
+- [vb. Foucault’s Blind Spot](https://resistantatlas.com/va-foucaults-blind-spot.html): This raises the question: can Foucault’s model be applied to non-Western contexts?
+- [1. Names of the Sun](https://resistantatlas.com/1-names-of-the-sun.html): The sun has different names based on where it is in the sky, which season, what time of day, its angle, intensity, behavior, how it is perceived, whether a friend, or an enemy.
+- [Names of the Sun: Introduction](https://resistantatlas.com/1a-introduction.html): The sun has different names based on where it is in the sky, which season, what time of day, its angle, intensity, behavior, how it is perceived, whether a friend, or an enemy.
+- [Names of the Sun: Approach](https://resistantatlas.com/1b-approach.html): From the 42 words for the sun I found in Kitāb al-Anwāʾ, I conducted a process to make these words computationally legible, to lay the groundwork for future digital tools.
+- [Names of the Sun: Prototypes](https://resistantatlas.com/1c-prototypes.html): Names of the Sun manifested into different digital tools, a book, and physical artifacts.
+- [Names of the Sun: Interactive Installation](https://resistantatlas.com/1d-interactive-installation.html): Names of the Sun, 2026. Frosted acrylic, brushed stainless steel, projection, sound. Continuum, Diriyah Art Futures (DAF), Riyadh, September 4 – November 14, 2026.
+- [Names of the Sun: Triennial Activations](https://resistantatlas.com/1e-triennial-activations.html): Documentation of Resistant Atlas’s activations at the Sharjah Architecture Triennial 03 (2026–27).
+- [2. Houses of the Moon](https://resistantatlas.com/2-houses-of-the-moon.html): Houses of the Moon is a study of lunar stations, or where the moon seems to mark the night sky, and the intricate environmental logic they chart over time.
+- [Houses of the Moon: Introduction](https://resistantatlas.com/2a-introduction.html): Houses of the Moon is a study of lunar stations, or where the moon seems to mark the night sky, and the intricate environmental logic they chart over time.
+- [3. Bodies of the Clouds](https://resistantatlas.com/3-clouds.html): Bodies of the Clouds is a study of how the names of the clouds held meteorological significance, embedded within the beauty of their descriptions.
+- [Bodies of the Clouds: Introduction](https://resistantatlas.com/3a-introduction.html): Bodies of the Clouds is a study of how the names of the clouds held meteorological significance, embedded within the beauty of their descriptions.
+- [Field Notes](https://resistantatlas.com/4-field-notes.html): I’m in Al Gharameel desert. This spot, these stars, feel like home.
+- [Sources](https://resistantatlas.com/5-resources.html): Sources and further reading for Resistant Atlas.
+- [Acknowledgments](https://resistantatlas.com/7-acknowledgments.html): I have met extraordinary people who gave me more than I could ever return: guidance, criticism, belief, and patience.
+- [Contact](https://resistantatlas.com/8-contact.html): Contact Badriyah Alsalem: b@rummastudio.com, @awathe8 on Instagram, RUMMA Studio.
+
+## Author
+
+Badriyah Alsalem, architect and researcher, Kuwait. Practice: RUMMA Studio (https://rummastudio.com). Contact: b@rummastudio.com.

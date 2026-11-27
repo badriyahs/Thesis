@@ -58,9 +58,15 @@ const PAGES = [
   // Your name in English and Arabic, on one line (top of the menu)
   const MARK = '<span>resistant atlas</span><img src="media/name-ar.png" alt="أطلس مقاوم" lang="ar">';
 
-  // The menu button: three thin lines in the top right corner of the page, like the old Cargo one
-  const LINES = '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 2h28M1 11h28M1 20h28"/></svg>';
-  const CROSS = '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M6 1l18 20M24 1L6 21"/></svg>';
+  // Icons drawn from your lockup, all with the same thin line:
+  // the menu is two overlapping ellipses; close is two flattened ellipses crossing;
+  // the arrows are hairlines with an open head.
+  const LINES = '<svg viewBox="0 0 40 22" fill="none" stroke="currentColor" stroke-width="0.85" aria-hidden="true">' +
+    '<ellipse class="orbit-a" cx="20" cy="7.2" rx="18.5" ry="5.5"/><ellipse class="orbit-b" cx="20" cy="14.8" rx="18.5" ry="5.5"/></svg>';
+  const CROSS = '<svg viewBox="0 0 30 22" fill="none" stroke="currentColor" stroke-width="0.85" aria-hidden="true">' +
+    '<ellipse cx="15" cy="11" rx="13" ry="1.3" transform="rotate(36 15 11)"/><ellipse cx="15" cy="11" rx="13" ry="1.3" transform="rotate(-36 15 11)"/></svg>';
+  const ARROW = (dir) => `<svg class="arrow arrow-${dir}" viewBox="0 0 38 12" fill="none" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">` +
+    (dir === "next" ? '<path d="M1 6h35M30.5 1.2L36 6l-5.5 4.8"/>' : '<path d="M37 6H2M7.5 1.2L2 6l5.5 4.8"/>') + '</svg>';
   const button = document.createElement("button");
   button.type = "button";
   button.className = "menu-button";
@@ -130,6 +136,33 @@ const PAGES = [
   });
   snapToGrid();
 
+  // Pictures fade in when they arrive, instead of popping in
+  document.querySelectorAll("main img").forEach((img) => {
+    if (img.complete) return;
+    img.classList.add("arriving");
+    const done = () => img.classList.remove("arriving");
+    img.addEventListener("load", done, { once: true });
+    img.addEventListener("error", done, { once: true });
+  });
+
+  // Videos play only while they are on the screen (smoother, kinder to phone batteries).
+  const videos = document.querySelectorAll("main video");
+  videos.forEach((v) => {
+    if (v.readyState < 2) {
+      v.classList.add("arriving");
+      v.addEventListener("loadeddata", () => v.classList.remove("arriving"), { once: true });
+    }
+  });
+  if ("IntersectionObserver" in window) {
+    const watch = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { const p = en.target.play(); if (p) p.catch(() => {}); }
+        else en.target.pause();
+      });
+    }, { threshold: 0.1 });
+    videos.forEach((v) => watch.observe(v));
+  }
+
   // "Close" at the end of a field note closes it
   document.addEventListener("click", (e) => {
     const close = e.target.closest(".field-note .close");
@@ -148,10 +181,19 @@ const PAGES = [
     pager.className = "pager label";
     pager.setAttribute("aria-label", "Previous and next page");
     pager.innerHTML =
-      `<span>${prev ? `<a href="${prev.file}" title="${prev.title}">←</a>` : ""}</span>` +
+      `<span>${prev ? `<a href="${prev.file}" title="${prev.title}" aria-label="Previous: ${prev.title}">${ARROW("prev")}</a>` : ""}</span>` +
       `<span>${pages[index].num}</span>` +
-      `<span>${next ? `<a href="${next.file}" title="${next.title}">→</a>` : ""}</span>`;
+      `<span>${next ? `<a href="${next.file}" title="${next.title}" aria-label="Next: ${next.title}">${ARROW("next")}</a>` : ""}</span>`;
     main.append(pager);
+
+    // ← and → on the keyboard turn the page, like a book
+    document.addEventListener("keydown", (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+      if (/input|textarea|select/i.test(document.activeElement.tagName)) return;
+      if (document.body.classList.contains("menu-open")) return;
+      if (e.key === "ArrowRight" && next) location.href = next.file;
+      if (e.key === "ArrowLeft" && prev) location.href = prev.file;
+    });
 
     // A chapter cover also has a small → right under its title, like the opening page
     const title = main.classList.contains("chapter-cover") && main.querySelector(".cover-title");
@@ -160,7 +202,8 @@ const PAGES = [
       arrow.className = "cover-next";
       arrow.href = next.file;
       arrow.title = next.title;
-      arrow.textContent = "→";
+      arrow.setAttribute("aria-label", "Next: " + next.title);
+      arrow.innerHTML = ARROW("next");
       title.after(arrow);
     }
   }
