@@ -21,8 +21,8 @@
   <link rel="icon" href="media/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
   <link rel="preload" href="fonts/EBGaramond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=80">
-  <script src="site.js?v=45" defer></script>
+  <link rel="stylesheet" href="style.css?v=86">
+  <script src="site.js?v=49" defer></script>
 </head>
 <body>
 <main class="page">
@@ -36,7 +36,7 @@
 <p class="indent">Documentation of Resistant Atlas’s activations at the Sharjah Architecture Triennial 03 (2026–27).</p>
 
 <figure class="wide">
-  <video src="media/sat-timelapse-side.mp4" width="640" height="640" autoplay loop muted playsinline></video>
+  <video preload="none" data-src="media/sat-timelapse-side.mp4" width="640" height="640" autoplay loop muted playsinline></video>
 </figure>
 
 <!-- The label: project, installation, place, dates. One line each. -->
@@ -48,22 +48,22 @@ November 14, 2026 – April 14, 2027</p>
 <h3>look up.</h3>
 
 <figure class="drawing">
-  <img src="media/sat-circle-look-up.jpg" width="1600" height="1599" alt="Look up: the canopy drawn from below, with the 41 names of the sun and the three tracked suns, sharaq, ṣaqaʿa and gharaba" loading="lazy">
+  <img src="media/sat-circle-look-up.jpg" srcset="media/sat-circle-look-up-800.webp 800w, media/sat-circle-look-up.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1599" alt="Look up: the canopy drawn from below, with the 41 names of the sun and the three tracked suns, sharaq, ṣaqaʿa and gharaba" loading="lazy">
 </figure>
 
 <figure>
-  <video src="media/sat-timelapse-front.mp4" width="640" height="640" autoplay loop muted playsinline></video>
+  <video preload="none" data-src="media/sat-timelapse-front.mp4" width="640" height="640" autoplay loop muted playsinline></video>
 </figure>
 
 <h3>look down.</h3>
 
 <figure>
-  <video src="media/sat-sun-on-discs.mp4" width="640" height="640" autoplay loop muted playsinline></video>
+  <video preload="none" data-src="media/sat-sun-on-discs.mp4" width="640" height="640" autoplay loop muted playsinline></video>
 </figure>
 
 <div class="pair">
-  <figure class="drawing"><img src="media/sat-circle-noon-sun.jpg" width="1600" height="1600" alt="The noon sun through ṣaqaʿa: a section through the canopy, with the noon light falling on the sand from November to April" loading="lazy"></figure>
-  <figure class="drawing"><img src="media/sat-circle-discs.jpg" width="1600" height="1600" alt="The eighteen steel discs, from above" loading="lazy"></figure>
+  <figure class="drawing"><img src="media/sat-circle-noon-sun.jpg" srcset="media/sat-circle-noon-sun-800.webp 800w, media/sat-circle-noon-sun.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1600" alt="The noon sun through ṣaqaʿa: a section through the canopy, with the noon light falling on the sand from November to April" loading="lazy"></figure>
+  <figure class="drawing"><img src="media/sat-circle-discs.jpg" srcset="media/sat-circle-discs-800.webp 800w, media/sat-circle-discs.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1600" alt="The eighteen steel discs, from above" loading="lazy"></figure>
 </div>
 
 <hr>
@@ -72,6 +72,8 @@ November 14, 2026 – April 14, 2027</p>
 <p class="tombstone"><i>Names of the Sun</i><br>
 November 15, 2026<br>
 Al Qasimiyah School, Sharjah Architecture Triennial 03</p>
+
+<p class="credits">Time-lapses: Sahil</p>
 
 </main>
 </body>

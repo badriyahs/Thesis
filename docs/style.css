@@ -197,6 +197,8 @@ body::after  { bottom: 0; }
 }
 a:hover > .arrow-next { transform: translateX(0.25em); }
 a:hover > .arrow-prev { transform: translateX(-0.25em); }
+:focus-visible { outline: 1px solid var(--blue); outline-offset: 3px; }
+.menu :focus-visible, .journal :focus-visible, .field-note :focus-visible, .night :focus-visible { outline-color: var(--on-blue); }
 .menu-button:focus:not(:focus-visible),
 .menu-close:focus:not(:focus-visible) { outline: none; }
 
@@ -280,8 +282,22 @@ a:hover > .arrow-prev { transform: translateX(-0.25em); }
   text-indent: 0;
 }
 .cover-note .label { font-size: var(--small); color: var(--soft); margin-right: 0.3em; }
+.cover-note a i { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: var(--rule-bar); }
+/* "coming soon": clear, in the text's own ink and size */
+.cover-note.soon,
+p.soon { color: var(--ink); font-style: italic; text-indent: 0; }
+.chapter-cover .cover-note { margin-top: calc(var(--line) * 1.5); }
+p.soon { margin: calc(var(--line) * -1) 0 calc(var(--line) * 2); }
 
 /* ---------- contact: a small card in the middle of the page ---------- */
+
+/* credits at the end of a page (photographers, video): small and soft */
+.credits {
+  margin: calc(var(--line) * 2) 0 0;
+  font-size: var(--small);
+  color: var(--soft);
+  text-indent: 0;
+}
 
 /* the colophon at the foot of Contact: small and soft */
 .colophon {
@@ -370,13 +386,23 @@ h2 {
    and <p class="indent"> sets the first line deep in. */
 p { margin: 0 0 var(--line); }
 p.indent { text-indent: 4.5em; }
+header.title + p.indent, h2 + p.indent, h3 + p.indent, .epigraph + p.indent,
+hr + p.indent, figure + p.indent, .pair + p.indent, .night + p.indent, .soon + p.indent { text-indent: 0; }
+h1, h2, h3, .title h1, figcaption { text-wrap: balance; }
+
+/* short capitals (GSAPP, NYC, BBC) in small capitals, so they don't shout */
+abbr {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
 main p { hanging-punctuation: first; text-wrap: pretty; }
 
 /* On a computer, running text is justified, like a printed page.
    Not on phones: the column is too narrow, so justifying it opens
    holes between the words. */
 @media (min-width: 1000px) {
-  main.page > p:not(.center, .right, .tombstone, .colophon, .cover-note),
+  main.page > p:not(.center, .right, .tombstone, .colophon, .cover-note, .credits, .soon),
   .journal p,
   .manifesto p,
   .numbered p {
@@ -471,6 +497,8 @@ p.label {
 
 /* Arabic is never slanted, even inside italic headings */
 [lang="ar"] { font-style: normal; }
+[lang="ar"]:not(img) { font-size: 1.12em; line-height: 0; }
+div[lang="ar"], p[lang="ar"] { line-height: inherit; }   /* whole Arabic passages keep their own line spacing */
 
 /* A thin line between sections: one line of space above and below */
 hr {
@@ -559,14 +587,15 @@ figcaption { margin-top: calc(var(--line) * 0.5); }
 figure.drawing img,
 figure.drawing video { mix-blend-mode: multiply; }
 
-/* A night band: videos shot on black sit on a sheet of the dark table across the paper.
+/* A night band: videos shot on black sit on a dark plate on the page.
    "lighten" lets their black become the band, so the edges of the video disappear. */
 .night {
-  margin: calc(var(--line) * 2) calc(var(--margin) * -1);
-  padding: calc(var(--line) * 1.5) var(--margin);
+  margin: calc(var(--line) * 2) 0;        /* inside the paper's margins, so it reads as a plate on the page */
+  padding: var(--line);
   background: var(--night);
 }
 .night figure { margin: 0; }
+.night figure.half { margin: 0 auto; }
 .night figure + figure { margin-top: var(--line); }
 .night video,
 .night img { mix-blend-mode: lighten; }
@@ -864,7 +893,16 @@ body.menu-open .menu {
   height: 1px;
   background: var(--rule-bar);
 }
-.pager a { display: inline-block; font-size: var(--text); padding: 0.4em 0.2em; }
+.pager a { display: inline-flex; align-items: center; gap: 0.6em; font-size: var(--text); padding: 0.4em 0.2em; }
+.next-name {
+  max-width: 11em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--small);
+  color: var(--soft);
+}
+.cover .next-name { display: none; }
 
 
 /* ---------- smoothness ---------- */
@@ -932,6 +970,7 @@ body.guides .pager { background: transparent; }
   figure.small { width: 50%; }
   figure[style*="width"] { width: auto !important; }
   .pair { flex-direction: column; }                     /* side-by-side pictures stack on a phone */
+  .next-name { max-width: 6.5em; }                       /* the next page's name, shortened to fit */
   .data th, .data td { padding-right: 0.45em; }          /* the table fits a phone's width */   /* old Cargo widths only (not the spacing site.js adds) */
   .notes { margin-left: 0; }
   p.indent { text-indent: 2.5em; }
@@ -948,4 +987,16 @@ body.guides .pager { background: transparent; }
   /* "menu" and "close" keep their look but take a bigger touch */
   .menu-button::after,
   .menu-close::after { content: ""; position: absolute; inset: -0.7rem; }
+}
+
+/* ---------- printing: the essays and the manifesto print as plain pages ---------- */
+@media print {
+  html, body { background: #fff; font-size: 10.5pt; }
+  body::before, body::after, .menu, .menu-button, .pager, .cover-next, video, .night { display: none !important; }
+  .page { width: auto; min-height: 0; margin: 0; padding: 0; background: none; overflow: visible; }
+  .title .running-head { position: static; }
+  .journal, .field-note { background: none; color: inherit; margin: var(--line) 0; padding: 0 0 0 var(--line); border-left: 1px solid #999; }
+  figure, .pair, .journal { break-inside: avoid; }
+  main p a { text-decoration: none; }
+  figure img { mix-blend-mode: normal; }
 }

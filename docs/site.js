@@ -33,6 +33,7 @@ const PAGES = [
   { file: "2a-introduction.html",             num: "2a", title: "Introduction",             sub: true },
   { file: "3-clouds.html",                    num: "3",  title: "Bodies of the Clouds" },
   { file: "3a-introduction.html",             num: "3a", title: "Introduction",             sub: true },
+  { file: "4-paths-of-the-wind.html",         num: "4",  title: "Paths of the Wind" },
   "line",
   // the back of the book: no numbers
   { file: "4-field-notes.html",       num: "", title: "Field Notes" },
@@ -145,14 +146,23 @@ const PAGES = [
     img.addEventListener("error", done, { once: true });
   });
 
-  // Videos play only while they are on the screen (smoother, kinder to phone batteries).
+  // Videos start loading only as the reader comes near them, and play only while on the screen
+  // (faster pages, kinder to phone batteries).
   const videos = document.querySelectorAll("main video");
-  videos.forEach((v) => {
-    if (v.readyState < 2) {
+  const load = (v) => {
+    if (v.dataset.src && !v.getAttribute("src")) {
       v.classList.add("arriving");
       v.addEventListener("loadeddata", () => v.classList.remove("arriving"), { once: true });
+      v.src = v.dataset.src;
     }
-  });
+  };
+  if (!("IntersectionObserver" in window)) videos.forEach(load);
+  else {
+    const near = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { load(en.target); near.unobserve(en.target); } });
+    }, { rootMargin: "900px 0px" });
+    videos.forEach((v) => near.observe(v));
+  }
   if ("IntersectionObserver" in window) {
     const watch = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -181,10 +191,28 @@ const PAGES = [
     pager.className = "pager label";
     pager.setAttribute("aria-label", "Previous and next page");
     pager.innerHTML =
-      `<span>${prev ? `<a href="${prev.file}" title="${prev.title}" aria-label="Previous: ${prev.title}">${ARROW("prev")}</a>` : ""}</span>` +
+      `<span>${prev ? `<a href="${prev.file}" aria-label="Previous: ${prev.title}">${ARROW("prev")}</a>` : ""}</span>` +
       `<span>${pages[index].num}</span>` +
-      `<span>${next ? `<a href="${next.file}" title="${next.title}" aria-label="Next: ${next.title}">${ARROW("next")}</a>` : ""}</span>`;
+      `<span>${next ? `<a href="${next.file}" aria-label="Next: ${next.title}"><span class="next-name">${next.title}</span>${ARROW("next")}</a>` : ""}</span>`;
     main.append(pager);
+
+    // On a phone, a sideways swipe turns the page (not when the menu is open or inside something that scrolls sideways)
+    let touch = null;
+    document.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) { touch = null; return; }
+      const t = e.touches[0];
+      touch = { x: t.clientX, y: t.clientY, time: Date.now(), inside: !!e.target.closest(".table, .menu, video") };
+    }, { passive: true });
+    document.addEventListener("touchend", (e) => {
+      if (!touch || touch.inside || document.body.classList.contains("menu-open")) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - touch.x, dy = t.clientY - touch.y;
+      const quick = Date.now() - touch.time < 700;
+      touch = null;
+      if (!quick || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 2) return;
+      if (dx < 0 && next) location.href = next.file;
+      if (dx > 0 && prev) location.href = prev.file;
+    }, { passive: true });
 
     // ← and → on the keyboard turn the page, like a book
     document.addEventListener("keydown", (e) => {
@@ -204,7 +232,9 @@ const PAGES = [
       arrow.title = next.title;
       arrow.setAttribute("aria-label", "Next: " + next.title);
       arrow.innerHTML = ARROW("next");
-      title.after(arrow);
+      // under the title, or under its note ("coming soon") when there is one
+      const note = title.nextElementSibling && title.nextElementSibling.classList.contains("cover-note") ? title.nextElementSibling : title;
+      note.after(arrow);
     }
   }
 })();

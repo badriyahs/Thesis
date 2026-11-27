@@ -21,8 +21,8 @@
   <link rel="icon" href="media/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
   <link rel="preload" href="fonts/EBGaramond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=80">
-  <script src="site.js?v=45" defer></script>
+  <link rel="stylesheet" href="style.css?v=86">
+  <script src="site.js?v=49" defer></script>
 </head>
 <body>
 <main class="page">
@@ -34,40 +34,49 @@
 </header>
 
 <figure class="wide">
-  <img src="media/daf-front.jpg" width="1600" height="1117" alt="Names of the Sun: a half circle of frosted acrylic on a brushed steel stand, lit from behind">
+  <img src="media/daf-front.jpg" srcset="media/daf-front-800.webp 800w, media/daf-front.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1117" alt="Names of the Sun: a half circle of frosted acrylic on a brushed steel stand, lit from behind">
 </figure>
 
 <!-- The label: title, materials, exhibition, dates. One line each. -->
 <p class="tombstone"><i>Names of the Sun</i>, 2026<br>
 Frosted acrylic, brushed stainless steel, projection, sound<br>
-<i>Continuum</i>, Diriyah Art Futures (DAF), Riyadh<br>
+<i>Continuum</i>, Diriyah Art Futures (<abbr>DAF</abbr>), Riyadh<br>
 September 4 – November 14, 2026</p>
 
 <p><i>Projection.</i> Tracks the sun in real time, shifting continuously as it moves across the sky.</p>
 
 <p><i>Sound.</i> Ney and duduk: the ney carries the sun from sunrise to noon, the duduk from noon to sunset. After dark, the full cycle repeats on a loop.</p>
 
-<figure>
-  <img src="media/daf-gallery.jpg" width="1600" height="1067" alt="The installation in the gallery, with its reading table" loading="lazy">
+<div class="night">
+<figure class="half">
+  <video preload="none" data-src="media/daf-projection.mp4" width="540" height="960" autoplay loop muted playsinline></video>
+  <figcaption>Video: Aleen AlSuhaibani</figcaption>
 </figure>
-
-<div class="pair">
-  <figure><img src="media/daf-names.jpg" width="1600" height="1067" alt="Detail: the names of the sun in Arabic and English on the acrylic" loading="lazy"></figure>
-  <figure><img src="media/daf-sun.jpg" width="1600" height="1067" alt="Detail: the projected sun and its rays on the acrylic" loading="lazy"></figure>
 </div>
 
 <figure>
-  <img src="media/daf-rays.jpg" width="1600" height="1067" alt="Detail: rays of light across the acrylic" loading="lazy">
+  <img src="media/daf-gallery.jpg" srcset="media/daf-gallery-800.webp 800w, media/daf-gallery.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The installation in the gallery, with its reading table" loading="lazy">
 </figure>
 
 <div class="pair">
-  <figure><img src="media/daf-table.jpg" width="1600" height="1067" alt="The steel reading table with a small acrylic disc" loading="lazy"></figure>
-  <figure><img src="media/daf-books.jpg" width="1600" height="1066" alt="Books open on the reading table" loading="lazy"></figure>
+  <figure><img src="media/daf-names.jpg" srcset="media/daf-names-800.webp 800w, media/daf-names.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="Detail: the names of the sun in Arabic and English on the acrylic" loading="lazy"></figure>
+  <figure><img src="media/daf-sun.jpg" srcset="media/daf-sun-800.webp 800w, media/daf-sun.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="Detail: the projected sun and its rays on the acrylic" loading="lazy"></figure>
 </div>
 
 <figure>
-  <img src="media/daf-above.jpg" width="1600" height="1067" alt="The gallery from the stairs above" loading="lazy">
+  <img src="media/daf-rays.jpg" srcset="media/daf-rays-800.webp 800w, media/daf-rays.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="Detail: rays of light across the acrylic" loading="lazy">
 </figure>
+
+<div class="pair">
+  <figure><img src="media/daf-table.jpg" srcset="media/daf-table-800.webp 800w, media/daf-table.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The steel reading table with a small acrylic disc" loading="lazy"></figure>
+  <figure><img src="media/daf-books.jpg" srcset="media/daf-books-800.webp 800w, media/daf-books.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1066" alt="Books open on the reading table" loading="lazy"></figure>
+</div>
+
+<figure>
+  <img src="media/daf-above.jpg" srcset="media/daf-above-800.webp 800w, media/daf-above.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The gallery from the stairs above" loading="lazy">
+</figure>
+
+<p class="credits">Photographs: Diriyah Art Futures</p>
 
 </main>
 </body>
