@@ -310,28 +310,38 @@ a:hover > .arrow-prev { transform: translateX(-0.25em); }
 .showing-line a { color: var(--ink); }
 .logo-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: calc(var(--line) * 1.5);
-  margin: 0;
+  width: 92%;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
 }
-.logo-row img { display: block; width: auto; opacity: 0.75; mix-blend-mode: multiply; }
-.logo-gsapp { height: calc(var(--line) * 1.1); }
-.logo-daf   { height: calc(var(--line) * 1.2); }
-.logo-sat   { height: calc(var(--line) * 0.78); }
+/* the three marks share the width of the page in proportion to their shapes, so they are as large
+   as the page allows on any screen, in full ink so they read clearly */
+.logo-row li:nth-child(1) { width: 22%; }
+.logo-row li:nth-child(2) { width: 25%; }
+.logo-row li:nth-child(3) { width: 42%; }
+.logo-row img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 
-/* Sources: the verses, each set apart, in Amiri Quran, with its sura and verse under it */
+/* Sources: the verses. Each one sits in its own light card with a double hairline frame,
+   like a verse set apart on a page of the mushaf: the Arabic, its sura and verse, then the English. */
 .verses { margin: calc(var(--line) * 2) 0; text-align: center; }
-.verses h3 { margin: 0 0 calc(var(--line) * 1.5); font-family: "Amiri Quran", "Noto Naskh Arabic", serif; font-style: normal; font-size: 1.2em; }
+.verses h3 { margin: 0 0 calc(var(--line) * 0.5); line-height: calc(var(--line) * 1.5); font-family: "Amiri Quran", "Noto Naskh Arabic", serif; font-style: normal; font-size: 1.2em; }
 .verses ol { list-style: none; margin: 0; padding: 0; }
-.verses li { margin: 0 0 calc(var(--line) * 1.5); }
+.verses li {
+  margin: 0 0 var(--line);
+  padding: var(--line) calc(var(--line) * 1.25) calc(var(--line) * 0.75);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(46, 42, 38, 0.26);
+  outline: 1px solid rgba(46, 42, 38, 0.12);   /* the second, inner line of the frame */
+  outline-offset: -5px;
+}
 .verses .ayah {
   margin: 0;
   font-family: "Amiri Quran", "Noto Naskh Arabic", serif;
-  font-size: 1.3em;
-  line-height: calc(var(--line) * 1.6);
+  font-size: 1.1em;
+  line-height: calc(var(--line) * 1.5);
   text-align: center;
   text-indent: 0;
 }
@@ -339,9 +349,30 @@ a:hover > .arrow-prev { transform: translateX(-0.25em); }
   margin: calc(var(--line) * 0.25) 0 0;
   font-family: "Noto Naskh Arabic", serif;
   font-size: var(--small);
+  line-height: var(--line);
   color: var(--soft);
   text-indent: 0;
 }
+.verses .en {
+  margin: calc(var(--line) * 0.5) 0 0;
+  padding-top: calc(var(--line) * 0.5);
+  border-top: 1px solid var(--rule);
+  font-size: var(--small);
+  line-height: calc(var(--line) * 0.85);
+  text-align: center;
+  text-indent: 0;
+  hanging-punctuation: none;
+}
+.verses .vn {                                   /* verse numbers inside a longer passage */
+  margin: 0 0.3em 0 0.15em;
+  font-size: 0.72em;
+  vertical-align: 0.35em;
+  color: var(--soft);
+  font-variant-numeric: lining-nums;
+}
+.verses .vn:first-child { margin-left: 0; }
+.verses .ref-en { margin-left: 0.4em; color: var(--soft); font-variant-numeric: lining-nums; white-space: nowrap; }
+.verses .translation-note { margin: 0; font-size: var(--small); color: var(--soft); text-align: center; text-indent: 0; }
 
 /* Sources: further reading, one row per paper; the whole row opens it */
 .readings { list-style: none; margin: var(--line) 0 calc(var(--line) * 2); padding: 0; border-top: 1px solid var(--rule); }
@@ -349,18 +380,18 @@ a:hover > .arrow-prev { transform: translateX(-0.25em); }
 .readings a {
   position: relative;
   display: block;
-  padding: calc(var(--line) * 0.75) 3em calc(var(--line) * 0.75) 0;
+  padding: calc(var(--line) * 0.5) 3em calc(var(--line) * 0.5 - 1px) 0;   /* with the hairline under it, each row is whole lines */
   color: inherit;
   text-decoration: none;
 }
 .readings .r-author { color: var(--soft); }
-.readings .r-desc { display: block; margin-top: calc(var(--line) * 0.25); font-size: var(--small); line-height: calc(var(--line) * 0.85); color: var(--soft); }
+.readings .r-desc { display: block; font-size: var(--small); line-height: var(--line); color: var(--soft); }
 /* the drawn arrow at the end of each row; it leans in when you point at the row */
 .readings a::after {
   content: "";
   position: absolute;
   right: 0.2em;
-  top: calc(var(--line) * 0.75 + 0.45em);
+  top: calc(var(--line) * 0.5 + 0.45em);
   width: 2.1em;
   height: 0.7em;
   background: currentColor;
@@ -731,6 +762,10 @@ figure video {
 
 figcaption { margin-top: calc(var(--line) * 0.5); }
 
+/* A page from one of the books (1a): kept as its own white page, lifted a little off the paper */
+figure.book-page { width: 82%; margin-left: auto; margin-right: auto; }
+figure.book-page img { box-shadow: 0 1px 2px rgba(46, 42, 38, 0.10), 0 4px 18px rgba(46, 42, 38, 0.10); }
+
 /* Drawings printed on white: the white takes on the page's own paper */
 figure.drawing img,
 figure.drawing video { mix-blend-mode: multiply; }
@@ -905,37 +940,42 @@ figure.pair { flex-wrap: wrap; }
   border-bottom: 1px solid var(--rule);
 }
 
-/* ---------- field notes: each entry is a night page you can open and close ---------- */
+/* ---------- field notes: each entry is a card of the blue paper ----------
+   Closed, a card shows its photo, where and when, "read" on the right, and the first lines.
+   Open, the same card grows to hold the whole entry. Everything inside sits on whole lines. */
 
 .field-note {
-  margin: 0 calc(var(--margin) * -1);
-  padding: 0 var(--margin);
-  border-top: 1px solid var(--rule);
-  color: var(--ink);
-  transition: background-color var(--slow) var(--ease), color var(--slow) var(--ease);
-}
-.field-note:last-of-type { border-bottom: 1px solid var(--rule); }
-.field-note[open] {
+  margin: 0 0 var(--line);
   background: var(--blue) url("media/paper-blue.jpg");
   color: var(--on-blue);
-  border-color: transparent;
 }
-.field-note[open] + .field-note { border-top-color: transparent; }
 .field-note summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "photo photo" "when more" "text text";
+  column-gap: var(--line);
+  padding: var(--line);
   cursor: pointer;
   list-style: none;
-  padding: var(--line) 0;
 }
 .field-note summary::-webkit-details-marker { display: none; }
-.field-note .when {
+.field-note .note-photo {
+  grid-area: photo;
   display: block;
-  margin-bottom: calc(var(--line) * 0.5);
-  font-size: var(--small);
-  color: var(--soft);
+  width: calc(100% + var(--line) * 2);
+  height: calc(var(--line) * 9);
+  margin: calc(var(--line) * -1) calc(var(--line) * -1) var(--line);
+  object-fit: cover;
 }
-.field-note[open] .when { color: rgba(243, 233, 216, 0.7); }
-.field-note .journal { margin: 0; padding: 0; background: none; color: inherit; }
-/* closed, an entry shows only its first lines, like a line in a notebook's index */
+.field-note .when {
+  grid-area: when;
+  align-self: center;
+  font-size: var(--small);
+  line-height: var(--line);
+  color: rgba(243, 233, 216, 0.7);
+}
+.field-note .journal { grid-area: text; margin: 0; padding: 0; background: none; color: inherit; }
+/* closed, an entry shows only its first lines */
 .field-note:not([open]) summary .journal {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -945,21 +985,51 @@ figure.pair { flex-wrap: wrap; }
 .field-note:not([open]) summary .journal p { display: inline; margin: 0; }
 .field-note:not([open]) summary .journal p + p::before { content: " "; }
 .field-note a { color: inherit; }
+
+/* "read": a small cream pill on the right of the date; it empties to an outline when the card is pointed at */
 .field-note .more {
-  display: block;
-  margin-top: calc(var(--line) * 0.5);
+  grid-area: more;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  box-sizing: border-box;
+  height: var(--line);
+  padding: 0 0.9em 0 1em;
+  border: 1px solid var(--on-blue);
+  border-radius: 999px;
+  background: var(--on-blue);
   font-size: var(--small);
-  color: var(--soft);
+  line-height: 1;
+  color: var(--blue);
+  transition: background-color var(--quick) var(--ease), color var(--quick) var(--ease), border-color var(--quick) var(--ease);
 }
-.field-note[open] .more { color: rgba(243, 233, 216, 0.7); }
-.field-note .more::after { content: "read"; }
-.field-note[open] .more::after { content: "close"; }
-.field-note .body { padding: 0 0 var(--line); }
+.field-note .more::before { content: "read"; }
+.field-note[open] .more::before { content: "close"; }
+.field-note .more::after {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.2l4 4 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4.2l4 4 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform var(--quick) var(--ease);
+}
+.field-note[open] .more::after { transform: rotate(180deg); }
+.field-note summary:hover .more,
+.field-note summary:focus-visible .more,
+.field-note[open] .more { background: transparent; color: var(--on-blue); }
+
+/* open: the first lines run straight on into the rest of the entry */
+.field-note[open] summary { padding-bottom: 0; }
+.field-note .body { padding: 0 var(--line) var(--line); }
+.field-note .body .journal p:last-child { margin-bottom: 0; }
 
 .field-note .close {
   display: inline-block;
   margin-top: var(--line);
   font-size: var(--small);
+  line-height: var(--line);
   color: rgba(243, 233, 216, 0.7);
   cursor: pointer;
 }
@@ -1001,9 +1071,10 @@ body.menu-open .menu {
   height: calc(var(--line) * 3);
   margin-bottom: calc(var(--line) * 0.5);
 }
-.menu .mark { font-weight: 400; }
+.menu .mark { font-weight: 400; font-size: calc(var(--text) * 1.4); }   /* the name at the top of the menu, a size up from the list */
 .menu .mark img { filter: invert(1) sepia(0.15); opacity: 0.9; }   /* the calligraphy in cream */
 .menu-close {
+  flex: none;
   position: relative;
   width: 1.7rem;
   height: 1.25rem;
@@ -1132,18 +1203,21 @@ body.guides .pager { background: transparent; }
     overscroll-behavior: contain;
   }
   .title { margin: calc(var(--line) * 3) 0 calc(var(--line) * 2); }
-  figure.large { width: 100%; }
+  figure.large, figure.book-page { width: 100%; }
   .menu { right: 0; width: 86%; max-height: 100vh; max-height: 100dvh; }
+  .menu .mark { font-size: calc(var(--text) * 1.15); }
+  .field-note .note-photo { height: calc(var(--line) * 7); }   /* larger than the list, but leaves room for the close mark */
   figure.half { width: 75%; }
   figure.small { width: 50%; }
   figure[style*="width"] { width: auto !important; }
   .pair { flex-direction: column; }                     /* side-by-side pictures stack on a phone */
   .next-name { max-width: 6.5em; }                       /* the next page's name, shortened to fit */
-  .logo-row { gap: var(--line); }                         /* the logos fit inside the margins */
-  .made-by { flex-direction: column; align-items: flex-start; gap: calc(var(--line) * 0.6); }   /* the builder's mark above their line */
-  .logo-gsapp { height: calc(var(--line) * 0.85); }
-  .logo-daf   { height: calc(var(--line) * 0.95); }
-  .logo-sat   { height: calc(var(--line) * 0.58); }
+  /* on a phone: GSAPP and DAF side by side, SAT's long mark under them, wide enough to read */
+  .logo-row { flex-wrap: wrap; justify-content: center; gap: calc(var(--line) * 0.8) 10%; width: 100%; }
+  .logo-row li:nth-child(1) { width: 32%; }
+  .logo-row li:nth-child(2) { width: 36%; }
+  .logo-row li:nth-child(3) { width: 74%; }
+  .credits-block { margin-top: calc(var(--line) * 1.5); }   /* so the cover still fits a phone's screen */
   .data th, .data td { padding-right: 0.45em; }          /* the table fits a phone's width */   /* old Cargo widths only (not the spacing site.js adds) */
   .notes { margin-left: 0; }
   p.indent { text-indent: 2.5em; }

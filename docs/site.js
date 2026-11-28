@@ -54,6 +54,15 @@ const PAGES = [
   if (!pages.some((p) => p.file === here)) here = "index.html"; // e.g. the bare address of a preview link
   const index = pages.findIndex((p) => p.file === here);
 
+  // Addresses without ".html": resistantatlas.com/1a-introduction. The files keep their names;
+  // the host opens "1a-introduction" as "1a-introduction.html", and the opening page is "./".
+  const link = (p) => (p.file === "index.html" ? "./" : p.file.replace(/\.html$/, ""));
+
+  // Someone arriving at an old ".html" address sees the clean one in the address bar.
+  if (/resistantatlas\.com$/.test(location.hostname) && /\.html$/.test(location.pathname)) {
+    history.replaceState(null, "", location.pathname.replace(/(index)?\.html$/, "") + location.search + location.hash);
+  }
+
   const main = document.querySelector("main");
 
   // Your name in English and Arabic, on one line (top of the menu)
@@ -84,7 +93,7 @@ const PAGES = [
   });
   const lists = groups.map((g) => "<ul>" + g.map((p) => {
     const current = p.file === here ? ' aria-current="page"' : "";
-    return `<li${p.sub ? ' class="sub"' : ""}><a href="${p.file}"${current}>` +
+    return `<li${p.sub ? ' class="sub"' : ""}><a href="${link(p)}"${current}>` +
       `<span class="n">${p.num}</span><span class="t">${p.title}</span></a></li>`;
   }).join("") + "</ul>").join("");
 
@@ -92,7 +101,7 @@ const PAGES = [
   menu.className = "menu";
   menu.setAttribute("aria-label", "Contents");
   menu.innerHTML =
-    `<div class="menu-top"><a class="mark" href="index.html">${MARK}</a>` +
+    `<div class="menu-top"><a class="mark" href="./">${MARK}</a>` +
     `<button type="button" class="menu-close" aria-label="close">${CROSS}</button></div>` +
     `<div class="toc">${lists}</div>`;
 
@@ -117,19 +126,22 @@ const PAGES = [
     document.body.classList.toggle("guides");
   });
 
-  // Keep text on the grid below pictures: pad each picture up to a whole number of lines.
+  // Keep text on the grid below pictures (and the verse cards on Sources):
+  // pad each one at the bottom up to a whole number of lines.
   function snapToGrid() {
     const line = parseFloat(getComputedStyle(document.body).lineHeight);
     if (!line) return;
-    document.querySelectorAll("main figure, main .pair").forEach((el) => {
+    document.querySelectorAll("main figure, main .pair, main .verses li").forEach((el) => {
       if (el.parentElement.closest(".pair")) return;   // a picture inside a pair: the pair is padded as one
       el.style.paddingBottom = "";
+      const base = parseFloat(getComputedStyle(el).paddingBottom) || 0;
       const h = el.getBoundingClientRect().height;
       const extra = Math.ceil(h / line - 0.001) * line - h;
-      el.style.paddingBottom = extra > 0.5 ? extra + "px" : "";
+      el.style.paddingBottom = extra > 0.5 ? base + extra + "px" : "";
     });
   }
   window.addEventListener("load", snapToGrid);
+  if (document.fonts) document.fonts.ready.then(snapToGrid);
   window.addEventListener("resize", snapToGrid);
   document.querySelectorAll("main img, main video").forEach((m) => {
     m.addEventListener("load", snapToGrid);
@@ -214,9 +226,9 @@ const PAGES = [
     pager.className = "pager label";
     pager.setAttribute("aria-label", "Previous and next page");
     pager.innerHTML =
-      `<span>${prev ? `<a href="${prev.file}" aria-label="Previous: ${prev.title}">${ARROW("prev")}</a>` : ""}</span>` +
+      `<span>${prev ? `<a href="${link(prev)}" aria-label="Previous: ${prev.title}">${ARROW("prev")}</a>` : ""}</span>` +
       `<span>${pages[index].num}</span>` +
-      `<span>${next ? `<a href="${next.file}" aria-label="Next: ${next.title}"><span class="next-name">${next.title}</span>${ARROW("next")}</a>` : ""}</span>`;
+      `<span>${next ? `<a href="${link(next)}" aria-label="Next: ${next.title}"><span class="next-name">${next.title}</span>${ARROW("next")}</a>` : ""}</span>`;
     main.append(pager);
 
     // On a phone, a sideways swipe turns the page (not when the menu is open or inside something that scrolls sideways)
@@ -233,8 +245,8 @@ const PAGES = [
       const quick = Date.now() - touch.time < 700;
       touch = null;
       if (!quick || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 2) return;
-      if (dx < 0 && next) location.href = next.file;
-      if (dx > 0 && prev) location.href = prev.file;
+      if (dx < 0 && next) location.href = link(next);
+      if (dx > 0 && prev) location.href = link(prev);
     }, { passive: true });
 
     // ← and → on the keyboard turn the page, like a book
@@ -242,8 +254,8 @@ const PAGES = [
       if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
       if (/input|textarea|select/i.test(document.activeElement.tagName)) return;
       if (document.body.classList.contains("menu-open")) return;
-      if (e.key === "ArrowRight" && next) location.href = next.file;
-      if (e.key === "ArrowLeft" && prev) location.href = prev.file;
+      if (e.key === "ArrowRight" && next) location.href = link(next);
+      if (e.key === "ArrowLeft" && prev) location.href = link(prev);
     });
 
     // A chapter cover also has a small → right under its title, like the opening page
@@ -251,7 +263,7 @@ const PAGES = [
     if (title && next) {
       const arrow = document.createElement("a");
       arrow.className = "cover-next";
-      arrow.href = next.file;
+      arrow.href = link(next);
       arrow.title = next.title;
       arrow.setAttribute("aria-label", "Next: " + next.title);
       arrow.innerHTML = ARROW("next");
