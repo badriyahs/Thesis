@@ -992,6 +992,10 @@ body.guides .pager { background: transparent; }
      (iOS 26) misplaces anything pinned to the bottom while its address bar shrinks,
      and with this the bar stays put, so the footer stays at the bottom. */
   html, body { height: 100%; overflow: hidden; }
+  /* the paper colour behind everything, so Safari's top and bottom bars take the paper's colour
+     and the page reads edge to edge (the dark table is for computers only) */
+  html, body { background: var(--paper); }
+  .cover .cover-title img { width: 86%; }                /* the title a little larger on a phone */
   .page {
     margin: 0;
     height: 100vh;
