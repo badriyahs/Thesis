@@ -21,8 +21,8 @@
   <link rel="icon" href="media/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
   <link rel="preload" href="fonts/EBGaramond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=95">
-  <script src="site.js?v=51" defer></script>
+  <link rel="stylesheet" href="style.css?v=99">
+  <script src="site.js?v=53" defer></script>
 </head>
 <body>
 <main class="page">
@@ -35,6 +35,7 @@
 
 <figure class="wide">
   <img src="media/daf-front.jpg" srcset="media/daf-front-800.webp 800w, media/daf-front.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1117" alt="Names of the Sun: a half circle of frosted acrylic on a brushed steel stand, lit from behind">
+  <figcaption>Photographs: Diriyah Art Futures</figcaption>
 </figure>
 
 <!-- The label: title, materials, exhibition, dates. One line each. -->
@@ -45,7 +46,18 @@ September 4 – November 14, 2026</p>
 
 <p><i>Projection.</i> Tracks the sun in real time, shifting continuously as it moves across the sky.</p>
 
-<p><i>Sound.</i> Ney and duduk: the ney carries the sun from sunrise to noon, the duduk from noon to sunset. After dark, the full cycle repeats on a loop.</p>
+<!-- the sound: what it is, the sound itself to play here (site.js makes the button work), and who played the ney -->
+<section class="sound" aria-label="Sound">
+  <p><i>Sound.</i> Ney and duduk: the ney carries the sun from sunrise to noon, the duduk from noon to sunset. After dark, the full cycle repeats on a loop.</p>
+  <div class="listen">
+    <button type="button" class="listen-button" aria-label="Play the sound"></button>
+    <span class="listen-label">listen</span>
+    <span class="listen-track" aria-hidden="true"><span class="listen-fill"></span></span>
+    <span class="listen-time">4:36</span>
+    <audio src="media/daf-sound.mp3" preload="none"></audio>
+  </div>
+  <p class="credits">Ney: <a href="https://www.instagram.com/ney.q8/" target="_blank" rel="noopener">Bader AlKhuraif</a></p>
+</section>
 
 <div class="night">
 <figure class="half">
@@ -55,7 +67,8 @@ September 4 – November 14, 2026</p>
 </div>
 
 <figure>
-  <img src="media/daf-gallery.jpg" srcset="media/daf-gallery-800.webp 800w, media/daf-gallery.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The installation in the gallery, with its reading table" loading="lazy">
+  <img src="media/daf-gallery.jpg" srcset="media/daf-gallery-800.webp 800w, media/daf-gallery.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The installation in the gallery, with its research table" loading="lazy">
+  <figcaption>The installation and the research table</figcaption>
 </figure>
 
 <div class="pair">
@@ -67,16 +80,23 @@ September 4 – November 14, 2026</p>
   <img src="media/daf-rays.jpg" srcset="media/daf-rays-800.webp 800w, media/daf-rays.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="Detail: rays of light across the acrylic" loading="lazy">
 </figure>
 
-<div class="pair">
-  <figure><img src="media/daf-table.jpg" srcset="media/daf-table-800.webp 800w, media/daf-table.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The steel reading table with a small acrylic disc" loading="lazy"></figure>
-  <figure><img src="media/daf-books.jpg" srcset="media/daf-books-800.webp 800w, media/daf-books.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1066" alt="Books open on the reading table" loading="lazy"></figure>
-</div>
-
-<figure>
-  <img src="media/daf-above.jpg" srcset="media/daf-above-800.webp 800w, media/daf-above.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The gallery from the stairs above" loading="lazy">
+<figure class="pair">
+  <figure><img src="media/daf-table.jpg" srcset="media/daf-table-800.webp 800w, media/daf-table.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The steel research table with a small acrylic disc" loading="lazy"></figure>
+  <figure><img src="media/daf-books.jpg" srcset="media/daf-books-800.webp 800w, media/daf-books.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1066" alt="Books open on the research table" loading="lazy"></figure>
+  <figcaption>The research table</figcaption>
 </figure>
 
-<p class="credits">Photographs: Diriyah Art Futures</p>
+<figure>
+  <img src="media/daf-above.jpg" srcset="media/daf-above-800.webp 800w, media/daf-above.jpg 1600w" sizes="(max-width: 800px) 100vw, 37vw" width="1600" height="1067" alt="The venue from the stairs above" loading="lazy">
+  <figcaption>The venue, from the stairs</figcaption>
+</figure>
+
+<!-- who made it with you. Bunyah's mark sits only with Bunyah's line; the code has its own line under a hairline. -->
+<div class="made-by">
+  <a href="https://www.instagram.com/bunyah.official/" target="_blank" rel="noopener"><img src="media/logo-bunyah.png" width="600" height="253" alt="Bunyah" class="logo-bunyah"></a>
+  <p class="credits">The acrylic and the steel structure were made by Eng.&nbsp;Abdulaziz AlBaghli at <a href="https://www.instagram.com/bunyah.official/" target="_blank" rel="noopener">Bunyah</a>.</p>
+</div>
+<p class="credits made-by-next">Code: Hugues Kir and Mark Armstrong</p>
 
 </main>
 </body>

@@ -8,5 +8,9 @@ Noto Naskh Arabic
   Copyright 2022 The Noto Project Authors (https://github.com/notofonts/arabic)
   SIL Open Font License, Version 1.1 — https://openfontlicense.org
 
+Amiri Quran (the verses on Sources)
+  Copyright 2010–2022 The Amiri Project Authors (https://github.com/aliftype/amiri)
+  SIL Open Font License, Version 1.1 — https://openfontlicense.org
+
 Files: the latin and latin-extended subsets of EB Garamond (roman and italic, weights 400–800)
 and the arabic subset of Noto Naskh Arabic (weights 400–700), as served by Google Fonts.

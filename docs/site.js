@@ -122,7 +122,7 @@ const PAGES = [
     const line = parseFloat(getComputedStyle(document.body).lineHeight);
     if (!line) return;
     document.querySelectorAll("main figure, main .pair").forEach((el) => {
-      if (el.closest(".pair") && el.tagName === "FIGURE") return;
+      if (el.parentElement.closest(".pair")) return;   // a picture inside a pair: the pair is padded as one
       el.style.paddingBottom = "";
       const h = el.getBoundingClientRect().height;
       const extra = Math.ceil(h / line - 0.001) * line - h;
@@ -172,6 +172,29 @@ const PAGES = [
     }, { threshold: 0.1 });
     videos.forEach((v) => watch.observe(v));
   }
+
+  // A sound to listen to (1d): a drawn play / pause button, a hairline that fills as it plays, the time left
+  const PLAY = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="0.85" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5l10 6.5-10 6.5z"/></svg>';
+  const PAUSE = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="0.85" stroke-linecap="round" aria-hidden="true"><path d="M7 4v12M13 4v12"/></svg>';
+  document.querySelectorAll(".listen").forEach((box) => {
+    const audio = box.querySelector("audio"), btn = box.querySelector(".listen-button");
+    const fill = box.querySelector(".listen-fill"), time = box.querySelector(".listen-time"), track = box.querySelector(".listen-track");
+    const fmt = (s) => Math.floor(s / 60) + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+    btn.innerHTML = PLAY;
+    btn.addEventListener("click", () => { if (audio.paused) audio.play(); else audio.pause(); });
+    audio.addEventListener("play", () => { btn.innerHTML = PAUSE; btn.setAttribute("aria-label", "Pause the sound"); box.classList.add("playing"); });
+    audio.addEventListener("pause", () => { btn.innerHTML = PLAY; btn.setAttribute("aria-label", "Play the sound"); box.classList.remove("playing"); });
+    audio.addEventListener("timeupdate", () => {
+      if (!audio.duration) return;
+      fill.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+      time.textContent = fmt(audio.duration - audio.currentTime);
+    });
+    track.addEventListener("click", (e) => {
+      const r = track.getBoundingClientRect();
+      const go = () => { audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration; };
+      if (audio.duration) go(); else { audio.addEventListener("loadedmetadata", go, { once: true }); audio.play(); }
+    });
+  });
 
   // "Close" at the end of a field note closes it
   document.addEventListener("click", (e) => {
